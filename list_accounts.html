@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Tài Khoản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Danh Sách Tài Khoản</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tên Đăng Nhập</th>
+                <th>Mật Khẩu</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody id="accountList"></tbody>
+    </table>
+
+    <script>
+        // Lấy danh sách tài khoản từ localStorage và hiển thị
+        document.addEventListener('DOMContentLoaded', function () {
+            var accountList = document.getElementById('accountList');
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+
+            users.forEach(function (user) {
+                var row = document.createElement('tr');
+                row.innerHTML = `<td>${user.username}</td><td>${user.password}</td><td><button class="delete-btn" onclick="deleteAccount('${user.username}')">Xoá</button></td>`;
+                accountList.appendChild(row);
+            });
+        });
+
+        // Hàm xoá tài khoản
+        function deleteAccount(username) {
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var filteredUsers = users.filter(function (user) {
+                return user.username !== username;
+            });
+
+            localStorage.setItem('users', JSON.stringify(filteredUsers));
+            location.reload(); // Tải lại trang để cập nhật danh sách
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,801 @@
+<!-- 
+ *  KARATE SCORE BOARD
+ * Authors:
+ * Nguyen Viet Hau  - Ben Tre
+ * Version: 3.0
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KARATE SCORE BOARD:TEAM KUMITE</title>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: #000
+        }
+
+        .table {
+            background: #000;
+            width: 100%;
+            height: 130px
+        }
+
+        .kyu2 {
+            height: 300px;
+            width: 150px;
+            color: #fff;
+            font-size: 300px
+        }
+
+        .custom-cell1 {
+            text-align: center;
+            width: 50%;
+            height: 320px;
+            font-size: 315px;
+            color: red
+        }
+
+        .custom-cell2 {
+            text-align: center;
+            width: 50%;
+            height: 320px;
+            font-size: 315px;
+            color: blue
+        }
+
+        .custom-button {
+            border-radius: 50px;
+            background-color: #000;
+            width:250px;
+            height: 150px;
+            font-size: 100px;
+            color: #fff
+        }
+
+        .custom-buttonT {
+            border-radius: 50px;
+            cursor: pointer;
+            width: 200px;
+            height: 80px;
+            font-size: 30px;
+        }
+
+        .winner1 {
+            font-weight: 700;
+            border-radius: 50px;
+            background-color: #fff;
+            width: 150px;
+            height: 80px;
+            font-size: 70px;
+            color: red
+        }
+
+        .winner2 {
+            font-weight: 700;
+            border-radius: 50px;
+            background-color: #fff;
+            width: 150px;
+            height: 80px;
+            font-size: 70px;
+            color: #00f
+        }
+
+        .custom-button2 {
+            border-radius: 50px;
+            background-color: red;
+            width: 150px;
+            height: 80px;
+            font-size: 70px;
+            color: #fff
+        }
+
+        .custom-button3 {
+            border-radius: 50px;
+            background-color: #00f;
+            width: 150px;
+            height: 80px;
+            font-size: 70px;
+            color: #fff
+        }
+
+        .custom-buttonS {
+            top: 50%;
+            right: 50%;
+            border-color: #fff;
+            border-radius: 60px;
+            width: 120px;
+            height: 120px;
+            font-size: 100px;
+            color: #000;
+            background-color: #000
+        }
+
+        .table-score {
+            background-color: #000;
+            justify-content: left;
+            width: 100%;
+            padding: 0
+        }
+
+        .clicked1 {
+            background-color: red;
+            border-color: #000;
+            border: 10px
+        }
+
+        .clicked2 {
+            background-color: #00f;
+            border-color: #000;
+            border: 10px
+        }
+
+        .time {
+            height: 360px;
+            font-size: 320px;
+            color: #fff
+        }
+
+        #winner-message1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: red;
+            color: #fff;
+            height: 1000px;
+            width: 100%px;
+            font-size: 600px;
+            padding: 20px;
+            border-radius: 10px
+        }
+
+        #winner-message2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #00f;
+            color: #fff;
+            height: 1000px;
+            width: 100%px;
+            font-size: 600px;
+            padding: 20px;
+            border-radius: 10px
+        }
+
+        #restart-button {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 80px;
+            width: 150px
+        }
+
+        #HT {
+            border-color: #fff;
+            color: #fff;
+            background-color: #000;
+            height: 50px;
+            width: 500px;
+            font-size: 45px
+        }
+
+        #Hantei {
+            text-align: center;
+            align-items: center;
+            background-color: #fff;
+            height: 300px;
+            width: 1900px;
+            font-size: 200px
+        }
+
+        #hantei {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 100px;
+            width: 330px;
+            font-size: 50px
+        }
+
+        #draw1 {
+            background-color: #000;
+            color: red;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 80px;
+            width: 150px;
+            font-size: 60px
+        }
+
+        #draw2 {
+            background-color: #000;
+            color: #00f;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 80px;
+            width: 150px;
+            font-size: 60px
+        }
+
+        #winner-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            height: 1000px;
+            width: 100%px;
+            font-size: 600px;
+            padding: 20px;
+            border-radius: 10px
+        }
+
+        #ND {
+            text-align: center;
+            background-color: #fff;
+            color: #000;
+            height: 100px;
+            width: 100%;
+            font-size: 95px
+        }
+
+        .click1 {
+            text-align: center;
+            border-radius: 50px;
+            background-color: red;
+            width: 150px;
+            height: 60px;
+            font-size: 50px;
+            color: #fff
+        }
+
+        .click2 {
+            text-align: center;
+            border-radius: 50px;
+            background-color: #00f;
+            width: 150px;
+            height: 60px;
+            font-size: 50px;
+            color: #fff
+        }
+
+        .TSaoD {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            border: 20px;
+            border-color: #fff;
+            width: 70px;
+            height: 60px;
+            font-size: 60px;
+            background-color: #fff;
+            color: #00f
+        }
+
+        .TSakaD {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            border: 20px;
+            border-color: #fff;
+            width: 70px;
+            height: 60px;
+            font-size: 60px;
+            background-color: #fff;
+            color: red
+        }
+
+        #win1 {
+            text-align: center;
+            border-radius: 50px;
+            background-color: red;
+            width: 155px;
+            height: 85px;
+            font-size: 70px;
+            color: #fff
+        }
+
+        #win2 {
+            text-align: center;
+            border-radius: 50px;
+            background-color: #00f;
+            width: 155px;
+            height: 85px;
+            font-size: 70px;
+            color: #fff
+        }
+
+        .input-container {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: space-between
+        }
+
+        input {
+            font-size: 145px;
+            width: 43%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table><label for="inputField"></label><input type="text" id="ND" name="inputField" autocomplete="off">
+        <table class="table">
+            <tr>
+                <div class="input-container"><input type="text" placeholder="AO"> <input type="text" placeholder="AKA">
+                </div>
+            </tr>
+            <tr>
+                <td>
+                    <th></th>
+                    <th><button class="custom-buttonS" onclick="changeColor2(this)">S</button></th>
+                    <th id="score2" class="custom-cell2">0</th>
+                </td>
+                <td colspan="3"></td>
+                <td>
+                    <th><button class="custom-buttonS" onclick="changeColor1(this)">S</button></th>
+                    <th id="score1" class="custom-cell1">0</th>
+                    <th></th>
+                </td>
+            </tr>
+            <tr>
+                <th><button class="custom-button" onclick="changeColor2(this)">C1</button></th>
+                <th><button class="custom-button" onclick="changeColor2(this)">C2</button></th>
+                <th><button class="custom-button" onclick="changeColor2(this)">C3</button></th>
+                <th><button class="custom-button" onclick="changeColor2(this)">HC</button></th>
+                <th><button class="custom-button" onclick="changeColor2(this)">H</button></th>
+                <th colspan="2" class="kyu2">VS</th>
+                <th><button class="custom-button" onclick="changeColor1(this)">C1</button></th>
+                <th><button class="custom-button" onclick="changeColor1(this)">C2</button></th>
+                <th><button class="custom-button" onclick="changeColor1(this)">C3</button></th>
+                <th><button class="custom-button" onclick="changeColor1(this)">HC</button></th>
+                <th><button class="custom-button" onclick="changeColor1(this)">H</button></th>
+            </tr>
+            <tr>
+                <th id="win2">0 :AO</th>
+                <th colspan="2" class="click2" id="clickCount2_2">0 : WAZA</th>
+                <th colspan="2" class="click2" id="clickCount2_3">0 : IPPON</th>
+                <th colspan="2"></th>
+                <th id="win1">0 :AKA</th>
+                <th colspan="2" class="click1" id="clickCount1_2">0 : WAZA</th>
+                <th colspan="2" class="click1" id="clickCount1_3">0 : IPPON</th>
+            </tr>
+        </table>
+        <table class="table-score">
+            <tr>
+                <th colspan="12" class="time" id="countdown">01:30<span id="tenths">.0</span></th>
+            </tr>
+            <tr>
+                <td><button class="custom-button3" onclick="addScore(2,1,0)">+1</button></td>
+                <td><button class="custom-button3" onclick="addScore(2,2,1)">+2</button></td>
+                <td><button class="custom-button3" onclick="addScore(2,3,1)">+3</button></td>
+                <td><button class="custom-buttonT" onclick="startCountdown()">Start (F1)</button></td>
+                <td><button class="custom-buttonT" onclick="stopCountdown()">Pause (F2)</button></td>
+                <td><button class="custom-buttonT" onclick="Hantei()">HANTEI</button></td>
+                <td><button class="winner2" onclick="win(2)">AO</button></td>
+                <td><button class="custom-button2" onclick="addScore(1,1,0)">+1</button></td>
+                <td><button class="custom-button2" onclick="addScore(1,2,1)">+2</button></td>
+                <td><button class="custom-button2" onclick="addScore(1,3,1)">+3</button></td>
+            </tr>
+            <tr>
+                <td><button class="custom-button3" onclick="subtractScore(2,1,0)">-1</button></td>
+                <td><button class="custom-button3" onclick="subtractScore(2,2,1)">-2</button></td>
+                <td><button class="custom-button3" onclick="subtractScore(2,3,1)">-3</button></td>
+                <td><button class="custom-buttonT" onclick="resetCountdown()">ResetTime (r)</button></td>
+                <td><button class="custom-buttonT" onclick="reloadPage()">Reset All (=)</button></td>
+                <td><button class="custom-buttonT" onclick="updateSeconds()">SET TIME</button></td>
+                <td><button class="winner1" onclick="win(1)">AKA</button></td>
+                <td><button class="custom-button2" onclick="subtractScore(1,1,0)">-1</button></td>
+                <td><button class="custom-button2" onclick="subtractScore(1,2,1)">-2</button></td>
+                <td><button class="custom-button2" onclick="subtractScore(1,3,1)">-3</button></td>
+            </tr>
+            <tr>
+                <th class="TSaoD" id="TSaoD_1">0</th>
+                <th class="TSakaD" id="TSakaD_1">0</th>
+                <th class="TSaoD" id="TSaoD_2">0</th>
+                <th class="TSakaD" id="TSakaD_2">0</th>
+                <th class="TSaoD" id="TSaoD_3">0</th>
+                <th class="TSakaD" id="TSakaD_3">0</th>
+                <th class="TSaoD" id="TSaoD_4">0</th>
+                <th class="TSakaD" id="TSakaD_4">0</th>
+                <th class="TSaoD" id="TSaoD_5">0</th>
+                <th class="TSakaD" id="TSakaD_5">0</th>
+            </tr>
+        </table>
+    </table>
+    <script>        
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'F12') {
+            e.preventDefault();  // Ngăn chặn mở Developer Tools
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'F1') {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'F2') {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();  // Ngăn chặn menu chuột phải
+    });
+
+    document.addEventListener('keydown', function (event) {
+        switch (event.key) {
+            case 'F1':
+                startCountdown();
+                break;
+            case 'F2':
+                stopCountdown();
+                break;
+            case 'r':
+                resetCountdown();
+                break;
+            case '=':
+                reloadPage();
+                break;
+            case '`':
+                kumite();
+                break;
+
+        }
+    });
+
+        var TSaka_1 = 0;
+        var TSaka_2 = 0;
+        var TSaka_3 = 0;
+        var TSaka_4 = 0;
+        var TSaka_5 = 0;
+        var TSao_1 = 0;
+        var TSao_2 = 0;
+        var TSao_3 = 0;
+        var TSao_4 = 0;
+        var TSao_5 = 0;
+
+        function win(player) {
+            var winId = "win" + player;
+            var matchwin1;
+            var matchwin2;
+            var scoreId = "score" + player;
+            resetCountdown();
+            document.getElementById('clickCount1_2').innerText = '0 : WAZA';
+            document.getElementById('clickCount1_3').innerText = '0 : IPPON';
+            document.getElementById('clickCount2_2').innerText = '0 : WAZA';
+            document.getElementById('clickCount2_3').innerText = '0 : IPPON';
+            if (player === 1) {
+                matchwin1 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin1 + 1) + ": AKA";
+            }
+            else if (player === 2) {
+                matchwin2 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin2 + 1) + ": AO";
+            }
+            
+            player = 1;
+            scoreId = "score" + player;
+            TSaka = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById('score1').innerText = '0';
+            player = 2;
+            scoreId = "score" + player;
+            TSao = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById('score2').innerText = '0';
+
+            TSaka_5 = TSaka_4;
+            TSao_5 = TSao_4;
+            TSaka_4 = TSaka_3;
+            TSao_4 = TSao_3;
+            TSaka_3 = TSaka_2;
+            TSao_3 = TSao_2;
+            TSaka_2 = TSaka_1;
+            TSao_2 = TSao_1;
+            TSaka_1 = TSaka;
+            TSao_1 = TSao;
+
+
+            document.getElementById("TSakaD_1").innerText = TSaka;
+            document.getElementById("TSaoD_1").innerText = TSao;
+            document.getElementById("TSakaD_2").innerText = TSaka_2;
+            document.getElementById("TSaoD_2").innerText = TSao_2;
+            document.getElementById("TSakaD_3").innerText = TSaka_3;
+            document.getElementById("TSaoD_3").innerText = TSao_3;
+            document.getElementById("TSakaD_4").innerText = TSaka_4;
+            document.getElementById("TSaoD_4").innerText = TSao_4;
+            document.getElementById("TSakaD_5").innerText = TSaka_5;
+            document.getElementById("TSaoD_5").innerText = TSao_5;
+
+
+
+            var buttons = document.querySelectorAll('.custom-button');
+            buttons.forEach(function (button) {
+                button.classList.remove('clicked1', 'clicked2');
+            });
+            var buttonsS = document.querySelectorAll('.custom-buttonS');
+            buttonsS.forEach(function (button) {
+                button.classList.remove('clicked1', 'clicked2');
+            })
+
+            // Đặt lại trạng thái clicked
+            isClicked = false;
+        }
+
+        function changeColor(color) {
+            document.getElementById('countdown').style.color = color;
+        }
+
+        function addScore(player, points, Count) {
+            var clickCountId_2 = "clickCount" + player + "_2";
+            var clickCountId_3 = "clickCount" + player + "_3";
+            var scoreId = "score" + player;
+            var currentScore = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById(scoreId).innerText = currentScore + points;
+            var currentcount2;
+            var currentcount3;
+            if (points === 2) {
+                currentcount2 = parseInt(document.getElementById(clickCountId_2).innerText);
+                document.getElementById(clickCountId_2).innerText = (currentcount2 + Count) + ": WAZA";
+            }
+            else if (points === 3) {
+                currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
+                document.getElementById(clickCountId_3).innerText = (currentcount3 + Count) + ": IPPON";
+            }
+        }
+
+        function subtractScore(player, points, Count) {
+            var clickCountId_2 = "clickCount" + player + "_2";
+            var clickCountId_3 = "clickCount" + player + "_3";
+            var scoreId = "score" + player;
+            var currentScore = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById(scoreId).innerText = currentScore - points;
+            var currentcount2;
+            var currentcount3;
+            if (points === 2) {
+                currentcount2 = parseInt(document.getElementById(clickCountId_2).innerText);
+                document.getElementById(clickCountId_2).innerText = (currentcount2 - Count) + ": WAZA";
+            }
+            else if (points === 3) {
+                currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
+                document.getElementById(clickCountId_3).innerText = (currentcount3 - Count) + ": IPPON";
+            }
+        }
+
+        let countdownTimer;
+        let isRunning = false;
+        let tenths = 90 * 10; // 90 seconds * 10 tenths per second
+        let initialSetTime = 90;
+
+        function startCountdown() {
+            if (!isRunning && tenths > 0) {
+                countdownTimer = setInterval(updateTime, 100);
+                isRunning = true;
+            }
+            if (countdownValue === 0) {
+                clearInterval(countdownInterval);
+            }
+        }
+
+        function stopCountdown() {
+            changeColor('white');
+            clearInterval(countdownTimer);
+            isRunning = false;
+        }
+        function updateTime() {
+            if (tenths > 0) {
+                tenths -= 1;
+                updateCountdown();
+
+                if (tenths / 10 < 15) {
+                    changeColor('red');
+                } else if (tenths / 10 >= (initialSetTime - 15)) {
+                    changeColor('white');
+                } else {
+                    changeColor('yellow');
+                }
+            } else {
+                clearInterval(countdownTimer);
+                isRunning = false;
+                changeColor('white');
+            }
+        }
+
+        function updateCountdown() {
+            const minutes = Math.floor((tenths / 10) / 60);
+            const seconds = Math.floor((tenths / 10) % 60);
+
+            const formattedTime = `${formatTime(minutes)}:${formatTime(seconds)}.${tenths % 10}`;
+            document.getElementById('countdown').textContent = formattedTime;
+        }
+
+        function formatTime(time) {
+            return time < 10 ? `0${time}` : time;
+        }
+
+        function resetCountdown() {
+            clearInterval(countdownTimer);
+            isRunning = false;
+            // Reset to the initial set time
+            tenths = initialSetTime * 10;
+            updateCountdown();
+        }
+
+        function updateSeconds() {
+            const userInput = prompt('Nhập số giây mới:');
+            const newSeconds = parseInt(userInput);
+
+            if (!isNaN(newSeconds) && newSeconds >= 0) {
+                // Update the initial set time
+                initialSetTime = newSeconds;
+                tenths = newSeconds * 10;
+                updateCountdown();
+            }
+        }
+
+        let isClicked = false;
+
+        function changeColor1(button) {
+            if (!isClicked) {
+                // Thêm class "clicked" và đổi màu khi nút chưa được click
+                button.classList.add('clicked1');
+            } else {
+                // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
+                button.classList.remove('clicked1');
+            }
+
+            // Đảo ngược trạng thái clicked
+            isClicked = !isClicked;
+        }
+
+        function changeColor2(button) {
+            if (!isClicked) {
+                // Thêm class "clicked" và đổi màu khi nút chưa được click
+                button.classList.add('clicked2');
+            } else {
+                // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
+                button.classList.remove('clicked2');
+            }
+
+            // Đảo ngược trạng thái clicked
+            isClicked = !isClicked;
+        }
+
+        function changeColorS1(button) {
+            if (!isClicked) {
+                // Thêm class "clicked" và đổi màu khi nút chưa được click
+                button.classList.add('clickedS1');
+            } else {
+                // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
+                button.classList.remove('clickedS1');
+            }
+
+            // Đảo ngược trạng thái clicked
+            isClicked = !isClicked;
+        }
+
+        function changeColorS2(button) {
+            if (!isClicked) {
+                // Thêm class "clicked" và đổi màu khi nút chưa được click
+                button.classList.add('clickedS2');
+            } else {
+                // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
+                button.classList.remove('clickedS2');
+            }
+
+            // Đảo ngược trạng thái clicked
+            isClicked = !isClicked;
+        }
+
+        function reloadPage() {
+            var confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
+            if (confirmation) {
+                location.reload();
+            }
+        }
+
+        function showWinner1() {
+            // Tạo và hiển thị thông báo người chiến thắng
+            displayWinnerMessage1();
+        }
+
+        function displayWinnerMessage1() {
+            // Tạo một div để chứa thông báo người chiến thắng
+            const winnerDiv = document.createElement('div');
+            winnerDiv.id = 'winner-message1';
+            winnerDiv.innerHTML = `
+            <p>AKA</p>
+            <th> <button id="restart-button" onclick="restartGame()">NEXT MATCH</button>
+        `;
+
+            // Xóa nội dung hiện tại của body và thêm div mới
+            document.body.innerHTML = '';
+            document.body.appendChild(winnerDiv);
+        }
+
+        function showWinner2() {
+            // Tạo và hiển thị thông báo người chiến thắng
+            displayWinnerMessage2();
+        }
+
+        function displayWinnerMessage2() {
+            // Tạo một div để chứa thông báo người chiến thắng
+            const winnerDiv = document.createElement('div');
+            winnerDiv.id = 'winner-message2';
+            winnerDiv.innerHTML = `
+            <p>AO</p>
+            <button id="restart-button" onclick="restartGame()">NEXT MATCH</button>
+        `;
+
+            // Xóa nội dung hiện tại của body và thêm div mới
+            document.body.innerHTML = '';
+            document.body.appendChild(winnerDiv);
+        }
+
+        function restartGame() {
+            // Điều hướng người dùng về trang mới để bắt đầu lại trò chơi
+            window.location.href = "TEAMKUMITE-2.html";
+        }
+
+        function kumite() {
+            window.location.href = "KUMITE-1m30-2.html";
+        }
+
+        function Hantei() {
+            // Tạo một div để chứa thông báo người chiến thắng
+            const winnerDiv = document.createElement('div');
+            winnerDiv.id = 'Hantei';
+            winnerDiv.innerHTML = `
+            <p>HANTEI</p>
+            <button id="hantei" onclick="showWinner2()">0 AKA : 4 AO</button>
+            <button id="hantei" onclick="showWinner2()">1 AKA : 3 AO</button>
+            <button id="hantei" onclick="showDraw()">2 AKA : 2 AO</button>
+            <button id="hantei" onclick="showWinner1()">3 AKA : 1 AO</button>
+            <button id="hantei" onclick="showWinner1()">4 AKA : 0 AO</button>
+        `;
+
+            // Xóa nội dung hiện tại của body và thêm div mới
+            document.body.innerHTML = '';
+            document.body.appendChild(winnerDiv);
+        }
+
+        function displayWinnerMessage() {
+            // Tạo một div để chứa thông báo người chiến thắng
+            const winnerDiv = document.createElement('div');
+            winnerDiv.id = 'winner-message';
+            winnerDiv.innerHTML = `
+            <button id="draw2" onclick="showWinner2()">AO</button>
+            <button id="draw1" onclick="showWinner1()">AKA</button>
+        `;
+            // Xóa nội dung hiện tại của body và thêm div mới
+            document.body.innerHTML = '';
+            document.body.appendChild(winnerDiv);
+        }
+
+        function showDraw() {
+            // Tạo và hiển thị thông báo người chiến thắng
+            displayWinnerMessage();
+        }</script>
+</body>
+
+</html>
