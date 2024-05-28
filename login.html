@@ -53,16 +53,18 @@
             <input type="password" id="password" placeholder="Mật khẩu" required>
             <input type="submit" value="Đăng Nhập">
         </form>
-        <p>Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
         <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
     </div>
     <script>
+        const users = [
+            { username: 'user1', password: 'password1' },
+            { username: 'admin', password: 'vuidokan' }
+        ];
+
         function login(event) {
             event.preventDefault();
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
-
-            let users = JSON.parse(localStorage.getItem('users')) || [];
 
             const user = users.find(user => user.username === username && user.password === password);
 
