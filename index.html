@@ -37,6 +37,19 @@
         .name {
             font-size: 150px;
         }
+        .logout-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -53,6 +66,7 @@
         <div class="button" onclick="redirectTo('KUMITE-3m-2.html')">KUMITE-3m-2</div>
         <div class="button" onclick="redirectTo('TEAMKUMITE.html')">TEAMKUMITE</div>
         <div class="button" onclick="redirectTo('TEAMKUMITE-2.html')">TEAMKUMITE-2</div>
+        <button class="logout-btn" onclick="logout()">Đăng Xuất</button>
     </div>
     <script>
 
@@ -66,6 +80,11 @@
                     break;
             }
         });
+
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'login.html';
+        }
 
         function redirectTo(url) {
             window.location.href = url;
