@@ -70,18 +70,17 @@
         <button class="logout-btn" onclick="logout()">Đăng Xuất</button>
     </div>
     <script>
-
-        if (!localStorage.getItem('loggedIn')) {
-            window.location.href = 'login.html';
-        }
-
-        function logout() {
-            localStorage.removeItem('loggedIn');
+        if (!sessionStorage.getItem('loggedIn')) {
             window.location.href = 'login.html';
         }
 
         function redirectTo(url) {
             window.location.href = url;
+        }
+
+        function logout() {
+            sessionStorage.removeItem('loggedIn');
+            window.location.href = 'login.html';
         }
     </script>
 </body>
