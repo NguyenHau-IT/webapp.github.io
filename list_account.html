@@ -135,6 +135,17 @@
 
             loadAccounts(); // Cập nhật danh sách
         }
+
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case '`':
+                window.location.href = 'register.html';
+                    break;
+                case '*':
+                window.location.href = 'login.html';
+                    break;
+            }
+        });
     </script>
 </body>
 </html>
