@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Đăng Nhập</h1>
+        <form onsubmit="login(event)">
+            <input type="text" id="username" placeholder="Tên đăng nhập" required  autocomplete="off">
+            <input type="password" id="password" placeholder="Mật khẩu" required  autocomplete="off">
+            <input type="submit" value="Đăng Nhập">
+        </form>
+        <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
+    </div>
+    <script>
+        function login(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                sessionStorage.setItem('loggedIn', 'true');
+                window.location.href = 'index.html';
+            } else {
+                alert('Tên đăng nhập hoặc mật khẩu không đúng');
+            }
+        }
+
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case '`':
+                window.location.href = 'register.html';
+                    break;
+                case '*':
+                window.location.href = 'list_account.html';
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

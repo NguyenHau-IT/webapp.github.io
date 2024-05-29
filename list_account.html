@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Tài Khoản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .add-account-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .add-account-form input {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .add-account-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .add-account-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Danh Sách Tài Khoản</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tên Đăng Nhập</th>
+                <th>Mật Khẩu</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody id="accountList"></tbody>
+    </table>
+
+    <div class="add-account-form">
+        <h2>Thêm Tài Khoản</h2>
+        <input type="text" id="newUsername" placeholder="Tên Đăng Nhập"  autocomplete="off">
+        <input type="password" id="newPassword" placeholder="Mật Khẩu" autocomplete="off">
+        <button onclick="addAccount()">Thêm</button>
+    </div>
+
+    <script>
+        // Lấy danh sách tài khoản từ localStorage và hiển thị
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAccounts();
+        });
+
+        function loadAccounts() {
+            var accountList = document.getElementById('accountList');
+            accountList.innerHTML = ''; // Clear the current list
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+
+            users.forEach(function(user) {
+                var row = document.createElement('tr');
+                row.innerHTML = `<td>${user.username}</td><td>${user.password}</td><td><button class="delete-btn" onclick="deleteAccount('${user.username}')">Xoá</button></td>`;
+                accountList.appendChild(row);
+            });
+        }
+
+        // Hàm xoá tài khoản
+        function deleteAccount(username) {
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var filteredUsers = users.filter(function(user) {
+                return user.username !== username;
+            });
+
+            localStorage.setItem('users', JSON.stringify(filteredUsers));
+            loadAccounts(); // Cập nhật danh sách
+        }
+
+        // Hàm thêm tài khoản
+        function addAccount() {
+            var username = document.getElementById('newUsername').value;
+            var password = document.getElementById('newPassword').value;
+
+            if (!username || !password) {
+                alert('Vui lòng nhập tên đăng nhập và mật khẩu');
+                return;
+            }
+
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Kiểm tra xem tài khoản đã tồn tại hay chưa
+            if (users.find(user => user.username === username)) {
+                alert('Tên đăng nhập đã tồn tại');
+                return;
+            }
+
+            users.push({ username: username, password: password });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            document.getElementById('newUsername').value = '';
+            document.getElementById('newPassword').value = '';
+
+            loadAccounts(); // Cập nhật danh sách
+        }
+
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case '`':
+                window.location.href = 'register.html';
+                    break;
+                case '*':
+                window.location.href = 'login.html';
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
