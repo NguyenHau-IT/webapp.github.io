@@ -58,6 +58,7 @@
     <script>
         const users = [
             { username: 'user1', password: 'password1' },
+            { username: 'user2', password: 'password2' },
             { username: 'admin', password: 'vuidokan' }
         ];
 
@@ -69,7 +70,7 @@
             const user = users.find(user => user.username === username && user.password === password);
 
             if (user) {
-                sessionStorage.setItem('loggedIn', 'true');
+                localStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
             } else {
                 alert('Tên đăng nhập hoặc mật khẩu không đúng');
