@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập</title>
+    <title>Đăng Ký</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,30 +47,32 @@
 </head>
 <body>
     <div class="container">
-        <h1>Đăng Nhập</h1>
-        <form onsubmit="login(event)">
+        <h1>Đăng Ký</h1>
+        <form onsubmit="register(event)">
             <input type="text" id="username" placeholder="Tên đăng nhập" required>
             <input type="password" id="password" placeholder="Mật khẩu" required>
-            <input type="submit" value="Đăng Nhập">
+            <input type="submit" value="Đăng Ký">
         </form>
-        <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
+        <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
     </div>
     <script>
-        function login(event) {
+        function register(event) {
             event.preventDefault();
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
             let users = JSON.parse(localStorage.getItem('users')) || [];
 
-            const user = users.find(user => user.username === username && user.password === password);
-
-            if (user) {
-                sessionStorage.setItem('loggedIn', 'true');
-                window.location.href = 'index.html';
-            } else {
-                alert('Tên đăng nhập hoặc mật khẩu không đúng');
+            // Kiểm tra xem username đã tồn tại chưa
+            if (users.some(user => user.username === username)) {
+                alert('Tên đăng nhập đã tồn tại');
+                return;
             }
+
+            users.push({ username: username, password: password });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Đăng ký thành công! Vui lòng đăng nhập.');
+            window.location.href = 'login.html';
         }
     </script>
 </body>
