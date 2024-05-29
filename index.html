@@ -74,13 +74,6 @@
         if (!localStorage.getItem('loggedIn')) {
             window.location.href = 'login.html';
         }
-        document.addEventListener('keydown', function(event) {
-            switch (event.key) {
-                case '`':
-                    redirectTo('main.html');
-                    break;
-            }
-        });
 
         function logout() {
             localStorage.removeItem('loggedIn');
