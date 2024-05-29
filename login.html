@@ -72,6 +72,14 @@
                 alert('Tên đăng nhập hoặc mật khẩu không đúng');
             }
         }
+
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case '`':
+                window.location.href = 'register.html';
+                    break;
+            }
+        });
     </script>
 </body>
 </html>
