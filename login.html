@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,24 +15,29 @@
             background-color: #f0f0f0;
             margin: 0;
         }
+
         .container {
             text-align: center;
             background: #fff;
             padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
         }
-        input[type="text"], input[type="password"] {
+
+        input[type="text"],
+        input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
         input[type="submit"] {
             background-color: #007BFF;
             color: white;
@@ -40,26 +46,29 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Đăng Nhập</h1>
         <form onsubmit="login(event)">
-            <input type="text" id="username" placeholder="Tên đăng nhập" required  autocomplete="off">
-            <input type="password" id="password" placeholder="Mật khẩu" required  autocomplete="off">
+            <input type="text" id="username" placeholder="Tên đăng nhập" required autocomplete="off">
+            <input type="password" id="password" placeholder="Mật khẩu" required autocomplete="off">
             <input type="submit" value="Đăng Nhập">
         </form>
         <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
     </div>
     <script>
-        const users = [
-            { username: 'admin1', password: 'vuidokan' },
-            { username: 'admin', password: 'karatepp' }
-        ];
+        const users =
+            [
+                { username: 'admin1', password: 'vuidokan' },
+                { username: 'admin', password: 'karatepp' }
+            ];
 
         function login(event) {
             event.preventDefault();
@@ -77,4 +86,5 @@
         }
     </script>
 </body>
+
 </html>

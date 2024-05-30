@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +16,11 @@
             background-color: #f0f0f0;
             margin: 0;
         }
+
         .container {
             text-align: center;
         }
+
         .button {
             display: block;
             width: 1000px;
@@ -32,12 +35,15 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         .button:hover {
             background-color: #0056b3;
         }
+
         .name {
             font-size: 150px;
         }
+
         .logout-btn {
             background-color: #f44336;
             color: white;
@@ -48,11 +54,13 @@
             font-size: 20px;
             margin-top: 20px;
         }
+
         .logout-btn:hover {
             background-color: #d32f2f;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1 class="name">List Karate Point Panel</h1>
@@ -70,7 +78,7 @@
         <button class="logout-btn" onclick="logout()">Đăng Xuất</button>
     </div>
     <script>
-         if (!localStorage.getItem('loggedIn')) {
+        if (!localStorage.getItem('loggedIn')) {
             window.location.href = 'login.html';
         }
 
@@ -82,7 +90,8 @@
             localStorage.removeItem('loggedIn');
             window.location.href = 'login.html';
         }
-        
+
     </script>
 </body>
+
 </html>
