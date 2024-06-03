@@ -20,39 +20,33 @@
         }
 
         .table {
-            background: black;
             width: 100%;
             /* Đổi chiều rộng của ô */
-            height: 130px;
+            height: 100%;
             /* Đổi chiều cao của ô */
         }
 
-        .kyu2 {
+        .VS {
             height: 400px;
             width: 150px;
             color: white;
             font-size: 300px;
         }
 
-        .custom-cell1 {
-            width: 50%;
+        .score1 {
             /* Đổi chiều rộng của ô */
-            height: 330px;
+            height: 300px;
             /* Đổi chiều cao của ô */
             font-size: 300px;
             color: red;
         }
 
-        .custom-cell2 {
-            width: 50%;
-            /* Đổi chiều rộng của ô */
-            height: 330px;
-            /* Đổi chiều cao của ô */
+        .score2 {
             font-size: 300px;
             color: blue;
         }
 
-        .custom-button {
+        .chui {
             border-radius: 50px;
             background-color: black;
             width: 200px;
@@ -64,35 +58,15 @@
         .custom-buttonT {
             border-radius: 50px;
             cursor: pointer;
-            width: 240px;
-            height: 80px;
+            width: 300px;
+            height: 100px;
             font-size: 40px;
-        }
-
-        .winner1 {
-            font-weight: bold;
-            border-radius: 50px;
-            background-color: white;
-            width: 150px;
-            height: 50px;
-            font-size: 40px;
-            color: red;
-        }
-
-        .winner2 {
-            font-weight: bold;
-            border-radius: 50px;
-            background-color: white;
-            width: 150px;
-            height: 50px;
-            font-size: 40px;
-            color: blue;
         }
 
         .custom-button2 {
             border-radius: 50px;
             background-color: red;
-            width: 200px;
+            width: 300px;
             height: 100px;
             font-size: 80px;
             color: white;
@@ -101,15 +75,17 @@
         .custom-button3 {
             border-radius: 50px;
             background-color: blue;
-            width: 200px;
+            width: 300px;
             height: 100px;
             font-size: 80px;
             color: white;
         }
 
         .custom-buttonS {
-            top: 50%; /* Đặt vị trí theo chiều cao 50% của div cha */
-            right: 50%; /* Đặt vị trí theo chiều rộng 50% của div cha */
+            top: 50%;
+            /* Đặt vị trí theo chiều cao 50% của div cha */
+            right: 50%;
+            /* Đặt vị trí theo chiều rộng 50% của div cha */
             border-color: white;
             border-radius: 60px;
             width: 160px;
@@ -157,124 +133,11 @@
         }
 
         .time {
-            font-size: 300px;
+            font-size: 350px;
             color: white;
         }
 
-        #winner-message1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: red;
-            color: white;
-            height: 1000px;
-            width: 100%px;
-            font-size: 600px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        #winner-message2 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: blue;
-            color: white;
-            height: 1000px;
-            width: 100%px;
-            font-size: 600px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        /* Nút chơi lại */
-        #restart-button {
-            background-color: #2ecc71;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            height: 80px;
-            width: 150px;
-        }
-
-        #HT {
-            border-color: white;
-            color: white;
-            background-color: black;
-            height: 50px;
-            width: 500px;
-            font-size: 45px;
-        }
-
-        #Hantei {
-            text-align: center;
-            align-items: center;
-            background-color: white;
-            height: 300px;
-            width: 1900px;
-            font-size: 200px;
-        }
-
-        #hantei {
-            background-color: #000000;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            height: 100px;
-            width: 330px;
-            font-size: 50px;
-        }
-
-        #draw1 {
-            background-color: #000000;
-            color: red;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            height: 80px;
-            width: 150px;
-            font-size: 60px;
-        }
-
-        #draw2 {
-            background-color: #000000;
-            color: blue;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            height: 80px;
-            width: 150px;
-            font-size: 60px;
-        }
-
-        #winner-message {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: black;
-            color: white;
-            height: 1000px;
-            width: 100%px;
-            font-size: 600px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        #ND {
-            text-align: center;
-            background-color: white;
-            color: black;
-            height: 100px;
-            width: 100%;
-            font-size: 55px;
-        }
-
-        .click1 {
+        .count1 {
             text-align: center;
             border-radius: 50px;
             background-color: red;
@@ -284,7 +147,7 @@
             color: white;
         }
 
-        .click2 {
+        .count2 {
             text-align: center;
             border-radius: 50px;
             background-color: blue;
@@ -320,37 +183,20 @@
             color: red;
         }
 
-        #win1 {
-            text-align: center;
-            border-radius: 50px;
-            background-color: red;
-            width: 200px;
-            height: 100px;
-            font-size: 60px;
-            color: white;
-        }
-
-        #win2 {
-            text-align: center;
-            border-radius: 50px;
-            background-color: blue;
-            width: 200px;
-            height: 100px;
-            font-size: 60px;
-            color: white;
-        }
-
         .input-container {
             width: 100%;
             height: 150px;
-            display: flex; /* Sử dụng flexbox để các input nằm ngang nhau */
-            justify-content: space-between; /* Canh giữa giữa các input */
+            display: flex;
+            /* Sử dụng flexbox để các input nằm ngang nhau */
+            justify-content: space-between;
+            /* Canh giữa giữa các input */
         }
 
         /* Thiết lập kiểu cho input */
         input {
             font-size: 95px;
-            width: 43%; /* Đặt chiều rộng của input (để tạo khoảng cách giữa chúng, bạn có thể giảm giá trị này) */
+            width: 43%;
+            /* Đặt chiều rộng của input (để tạo khoảng cách giữa chúng, bạn có thể giảm giá trị này) */
             box-sizing: border-box;
             padding: 10px;
             margin: 5px 0;
@@ -358,9 +204,23 @@
             color: white;
         }
 
-        .point{
-            height:200px;
-            width:220px;
+        .point {
+            height: 200px;
+            width: 220px;
+        }
+
+        .flashing {
+            animation: flash 0.4s infinite alternate;
+        }
+
+        @keyframes flash {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
         }
     </style>
 
@@ -368,8 +228,6 @@
 
 <body>
     <table>
-        <label for="inputField"></label>
-        <input type="text" id="ND" name="inputField" autocomplete="off">
         <table class="table">
             <tr>
                 <div class="input-container">
@@ -379,38 +237,36 @@
             </tr>
             <tr>
                 <td>
-                    <th></th>
-                    <th><button class="custom-buttonS" onclick="changeColor2(this)">S</button></th>
-                    <th id="score2" class="custom-cell2">0</th>
+                <th></th>
+                <th><button class="custom-buttonS" onclick="changeColor2(this)">S</button></th>
+                <th id="score2" class="score2">0</th>
                 </td>
                 <td colspan="3"></td>
                 <td>
-                    <th><button class="custom-buttonS" onclick="changeColor1(this)">S</button></th>
-                    <th id="score1" class="custom-cell1">0</th>
-                    <th></th>
+                <th><button class="custom-buttonS" onclick="changeColor1(this)">S</button></th>
+                <th id="score1" class="score1">0</th>
+                <th></th>
                 </td>
             </tr>
-            <tr> 
-                <th> <button class="custom-button" onclick="changeColor2(this)">C1</button></th>
-                <th> <button class="custom-button" onclick="changeColor2(this)">C2</button></th>
-                <th> <button class="custom-button" onclick="changeColor2(this)">C3</button></th>
-                <th> <button class="custom-button" onclick="changeColor2(this)">HC</button></th>
-                <th> <button class="custom-button" onclick="changeColor2(this)">H</button></th>
-                <th colspan="2" class="kyu2">VS</th>
-                <th> <button class="custom-button" onclick="changeColor1(this)">C1</button></th>
-                <th> <button class="custom-button" onclick="changeColor1(this)">C2</button></th>
-                <th> <button class="custom-button" onclick="changeColor1(this)">C3</button></th>
-                <th> <button class="custom-button" onclick="changeColor1(this)">HC</button></th>
-                <th> <button class="custom-button" onclick="changeColor1(this)">H</button></th>
+            <tr>
+                <th> <button class="chui" onclick="changeColor2(this)">C1</button></th>
+                <th> <button class="chui" onclick="changeColor2(this)">C2</button></th>
+                <th> <button class="chui" onclick="changeColor2(this)">C3</button></th>
+                <th> <button class="chui" onclick="changeColor2(this)">HC</button></th>
+                <th> <button class="chui" onclick="changeColor2(this)">H</button></th>
+                <th colspan="2" class="VS">VS</th>
+                <th> <button class="chui" onclick="changeColor1(this)">C1</button></th>
+                <th> <button class="chui" onclick="changeColor1(this)">C2</button></th>
+                <th> <button class="chui" onclick="changeColor1(this)">C3</button></th>
+                <th> <button class="chui" onclick="changeColor1(this)">HC</button></th>
+                <th> <button class="chui" onclick="changeColor1(this)">H</button></th>
             </tr>
             <tr>
-                <th colspan="2"class="click2" id="clickCount2_3">0 : IPPON</th>
-                <th colspan="2" class="click2" id="clickCount2_2">0 : WAZA</th>
-                <th id="win2">0 :AO</th>
-                <th colspan="2"></th>
-                <th id="win1">0 :AKA</th>
-                <th colspan="2" class="click1" id="clickCount1_2">0 : WAZA</th>
-                <th colspan="2" class="click1" id="clickCount1_3">0 : IPPON</th>
+                <th colspan="2" class="count2" id="clickCount2_3">0 : IPPON</th>
+                <th colspan="2" class="count2" id="clickCount2_2">0 : WAZA</th>
+                <th colspan="4"></th>
+                <th colspan="2" class="count1" id="clickCount1_2">0 : WAZA</th>
+                <th colspan="2" class="count1" id="clickCount1_3">0 : IPPON</th>
             </tr>
         </table>
         <table class="table-score">
@@ -418,28 +274,30 @@
                 <th colspan="12" class="time" id="countdown">01:30<span id="tenths">.0</span></th>
             </tr>
             <tr>
-                <th><button class="custom-button3" onclick="addScore(2, 1,0)">+1</button></th>
-                <th><button class="custom-button3" onclick="addScore(2, 2,1)">+2</button></th>
-                <th><button class="custom-button3" onclick="addScore(2, 3,1)">+3</button></th>
-                <th><button class="custom-buttonT" onclick="startCountdown()">Start (F1)</button></th>
-                <th><button class="custom-buttonT" onclick="stopCountdown()">Pause (F2)</button></th>
-                <th><button class="custom-buttonT" onclick="Hantei()"> HANTEI</button></th>
-                <th><button class="winner2" onclick="win(2)">AO</button></th>
-                <th><button class="custom-button2" onclick="addScore(1, 1,0)">+1</button></th>
-                <th><button class="custom-button2" onclick="addScore(1, 2,1)">+2</button></th>
-                <th><button class="custom-button2" onclick="addScore(1, 3,1)">+3</button></th>
-            </tr>
-            <tr>
-                <th><button class="custom-button3" onclick="subtractScore(2, 1,0)">-1</button></th>
-                <th><button class="custom-button3" onclick="subtractScore(2, 2,1)">-2</button></th>
-                <th><button class="custom-button3" onclick="subtractScore(2, 3,1)">-3</button></th>
-                <th><button class="custom-buttonT" onclick="resetCountdown()">ResetTime (r)</button></th>
-                <th><button class="custom-buttonT" onclick="reloadPage()">Reset All (=)</button></th>
-                <th><button class="custom-buttonT" onclick="updateSeconds()"> SET TIME</button></th>
-                <th><button class="winner1" onclick="win(1)">AKA</button></th>
-                <th><button class="custom-button2" onclick="subtractScore(1, 1,0)">-1</button></th>
-                <th><button class="custom-button2" onclick="subtractScore(1, 2,1)">-2</button></th>
-                <th><button class="custom-button2" onclick="subtractScore(1, 3,1)">-3</button></th>
+                <th>
+                    <button class="custom-button3" onclick="addScore(2, 1,0)">+1</button>
+                    <button class="custom-button3" onclick="addScore(2, 2,1)">+2</button>
+                    <button class="custom-button3" onclick="addScore(2, 3,1)">+3</button>
+
+                    <button class="custom-button3" onclick="subtractScore(2, 1,0)">-1</button>
+                    <button class="custom-button3" onclick="subtractScore(2, 2,1)">-2</button>
+                    <button class="custom-button3" onclick="subtractScore(2, 3,1)">-3</button>
+                </th>
+                <th>
+                    <button class="custom-buttonT" onclick="startCountdown()">Start (1)</button>
+                    <button class="custom-buttonT" onclick="stopCountdown()">Pause (2)</button>
+                    <button class="custom-buttonT" onclick="resetCountdown()">ResetTime (3)</button>
+                    <button class="custom-buttonT" onclick="reloadPage()">Reset All (=)</button>
+                    <button class="custom-buttonT" onclick="updateSeconds()"> SET TIME</button>
+                </th>
+                <th>
+                    <button class="custom-button2" onclick="addScore(1, 1,0)">+1</button>
+                    <button class="custom-button2" onclick="addScore(1, 2,1)">+2</button>
+                    <button class="custom-button2" onclick="addScore(1, 3,1)">+3</button>
+                    <button class="custom-button2" onclick="subtractScore(1, 1,0)">-1</button>
+                    <button class="custom-button2" onclick="subtractScore(1, 2,1)">-2</button>
+                    <button class="custom-button2" onclick="subtractScore(1, 3,1)">-3</button>
+                </th>
             </tr>
             </tr>
         </table>
@@ -453,31 +311,19 @@
             }
         });
 
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'F1') {
-                e.preventDefault();
-            }
-        });
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'F2') {
-                e.preventDefault();
-            }
-        });
-
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();  // Ngăn chặn menu chuột phải
         });
 
         document.addEventListener('keydown', function (event) {
             switch (event.key) {
-                case 'F1':
+                case '1':
                     startCountdown();
                     break;
-                case 'F2':
+                case '2':
                     stopCountdown();
                     break;
-                case 'r':
+                case '3':
                     resetCountdown();
                     break;
                 case '=':
@@ -490,7 +336,7 @@
             }
         });
 
-    
+
         function changeColor(color) {
             document.getElementById('countdown').style.color = color;
         }
@@ -568,6 +414,22 @@
                 clearInterval(countdownTimer);
                 isRunning = false;
                 changeColor('white');
+            }
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
+
+            if (tenths === 0 && (score1 !== score2)) {
+                if (score1 > score2) {
+                    document.getElementById('score1').classList.add('flashing');
+                    document.getElementById('score2').classList.remove('flashing');
+                } else {
+                    document.getElementById('score2').classList.add('flashing');
+                    document.getElementById('score1').classList.remove('flashing');
+                }
+            } else {
+                // Reset flashing class if conditions are not met
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
             }
         }
 
@@ -662,90 +524,6 @@
             if (confirmation) {
                 location.reload();
             }
-        }
-
-        function showWinner1() {
-            // Tạo và hiển thị thông báo người chiến thắng
-            displayWinnerMessage1();
-        }
-
-        function displayWinnerMessage1() {
-            // Tạo một div để chứa thông báo người chiến thắng
-            const winnerDiv = document.createElement('div');
-            winnerDiv.id = 'winner-message1';
-            winnerDiv.innerHTML = `
-            <p>AKA</p>
-            <th> <button id="restart-button" onclick="restartGame()">NEXT MATCH</button>
-        `;
-
-            // Xóa nội dung hiện tại của body và thêm div mới
-            document.body.innerHTML = '';
-            document.body.appendChild(winnerDiv);
-        }
-
-        function showWinner2() {
-            // Tạo và hiển thị thông báo người chiến thắng
-            displayWinnerMessage2();
-        }
-
-        function displayWinnerMessage2() {
-            // Tạo một div để chứa thông báo người chiến thắng
-            const winnerDiv = document.createElement('div');
-            winnerDiv.id = 'winner-message2';
-            winnerDiv.innerHTML = `
-            <p>AO</p>
-            <button id="restart-button" onclick="restartGame()">NEXT MATCH</button>
-        `;
-
-            // Xóa nội dung hiện tại của body và thêm div mới
-            document.body.innerHTML = '';
-            document.body.appendChild(winnerDiv);
-        }
-
-        function restartGame() {
-            // Điều hướng người dùng về trang mới để bắt đầu lại trò chơi
-            window.location.href = "TEAMKUMITE-1M30-2.html";
-        }
-
-        function kumite()
-        {
-            window.location.href = "TEAMKUMITE-2.html";
-        }
-
-        function Hantei() {
-            // Tạo một div để chứa thông báo người chiến thắng
-            const winnerDiv = document.createElement('div');
-            winnerDiv.id = 'Hantei';
-            winnerDiv.innerHTML = `
-            <p>HANTEI</p>
-            <button id="hantei" onclick="showWinner2()">0 AKA : 4 AO</button>
-            <button id="hantei" onclick="showWinner2()">1 AKA : 3 AO</button>
-            <button id="hantei" onclick="showDraw()">2 AKA : 2 AO</button>
-            <button id="hantei" onclick="showWinner1()">3 AKA : 1 AO</button>
-            <button id="hantei" onclick="showWinner1()">4 AKA : 0 AO</button>
-        `;
-
-            // Xóa nội dung hiện tại của body và thêm div mới
-            document.body.innerHTML = '';
-            document.body.appendChild(winnerDiv);
-        }
-
-        function displayWinnerMessage() {
-            // Tạo một div để chứa thông báo người chiến thắng
-            const winnerDiv = document.createElement('div');
-            winnerDiv.id = 'winner-message';
-            winnerDiv.innerHTML = `
-            <button id="draw2" onclick="showWinner2()">AO</button>
-            <button id="draw1" onclick="showWinner1()">AKA</button>
-        `;
-            // Xóa nội dung hiện tại của body và thêm div mới
-            document.body.innerHTML = '';
-            document.body.appendChild(winnerDiv);
-        }
-
-        function showDraw() {
-            // Tạo và hiển thị thông báo người chiến thắng
-            displayWinnerMessage();
         }
 
     </script>
