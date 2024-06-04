@@ -14,68 +14,66 @@
     <title>KARATE SCORE BOARD: KATA</title>
     <style>
         body {
-        height: 100%;
-        width: 1500px;
-        align-items: center;
-        background-color: black;
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            background-color: black;
         }
 
         input {
-        text-align: center;
-        width: 90%;
-        background-color: black;
-        height: 150px;
-        font-size: 100px;
-        color: white;
+            text-align: center;
+            width: 90%;
+            background-color: black;
+            height: 150px;
+            font-size: 140px;
+            color: white;
         }
 
-        .table-score {
-        color: white;
-        background: black;
-        width: 100%;
-        height: 100px;
+        .table {
+            background: black;
+            width: 100%;
         }
 
         select {
-        background-color: black;
-        color: white;
-        height: 140px;
-        width: 100%;
-        font-size: 100px;
+            background-color: black;
+            color: white;
+            height: 140px;
+            width: 100%;
+            font-size: 100px;
         }
 
         .AKA {
-        background-color: red;
+            background-color: red;
         }
 
         .AO {
-        background-color: blue;
+            background-color: blue;
         }
 
         button {
-        border-radius: 50px;
-        margin: 5px;
-        padding: 10px;
-        cursor: pointer;
-        height: 60px;
-        width: 180px;
-        font-size: 20px;
+            border-radius: 50px;
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+            height: 60px;
+            width: 180px;
+            font-size: 20px;
         }
 
         .time {
-        color: white;
-        font-size: 220px;
-        align-items: center;
+            color: white;
+            font-size: 200px;
+            align-items: center;
         }
 
         .VDV1::placeholder {
-        color: red;
-        text-align: left;
+            color: red;
+            text-align: left;
         }
 
         .VDV2::placeholder {
-        color: blue;
-        text-align: left;
+            color: blue;
+            text-align: left;
         }
     </style>
 
@@ -314,51 +312,51 @@
             </th>
         </tr>
     </table>
-  
-    <table class="table-score">
+
+    <table class="table">
         <tr>
-        <th class="time" id="countdown">05:00<span id="tenths">.0</span></th>
+            <th class="time" id="countdown">05:00<span id="tenths">.0</span></th>
         </tr>
         <tr>
-        <th>
-            <button onclick="startCountdown()">Start (1)</button>
-            <button onclick="stopCountdown()">Pause (2)</button>
-            <button onclick="updateSeconds()">Reset Time (3)</button>
-            <button onclick="reloadPage()">Reset All (=)</button>
-        </th>
+            <th>
+                <button onclick="startCountdown()">Start (1)</button>
+                <button onclick="stopCountdown()">Pause (2)</button>
+                <button onclick="updateSeconds()">Reset Time (3)</button>
+                <button onclick="reloadPage()">Reset All (=)</button>
+            </th>
         </tr>
     </table>
 
     <script>
         document.addEventListener('keydown', function (e) {
-        if (e.key === 'F12') {
-            e.preventDefault();
-        }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
         });
 
         document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
+            e.preventDefault();
         });
 
         document.addEventListener('keydown', function (event) {
-        switch (event.key) {
-            case '1':
-            startCountdown();
-            break;
-            case '2':
-            stopCountdown();
-            break;
-            case '3':
-                updateSeconds();
-            break;
-            case '=':
-            reloadPage();
-            break;
-        }
+            switch (event.key) {
+                case '1':
+                    startCountdown();
+                    break;
+                case '2':
+                    stopCountdown();
+                    break;
+                case '3':
+                    updateSeconds();
+                    break;
+                case '=':
+                    reloadPage();
+                    break;
+            }
         });
 
         function changeColor(color) {
-        document.getElementById('countdown').style.color = color;
+            document.getElementById('countdown').style.color = color;
         }
 
         let countdownTimer;
@@ -367,71 +365,71 @@
         let initialSetTime = 300;
 
         function startCountdown() {
-        if (!isRunning && tenths > 0) {
-            countdownTimer = setInterval(updateTime, 100);
-            isRunning = true;
-        }
-        if (tenths === 0) {
-            clearInterval(countdownTimer);
-        }
+            if (!isRunning && tenths > 0) {
+                countdownTimer = setInterval(updateTime, 100);
+                isRunning = true;
+            }
+            if (tenths === 0) {
+                clearInterval(countdownTimer);
+            }
         }
 
         function stopCountdown() {
-        changeColor('white');
-        clearInterval(countdownTimer);
-        isRunning = false;
+            changeColor('white');
+            clearInterval(countdownTimer);
+            isRunning = false;
         }
 
         function updateTime() {
-        if (tenths > 0) {
-            tenths -= 1;
-            updateCountdown();
-            if (tenths / 10 < 15) {
-            changeColor('red');
+            if (tenths > 0) {
+                tenths -= 1;
+                updateCountdown();
+                if (tenths / 10 < 15) {
+                    changeColor('red');
+                } else {
+                    changeColor('yellow');
+                }
             } else {
-            changeColor('yellow');
+                clearInterval(countdownTimer);
+                isRunning = false;
+                changeColor('white');
             }
-        } else {
-            clearInterval(countdownTimer);
-            isRunning = false;
-            changeColor('white');
-        }
         }
 
         function updateCountdown() {
-        const minutes = Math.floor((tenths / 10) / 60);
-        const seconds = Math.floor((tenths / 10) % 60);
+            const minutes = Math.floor((tenths / 10) / 60);
+            const seconds = Math.floor((tenths / 10) % 60);
 
-        const formattedTime = `${formatTime(minutes)}:${formatTime(seconds)}.${tenths % 10}`;
-        document.getElementById('countdown').textContent = formattedTime;
+            const formattedTime = `${formatTime(minutes)}:${formatTime(seconds)}.${tenths % 10}`;
+            document.getElementById('countdown').textContent = formattedTime;
         }
 
         function formatTime(time) {
-        return time < 10 ? `0${time}` : time;
+            return time < 10 ? `0${time}` : time;
         }
 
         function resetCountdown() {
-        clearInterval(countdownTimer);
-        isRunning = false;
-        tenths = initialSetTime * 10;
-        updateCountdown();
+            clearInterval(countdownTimer);
+            isRunning = false;
+            tenths = initialSetTime * 10;
+            updateCountdown();
         }
 
         function updateSeconds() {
-        const userInput = prompt('Nhập số giây mới:');
-        const newSeconds = parseInt(userInput);
+            const userInput = prompt('Nhập số giây mới:');
+            const newSeconds = parseInt(userInput);
 
-        if (!isNaN(newSeconds) && newSeconds >= 0) {
-            initialSetTime = newSeconds;
-            tenths = newSeconds * 10;
-            updateCountdown();
-        }
+            if (!isNaN(newSeconds) && newSeconds >= 0) {
+                initialSetTime = newSeconds;
+                tenths = newSeconds * 10;
+                updateCountdown();
+            }
         }
 
         function reloadPage() {
-        const confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
-        if (confirmation)
-            location.reload();
+            const confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
+            if (confirmation)
+                location.reload();
         }
     </script>
 </body>
