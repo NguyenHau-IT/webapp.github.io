@@ -352,8 +352,15 @@
                 case '=':
                     reloadPage();
                     break;
+                case '`':
+                    kumite();
+                    break;
             }
         });
+
+        function kumite() {
+            window.location.href = "index.html";
+        }
 
         function changeColor(color) {
             document.getElementById('countdown').style.color = color;
