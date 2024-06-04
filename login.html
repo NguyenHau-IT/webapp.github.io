@@ -64,6 +64,17 @@
         <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
     </div>
     <script>
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12') {
+                e.preventDefault();  // Ngăn chặn mở Developer Tools
+            }
+        });
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();  // Ngăn chặn menu chuột phải
+        });
+
         const users =
             [
                 { username: 'admin1', password: 'vuidokan' },
