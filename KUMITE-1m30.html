@@ -21,12 +21,12 @@
 
         .kyu1 {
             color: red;
-            font-size: 95px;
+            font-size: 120px;
         }
 
         .kyu2 {
             color: blue;
-            font-size: 95px;
+            font-size: 120px;
         }
 
         .score1 {
@@ -42,7 +42,7 @@
         .custom-button {
             border-radius: 50px;
             background-color: black;
-            width: 250px;
+            width: 270px;
             height: 90px;
             font-size: 80px;
             color: white;
@@ -58,7 +58,7 @@
 
         .custom-button-r {
             background-color: red;
-            width: 370px;
+            width: 350px;
             height: 50px;
             font-size: 40px;
             color: white;
@@ -66,7 +66,7 @@
 
         .custom-button-b {
             background-color: blue;
-            width: 370px;
+            width: 350px;
             height: 50px;
             font-size: 40px;
             color: white;
@@ -82,38 +82,24 @@
             background-color: black;
         }
 
-        #imput {
-
-            background-color: black;
-            color: white;
-        }
-
-        label {
-            text-align: center;
-            min-width: 100px;
-            /* Điều này giúp giữa label và input */
-        }
-
         input {
+            width: 100%;
             text-align: center;
             background-color: black;
             font-size: 60px;
             color: white;
-            /* Bạn có thể điều chỉnh độ rộng tùy ý */
         }
 
         .clicked1 {
             background-color: red;
             border-color: black;
             border: 10px;
-            /* Màu mong muốn khi nút được click */
         }
 
         .clicked2 {
             background-color: blue;
             border-color: black;
             border: 10px;
-            /* Màu mong muốn khi nút được click */
         }
 
         .time {
@@ -145,7 +131,7 @@
 <body>
     <table>
         <tr>
-            <th> <label for="inputField"></label>
+            <th colspan="2"> <label for="inputField"></label>
                 <input type="text" id="inputField" name="inputField" autocomplete="off">
             </th>
         </tr>
@@ -162,7 +148,7 @@
             <th id="score1" class="score1">0</th>
         </tr>
         <tr>
-            <th> <label for="inputField"></label>
+            <th colspan="2"> <label for="inputField"></label>
                 <input type="text" id="inputField" name="inputField" autocomplete="off">
             </th>
         </tr>
@@ -208,7 +194,6 @@
                 <button class="custom-button-b" onclick="subtractScore(2, 2,1)">-2</button>
                 <button class="custom-button-b" onclick="subtractScore(2, 3,1)">-3</button>
             </th>
-        </tr>
         </tr>
     </table>
 
