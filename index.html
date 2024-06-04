@@ -77,7 +77,19 @@
         <div class="button" onclick="redirectTo('TEAMKUMITE-2.html')">TEAMKUMITE-2</div>
         <button class="logout-btn" onclick="logout()">Đăng Xuất</button>
     </div>
+    
     <script>
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12') {
+                e.preventDefault();  // Ngăn chặn mở Developer Tools
+            }
+        });
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();  // Ngăn chặn menu chuột phải
+        });
+
         if (!localStorage.getItem('loggedIn')) {
             window.location.href = 'login.html';
         }
