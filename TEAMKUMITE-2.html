@@ -133,8 +133,6 @@
             text-align: center;
             border-top-left-radius: 100px;
             border-bottom-left-radius: 100px;
-            border: 20px;
-            border-color: #fff;
             width: 70px;
             height: 60px;
             font-size: 60px;
@@ -146,8 +144,6 @@
             text-align: center;
             border-top-right-radius: 100px;
             border-bottom-right-radius: 100px;
-            border: 20px;
-            border-color: #fff;
             width: 70px;
             height: 60px;
             font-size: 60px;
@@ -201,14 +197,15 @@
                 opacity: 0;
             }
         }
+
         .VDV1::placeholder {
-        color: red;
-        text-align: left;
+            color: red;
+            text-align: left;
         }
 
         .VDV2::placeholder {
-        color: blue;
-        text-align: left;
+            color: blue;
+            text-align: left;
         }
     </style>
 </head>
@@ -262,7 +259,7 @@
             <tr>
                 <th colspan="12" class="time" id="countdown">01:30<span id="tenths">.0</span></th>
             </tr>
-            <tr >
+            <tr>
                 <th><button class="custom-button3" onclick="addScore(2, 1,0)">+1</button></th>
                 <th><button class="custom-button3" onclick="addScore(2, 2,1)">+2</button></th>
                 <th><button class="custom-button3" onclick="addScore(2, 3,1)">+3</button></th>
@@ -393,8 +390,6 @@
             document.getElementById("TSakaD_5").innerText = TSaka_5;
             document.getElementById("TSaoD_5").innerText = TSao_5;
 
-
-
             var buttons = document.querySelectorAll('.custom-button');
             buttons.forEach(function (button) {
                 button.classList.remove('clicked1', 'clicked2');
@@ -487,7 +482,7 @@
                 isRunning = false;
                 changeColor('white');
             }
-            
+
             const score1 = parseInt(document.getElementById('score1').innerText);
             const score2 = parseInt(document.getElementById('score2').innerText);
 
