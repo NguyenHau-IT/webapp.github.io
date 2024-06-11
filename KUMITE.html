@@ -21,31 +21,44 @@
 
         .table {
             width: 100%;
-            height: 100%;
+            /* Đổi chiều rộng của ô */
+            height: 130px;
+            /* Đổi chiều cao của ô */
         }
 
-        .VS {
-            height: 400px;
-            width: 150px;
-            color: white;
-            font-size: 300px;
+        .kyu1 {
+            color: red;
+            font-size: 100px;
         }
 
-        .score1 {
-            font-size: 300px;
+        .kyu2 {
+            color: blue;
+            font-size: 100px;
+        }
+
+        .custom-cell1 {
+            width: 500px;
+            /* Đổi chiều rộng của ô */
+            height: 250px;
+            /* Đổi chiều cao của ô */
+            font-size: 210px;
             color: red;
         }
 
-        .score2 {
-            font-size: 300px;
+        .custom-cell2 {
+            width: 500px;
+            /* Đổi chiều rộng của ô */
+            height: 250px;
+            /* Đổi chiều cao của ô */
+            font-size: 210px;
             color: blue;
         }
 
-        .chui {
+        .custom-button {
             border-radius: 50px;
             background-color: black;
-            width: 200px;
-            height: 100px;
+            width: 230px;
+            height: 130xpx;
             font-size: 95px;
             color: white;
         }
@@ -53,42 +66,55 @@
         .custom-buttonT {
             border-radius: 50px;
             cursor: pointer;
-            width: 300px;
-            height: 100px;
+            width: 170px;
+            height: 50px;
+            font-size: 25px;
+        }
+
+        .winner1 {
+            border-radius: 50px;
+            background-color: red;
+            width: 150px;
+            height: 50px;
             font-size: 40px;
+            color: white;
+        }
+
+        .winner2 {
+            border-radius: 50px;
+            background-color: blue;
+            width: 150px;
+            height: 50px;
+            font-size: 40px;
+            color: white;
         }
 
         .custom-button2 {
             border-radius: 50px;
             background-color: red;
-            width: 300px;
-            height: 100px;
-            font-size: 80px;
+            width: 150px;
+            height: 50px;
+            font-size: 40px;
             color: white;
         }
 
         .custom-button3 {
             border-radius: 50px;
             background-color: blue;
-            width: 300px;
-            height: 100px;
-            font-size: 80px;
+            width: 150px;
+            height: 50px;
+            font-size: 40px;
             color: white;
         }
 
         .custom-buttonS {
-            top: 50%;
-            /* Đặt vị trí theo chiều cao 50% của div cha */
-            right: 50%;
-            /* Đặt vị trí theo chiều rộng 50% của div cha */
             border-color: white;
             border-radius: 60px;
-            width: 160px;
-            height: 160px;
-            font-size: 150px;
+            width: 120px;
+            height: 120px;
+            font-size: 100px;
             color: black;
             background-color: black;
-            display: inline-block;
         }
 
         .table-score {
@@ -97,6 +123,14 @@
             width: 100%;
             height: 400px;
             padding: 0px;
+        }
+
+        input {
+            text-align: center;
+            background-color: black;
+            font-size: 120px;
+            color: white;
+            /* Bạn có thể điều chỉnh độ rộng tùy ý */
         }
 
         .clicked1 {
@@ -113,42 +147,28 @@
             /* Màu mong muốn khi nút được click */
         }
 
-        .clicked1S {
-            color: red;
-            border-color: black;
-            border: 10px;
-            /* Màu mong muốn khi nút được click */
-        }
-
-        .clicked2S {
-            color: blue;
-            border-color: black;
-            border: 10px;
-            /* Màu mong muốn khi nút được click */
-        }
-
         .time {
-            font-size: 350px;
+            font-size: 280px;
             color: white;
         }
 
-        .count1 {
+        .click1 {
             text-align: center;
             border-radius: 50px;
             background-color: red;
-            width: 200px;
-            height: 100px;
-            font-size: 60px;
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
             color: white;
         }
 
-        .count2 {
+        .click2 {
             text-align: center;
             border-radius: 50px;
             background-color: blue;
-            width: 200px;
-            height: 100px;
-            font-size: 60px;
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
             color: white;
         }
 
@@ -178,30 +198,34 @@
             color: red;
         }
 
-        .input-container {
-            width: 100%;
-            height: 150px;
-            display: flex;
-            /* Sử dụng flexbox để các input nằm ngang nhau */
-            justify-content: space-between;
-            /* Canh giữa giữa các input */
-        }
-
-        /* Thiết lập kiểu cho input */
-        input {
-            font-size: 95px;
-            width: 43%;
-            /* Đặt chiều rộng của input (để tạo khoảng cách giữa chúng, bạn có thể giảm giá trị này) */
-            box-sizing: border-box;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: black;
+        #win1 {
+            text-align: center;
+            border-radius: 50px;
+            background-color: red;
+            width: 150px;
+            height: 50px;
+            font-size: 45px;
             color: white;
         }
 
-        .point {
-            height: 200px;
-            width: 220px;
+        #win2 {
+            text-align: center;
+            border-radius: 50px;
+            background-color: blue;
+            width: 150px;
+            height: 50px;
+            font-size: 45px;
+            color: white;
+        }
+
+        .VDV1::placeholder {
+            color: red;
+            text-align: left;
+        }
+
+        .VDV2::placeholder {
+            color: blue;
+            text-align: left;
         }
 
         .flashing {
@@ -225,74 +249,82 @@
     <table>
         <table class="table">
             <tr>
-                <div class="input-container">
-                    <input type="text" placeholder="AO">
-                    <input type="text" placeholder="AKA">
-                </div>
-            </tr>
+                <th> <label for="inputField"></label>
+                    <input type="text" id="inputField" name="inputField" autocomplete="off" class="VDV1"
+                        placeholder="AKA">
+                    <table>
+                        <td class="kyu1">PENALTY</td>
+                        <td><button class="custom-button" onclick="changeColor1(this)">C1</button></td>
+                        <td><button class="custom-button" onclick="changeColor1(this)">C2</button></td>
+                        <td><button class="custom-button" onclick="changeColor1(this)">C3</button></td>
+                        <td><button class="custom-button" onclick="changeColor1(this)">HC</button></td>
+                        <td><button class="custom-button" onclick="changeColor1(this)">H</button></td>
+                    </table>
+                <td rowspan="4"><button class="custom-buttonS" onclick="changeColor1(this)">S</button></td>
+                <th id="score1" class="custom-cell1">0</th>
+        </table>
+        <table class="table">
             <tr>
-                <td>
-                <th></th>
-                <th><button class="custom-buttonS" onclick="changeColor2(this)">S</button></th>
-                <th id="score2" class="score2">0</th>
-                </td>
-                <td colspan="3"></td>
-                <td>
-                <th><button class="custom-buttonS" onclick="changeColor1(this)">S</button></th>
-                <th id="score1" class="score1">0</th>
-                <th></th>
-                </td>
-            </tr>
-            <tr>
-                <th> <button class="chui" onclick="changeColor2(this)">C1</button></th>
-                <th> <button class="chui" onclick="changeColor2(this)">C2</button></th>
-                <th> <button class="chui" onclick="changeColor2(this)">C3</button></th>
-                <th> <button class="chui" onclick="changeColor2(this)">HC</button></th>
-                <th> <button class="chui" onclick="changeColor2(this)">H</button></th>
-                <th colspan="2" class="VS">VS</th>
-                <th> <button class="chui" onclick="changeColor1(this)">C1</button></th>
-                <th> <button class="chui" onclick="changeColor1(this)">C2</button></th>
-                <th> <button class="chui" onclick="changeColor1(this)">C3</button></th>
-                <th> <button class="chui" onclick="changeColor1(this)">HC</button></th>
-                <th> <button class="chui" onclick="changeColor1(this)">H</button></th>
-            </tr>
-            <tr>
-                <th colspan="2" class="count2" id="clickCount2_3">0 : IPPON</th>
-                <th colspan="2" class="count2" id="clickCount2_2">0 : WAZA</th>
-                <th colspan="4"></th>
-                <th colspan="2" class="count1" id="clickCount1_2">0 : WAZA</th>
-                <th colspan="2" class="count1" id="clickCount1_3">0 : IPPON</th>
-            </tr>
+                <th>
+                    <label for="inputField"></label>
+                    <input colspan="6" type="text" id="inputField" name="inputField" autocomplete="off" class="VDV2"
+                        placeholder="AO">
+                    <table>
+                        <td class="kyu2">PENALTY</td>
+                        <td><button class="custom-button" onclick="changeColor2(this)">C1</button></td>
+                        <td><button class="custom-button" onclick="changeColor2(this)">C2</button></td>
+                        <td><button class="custom-button" onclick="changeColor2(this)">C3</button></td>
+                        <td><button class="custom-button" onclick="changeColor2(this)">HC</button></td>
+                        <td><button class="custom-button" onclick="changeColor2(this)">H</button></td>
+                    </table>
+                <td rowspan="4"><button class="custom-buttonS" onclick="changeColor2(this)">S</button></td>
+                <th id="score2" class="custom-cell2">0</th>
         </table>
         <table class="table-score">
             <tr>
-                <th colspan="12" class="time" id="countdown">02:00<span id="tenths">.0</span></th>
+                <th colspan="14" class="time" id="countdown">01:30<span id="tenths">.0</span></th>
             </tr>
             <tr>
-                <th>
-                    <button class="custom-button3" onclick="addScore(2, 1,0)">+1</button>
-                    <button class="custom-button3" onclick="addScore(2, 2,1)">+2</button>
-                    <button class="custom-button3" onclick="addScore(2, 3,1)">+3</button>
-
-                    <button class="custom-button3" onclick="subtractScore(2, 1,0)">-1</button>
-                    <button class="custom-button3" onclick="subtractScore(2, 2,1)">-2</button>
-                    <button class="custom-button3" onclick="subtractScore(2, 3,1)">-3</button>
-                </th>
-                <th>
-                    <button class="custom-buttonT" onclick="startCountdown()">Start (1)</button>
-                    <button class="custom-buttonT" onclick="stopCountdown()">Pause (2)</button>
-                    <button class="custom-buttonT" onclick="resetCountdown()">ResetTime (3)</button>
-                    <button class="custom-buttonT" onclick="reloadPage()">Reset All (=)</button>
-                    <button class="custom-buttonT" onclick="updateSeconds()"> SET TIME</button>
-                </th>
-                <th>
-                    <button class="custom-button2" onclick="addScore(1, 1,0)">+1</button>
-                    <button class="custom-button2" onclick="addScore(1, 2,1)">+2</button>
-                    <button class="custom-button2" onclick="addScore(1, 3,1)">+3</button>
-                    <button class="custom-button2" onclick="subtractScore(1, 1,0)">-1</button>
-                    <button class="custom-button2" onclick="subtractScore(1, 2,1)">-2</button>
-                    <button class="custom-button2" onclick="subtractScore(1, 3,1)">-3</button>
-                </th>
+                <th class="TSaoD" id="TSaoD_1">0</th>
+                <th class="TSakaD" id="TSakaD_1">0</th>
+                <th class="TSaoD" id="TSaoD_2">0</th>
+                <th class="TSakaD" id="TSakaD_2">0</th>
+                <th class="TSaoD" id="TSaoD_3">0</th>
+                <th class="TSakaD" id="TSakaD_3">0</th>
+                <th class="TSaoD" id="TSaoD_4">0</th>
+                <th class="TSakaD" id="TSakaD_4">0</th>
+                <th class="TSaoD" id="TSaoD_5">0</th>
+                <th class="TSakaD" id="TSakaD_5">0</th>
+                <th id="win2">0 :AO</th>
+                <th id="win1">0 :AKA</th>
+            </tr>
+            <tr>
+                <td><button class="custom-buttonT" onclick="startCountdown()">Start (1)</button></td>
+                <td><button class="custom-buttonT" onclick="stopCountdown()">Pause (2)</button></td>
+                <td><button class="custom-buttonT" onclick="win(0)">DRAW</button></td>
+                <td><button class="custom-button2" onclick="addScore(1, 1,0)">+1</button></td>
+                <td><button class="custom-button2" onclick="addScore(1, 2,1)">+2</button></td>
+                <td><button class="custom-button2" onclick="addScore(1, 3,1)">+3</button></td>
+                <td><button class="custom-button2" onclick="subtractScore(1, 1,0)">-1</button></td>
+                <td><button class="custom-button2" onclick="subtractScore(1, 2,1)">-2</button></td>
+                <td><button class="custom-button2" onclick="subtractScore(1, 3,1)">-3</button></td>
+                <td class="click1" id="clickCount1_2">0 : WAZA</td>
+                <td class="click1" id="clickCount1_3">0 : IPPON</td>
+                <td><button class="winner1" onclick="win(1)">AKA</button></td>
+            </tr>
+            <tr>
+                <td><button class="custom-buttonT" onclick="resetCountdown()">ResetTime (2)</button></td>
+                <td><button class="custom-buttonT" onclick="reloadPage()">Reset All (=)</button></td>
+                <td><button class="custom-buttonT" onclick="updateSeconds()"> SET TIME</button></td>
+                <td><button class="custom-button3" onclick="addScore(2, 1,0)">+1</button></td>
+                <td><button class="custom-button3" onclick="addScore(2, 2,1)">+2</button></td>
+                <td><button class="custom-button3" onclick="addScore(2, 3,1)">+3</button></td>
+                <td><button class="custom-button3" onclick="subtractScore(2, 1,0)">-1</button></td>
+                <td><button class="custom-button3" onclick="subtractScore(2, 2,1)">-2</button></td>
+                <td><button class="custom-button3" onclick="subtractScore(2, 3,1)">-3</button></td>
+                <td class="click2" id="clickCount2_2">0 : WAZA</td>
+                <td class="click2" id="clickCount2_3">0 : IPPON</td>
+                <td><button class="winner2" onclick="win(2)">AO</button></td>
             </tr>
             </tr>
         </table>
@@ -332,6 +364,81 @@
 
         function kumite() {
             window.location.href = "index.html";
+        }
+
+        var TSaka_1 = 0;
+        var TSaka_2 = 0;
+        var TSaka_3 = 0;
+        var TSaka_4 = 0;
+        var TSaka_5 = 0;
+        var TSao_1 = 0;
+        var TSao_2 = 0;
+        var TSao_3 = 0;
+        var TSao_4 = 0;
+        var TSao_5 = 0;
+
+        function win(player) {
+            var winId = "win" + player;
+            var matchwin1;
+            var matchwin2;
+            var scoreId = "score" + player;
+            resetCountdown();
+            document.getElementById('clickCount1_2').innerText = '0 : WAZA';
+            document.getElementById('clickCount1_3').innerText = '0 : IPPON';
+            document.getElementById('clickCount2_2').innerText = '0 : WAZA';
+            document.getElementById('clickCount2_3').innerText = '0 : IPPON';
+            if (player === 1) {
+                matchwin1 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin1 + 1) + ": AKA";
+            }
+            else if (player === 2) {
+                matchwin2 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin2 + 1) + ": AO";
+            }
+            player = 1;
+            scoreId = "score" + player;
+            TSaka = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById('score1').innerText = '0';
+            player = 2;
+            scoreId = "score" + player;
+            TSao = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById('score2').innerText = '0';
+
+            TSaka_5 = TSaka_4;
+            TSao_5 = TSao_4;
+            TSaka_4 = TSaka_3;
+            TSao_4 = TSao_3;
+            TSaka_3 = TSaka_2;
+            TSao_3 = TSao_2;
+            TSaka_2 = TSaka_1;
+            TSao_2 = TSao_1;
+            TSaka_1 = TSaka;
+            TSao_1 = TSao;
+
+            document.getElementById("TSakaD_1").innerText = TSaka;
+            document.getElementById("TSaoD_1").innerText = TSao;
+            document.getElementById("TSakaD_2").innerText = TSaka_2;
+            document.getElementById("TSaoD_2").innerText = TSao_2;
+            document.getElementById("TSakaD_3").innerText = TSaka_3;
+            document.getElementById("TSaoD_3").innerText = TSao_3;
+            document.getElementById("TSakaD_4").innerText = TSaka_4;
+            document.getElementById("TSaoD_4").innerText = TSao_4;
+            document.getElementById("TSakaD_5").innerText = TSaka_5;
+            document.getElementById("TSaoD_5").innerText = TSao_5;
+
+            var buttons = document.querySelectorAll('.custom-button');
+            buttons.forEach(function (button) {
+                button.classList.remove('clicked1', 'clicked2');
+            });
+            var buttonsS = document.querySelectorAll('.custom-buttonS');
+            buttonsS.forEach(function (button) {
+                button.classList.remove('clicked1', 'clicked2');
+            })
+
+            // Đặt lại trạng thái clicked
+            isClicked = false;
+            document.getElementById('score1').classList.remove('flashing');
+            document.getElementById('score2').classList.remove('flashing');
         }
 
         function changeColor(color) {
@@ -376,8 +483,8 @@
 
         let countdownTimer;
         let isRunning = false;
-        let tenths = 120 * 10; // 90 seconds * 10 tenths per second
-        let initialSetTime = 120;
+        let tenths = 90 * 10; // 90 seconds * 10 tenths per second
+        let initialSetTime = 90;
 
         function startCountdown() {
             if (!isRunning && tenths > 0) {
@@ -412,6 +519,7 @@
                 isRunning = false;
                 changeColor('white');
             }
+
             const score1 = parseInt(document.getElementById('score1').innerText);
             const score2 = parseInt(document.getElementById('score2').innerText);
 
@@ -493,10 +601,10 @@
         function changeColorS1(button) {
             if (!isClicked) {
                 // Thêm class "clicked" và đổi màu khi nút chưa được click
-                button.classList.add('clicked1S');
+                button.classList.add('clickedS1');
             } else {
                 // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
-                button.classList.remove('clicked1S');
+                button.classList.remove('clickedS1');
             }
 
             // Đảo ngược trạng thái clicked
@@ -506,10 +614,10 @@
         function changeColorS2(button) {
             if (!isClicked) {
                 // Thêm class "clicked" và đổi màu khi nút chưa được click
-                button.classList.add('clicked2S');
+                button.classList.add('clickedS2');
             } else {
                 // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
-                button.classList.remove('clicked2S');
+                button.classList.remove('clickedS2');
             }
 
             // Đảo ngược trạng thái clicked
