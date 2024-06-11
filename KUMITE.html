@@ -21,9 +21,7 @@
 
         .table {
             width: 100%;
-            /* Đổi chiều rộng của ô */
             height: 130px;
-            /* Đổi chiều cao của ô */
         }
 
         .kyu1 {
@@ -38,18 +36,14 @@
 
         .custom-cell1 {
             width: 500px;
-            /* Đổi chiều rộng của ô */
             height: 250px;
-            /* Đổi chiều cao của ô */
             font-size: 210px;
             color: red;
         }
 
         .custom-cell2 {
             width: 500px;
-            /* Đổi chiều rộng của ô */
             height: 250px;
-            /* Đổi chiều cao của ô */
             font-size: 210px;
             color: blue;
         }
@@ -130,21 +124,18 @@
             background-color: black;
             font-size: 120px;
             color: white;
-            /* Bạn có thể điều chỉnh độ rộng tùy ý */
         }
 
         .clicked1 {
             background-color: red;
             border-color: black;
             border: 10px;
-            /* Màu mong muốn khi nút được click */
         }
 
         .clicked2 {
             background-color: blue;
             border-color: black;
             border: 10px;
-            /* Màu mong muốn khi nút được click */
         }
 
         .time {
@@ -334,12 +325,12 @@
 
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12') {
-                e.preventDefault();  // Ngăn chặn mở Developer Tools
+                e.preventDefault();
             }
         });
 
         document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();  // Ngăn chặn menu chuột phải
+            e.preventDefault();
         });
 
         document.addEventListener('keydown', function (event) {
@@ -434,8 +425,6 @@
             buttonsS.forEach(function (button) {
                 button.classList.remove('clicked1', 'clicked2');
             })
-
-            // Đặt lại trạng thái clicked
             isClicked = false;
             document.getElementById('score1').classList.remove('flashing');
             document.getElementById('score2').classList.remove('flashing');
@@ -513,7 +502,7 @@
 
         let countdownTimer;
         let isRunning = false;
-        let tenths = 90 * 10; // 90 seconds * 10 tenths per second
+        let tenths = 90 * 10;
         let initialSetTime = 90;
 
         function startCountdown() {
@@ -562,7 +551,6 @@
                     document.getElementById('score1').classList.remove('flashing');
                 }
             } else {
-                // Reset flashing class if conditions are not met
                 document.getElementById('score1').classList.remove('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             }
@@ -583,7 +571,6 @@
         function resetCountdown() {
             clearInterval(countdownTimer);
             isRunning = false;
-            // Reset to the initial set time
             tenths = initialSetTime * 10;
             updateCountdown();
         }
@@ -593,7 +580,6 @@
             const newSeconds = parseInt(userInput);
 
             if (!isNaN(newSeconds) && newSeconds >= 0) {
-                // Update the initial set time
                 initialSetTime = newSeconds;
                 tenths = newSeconds * 10;
                 updateCountdown();
@@ -604,53 +590,37 @@
 
         function changeColor1(button) {
             if (!isClicked) {
-                // Thêm class "clicked" và đổi màu khi nút chưa được click
                 button.classList.add('clicked1');
             } else {
-                // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
                 button.classList.remove('clicked1');
             }
-
-            // Đảo ngược trạng thái clicked
             isClicked = !isClicked;
         }
 
         function changeColor2(button) {
             if (!isClicked) {
-                // Thêm class "clicked" và đổi màu khi nút chưa được click
                 button.classList.add('clicked2');
             } else {
-                // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
                 button.classList.remove('clicked2');
             }
-
-            // Đảo ngược trạng thái clicked
             isClicked = !isClicked;
         }
 
         function changeColorS1(button) {
             if (!isClicked) {
-                // Thêm class "clicked" và đổi màu khi nút chưa được click
                 button.classList.add('clickedS1');
             } else {
-                // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
                 button.classList.remove('clickedS1');
             }
-
-            // Đảo ngược trạng thái clicked
             isClicked = !isClicked;
         }
 
         function changeColorS2(button) {
             if (!isClicked) {
-                // Thêm class "clicked" và đổi màu khi nút chưa được click
                 button.classList.add('clickedS2');
             } else {
-                // Loại bỏ class "clicked" và chuyển về màu cũ khi nút đã được click
                 button.classList.remove('clickedS2');
             }
-
-            // Đảo ngược trạng thái clicked
             isClicked = !isClicked;
         }
 
