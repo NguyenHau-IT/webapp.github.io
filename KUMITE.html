@@ -461,6 +461,21 @@
                 currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
                 document.getElementById(clickCountId_3).innerText = (currentcount3 + Count) + ": IPPON";
             }
+
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
+
+            if (score1 - score2 >= 8) {
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else if (score1 - score2 <= -8) {
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            }
+            else {
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            }
         }
 
         function subtractScore(player, points, Count) {
@@ -478,6 +493,21 @@
             else if (points === 3) {
                 currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
                 document.getElementById(clickCountId_3).innerText = (currentcount3 - Count) + ": IPPON";
+            }
+
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
+
+            if (score1 - score2 >= 8) {
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else if (score1 - score2 <= -8) {
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            }
+            else {
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
             }
         }
 
