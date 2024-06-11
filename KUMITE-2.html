@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>KARATE SCORE BOARD:TEAM KUMITE</title>
+    <title>KARATE SCORE BOARD:KUMITE 2</title>
     <style>
         body {
             height: 100%;
@@ -45,7 +45,7 @@
             border-radius: 50px;
             background-color: black;
             width: 250px;
-            height: 100px;
+            height: 150px;
             font-size: 95px;
             color: white;
         }
@@ -53,26 +53,26 @@
         .custom-buttonT {
             border-radius: 50px;
             cursor: pointer;
-            width: 300px;
-            height: 80px;
+            width: 250px;
+            height: 70px;
             font-size: 45px;
         }
 
         .custom-button2 {
             border-radius: 50px;
             background-color: red;
-            width: 300px;
-            height: 100px;
-            font-size: 80px;
+            width: 250px;
+            height: 70px;
+            font-size: 60px;
             color: white;
         }
 
         .custom-button3 {
             border-radius: 50px;
             background-color: blue;
-            width: 300px;
-            height: 100px;
-            font-size: 80px;
+            width: 250px;
+            height: 70px;
+            font-size: 60px;
             color: white;
         }
 
@@ -125,9 +125,9 @@
             text-align: center;
             border-top-left-radius: 100px;
             border-bottom-left-radius: 100px;
-            width: 70px;
-            height: 60px;
-            font-size: 60px;
+            width: 90px;
+            height: 100px;
+            font-size: 75px;
             background-color: #fff;
             color: #00f
         }
@@ -136,9 +136,9 @@
             text-align: center;
             border-top-right-radius: 100px;
             border-bottom-right-radius: 100px;
-            width: 70px;
-            height: 60px;
-            font-size: 60px;
+            width: 90px;
+            height: 100px;
+            font-size: 75px;
             background-color: #fff;
             color: red
         }
@@ -252,6 +252,18 @@
                 <th colspan="12" class="time" id="countdown">01:30<span id="tenths">.0</span></th>
             </tr>
             <tr>
+                <th class="TSaoD" id="TSaoD_1">0</th>
+                <th class="TSakaD" id="TSakaD_1">0</th>
+                <th class="TSaoD" id="TSaoD_2">0</th>
+                <th class="TSakaD" id="TSakaD_2">0</th>
+                <th class="TSaoD" id="TSaoD_3">0</th>
+                <th class="TSakaD" id="TSakaD_3">0</th>
+                <th class="TSaoD" id="TSaoD_4">0</th>
+                <th class="TSakaD" id="TSakaD_4">0</th>
+                <th class="TSaoD" id="TSaoD_5">0</th>
+                <th class="TSakaD" id="TSakaD_5">0</th>
+            </tr>
+            <tr>
                 <th><button class="custom-button3" onclick="addScore(2, 1,0)">+1</button></th>
                 <th><button class="custom-button3" onclick="addScore(2, 2,1)">+2</button></th>
                 <th><button class="custom-button3" onclick="addScore(2, 3,1)">+3</button></th>
@@ -274,18 +286,6 @@
                 <th><button class="custom-button2" onclick="subtractScore(1, 1,0)">-1</button></th>
                 <th><button class="custom-button2" onclick="subtractScore(1, 2,1)">-2</button></th>
                 <th><button class="custom-button2" onclick="subtractScore(1, 3,1)">-3</button></th>
-            </tr>
-            <tr>
-                <th class="TSaoD" id="TSaoD_1">0</th>
-                <th class="TSakaD" id="TSakaD_1">0</th>
-                <th class="TSaoD" id="TSaoD_2">0</th>
-                <th class="TSakaD" id="TSakaD_2">0</th>
-                <th class="TSaoD" id="TSaoD_3">0</th>
-                <th class="TSakaD" id="TSakaD_3">0</th>
-                <th class="TSaoD" id="TSaoD_4">0</th>
-                <th class="TSakaD" id="TSakaD_4">0</th>
-                <th class="TSaoD" id="TSaoD_5">0</th>
-                <th class="TSakaD" id="TSakaD_5">0</th>
             </tr>
         </table>
     </table>
@@ -341,10 +341,6 @@
             var matchwin2;
             var scoreId = "score" + player;
             resetCountdown();
-            document.getElementById('clickCount1_2').innerText = '0 : WAZA';
-            document.getElementById('clickCount1_3').innerText = '0 : IPPON';
-            document.getElementById('clickCount2_2').innerText = '0 : WAZA';
-            document.getElementById('clickCount2_3').innerText = '0 : IPPON';
             if (player === 1) {
                 matchwin1 = parseInt(document.getElementById(winId).innerText);
                 document.getElementById(winId).innerText = (matchwin1 + 1) + ": AKA";
@@ -420,6 +416,21 @@
                 currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
                 document.getElementById(clickCountId_3).innerText = (currentcount3 + Count) + ": IPPON";
             }
+
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
+
+            if (score1 - score2 >= 8) {
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else if (score1 - score2 <= -8) {
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            }
+            else {
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            }
         }
 
         function subtractScore(player, points, Count) {
@@ -437,6 +448,21 @@
             else if (points === 3) {
                 currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
                 document.getElementById(clickCountId_3).innerText = (currentcount3 - Count) + ": IPPON";
+            }
+
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
+
+            if (score1 - score2 >= 8) {
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else if (score1 - score2 <= -8) {
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            }
+            else {
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
             }
         }
 
