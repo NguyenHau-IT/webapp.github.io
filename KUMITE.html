@@ -49,23 +49,6 @@
             color: blue;
         }
 
-        .custom-button {
-            border-radius: 50px;
-            background-color: black;
-            width: 230px;
-            height: 130xpx;
-            font-size: 95px;
-            color: white;
-        }
-
-        .custom-buttonT {
-            border-radius: 50px;
-            cursor: pointer;
-            width: 170px;
-            height: 50px;
-            font-size: 25px;
-        }
-
         .winner1 {
             border-radius: 50px;
             background-color: red;
@@ -84,10 +67,27 @@
             color: white;
         }
 
+        .custom-button {
+            border-radius: 50px;
+            background-color: black;
+            width: 230px;
+            height: 130xpx;
+            font-size: 95px;
+            color: white;
+        }
+
+        .custom-buttonT {
+            border-radius: 50px;
+            cursor: pointer;
+            width: 170px;
+            height: 50px;
+            font-size: 20px;
+        }
+
         .custom-button2 {
             border-radius: 50px;
             background-color: red;
-            width: 150px;
+            width: 170px;
             height: 50px;
             font-size: 40px;
             color: white;
@@ -96,7 +96,7 @@
         .custom-button3 {
             border-radius: 50px;
             background-color: blue;
-            width: 150px;
+            width: 170px;
             height: 50px;
             font-size: 40px;
             color: white;
@@ -233,6 +233,7 @@
                 opacity: 0;
             }
         }
+
     </style>
 
 </head>
@@ -375,10 +376,6 @@
             var matchwin2;
             var scoreId = "score" + player;
             resetCountdown();
-            document.getElementById('clickCount1_2').innerText = '0 : WAZA';
-            document.getElementById('clickCount1_3').innerText = '0 : IPPON';
-            document.getElementById('clickCount2_2').innerText = '0 : WAZA';
-            document.getElementById('clickCount2_3').innerText = '0 : IPPON';
             if (player === 1) {
                 matchwin1 = parseInt(document.getElementById(winId).innerText);
                 document.getElementById(winId).innerText = (matchwin1 + 1) + ": AKA";
