@@ -231,13 +231,13 @@
                 <th> <button class="chui" onclick="changeColor2(this)">C2</button></th>
                 <th> <button class="chui" onclick="changeColor2(this)">C3</button></th>
                 <th> <button class="chui" onclick="changeColor2(this)">HC</button></th>
-                <th> <button class="chui" onclick="changeColor2(this);hansoku2(this);">H</button></th>
+                <th> <button class="chui" onclick="hansoku2(this);">H</button></th>
                 <th colspan="2" class="VS">VS</th>
                 <th> <button class="chui" onclick="changeColor1(this)">C1</button></th>
                 <th> <button class="chui" onclick="changeColor1(this)">C2</button></th>
                 <th> <button class="chui" onclick="changeColor1(this)">C3</button></th>
                 <th> <button class="chui" onclick="changeColor1(this)">HC</button></th>
-                <th> <button class="chui" onclick="changeColor1(this);hansoku1(this);">H</button></th>
+                <th> <button class="chui" onclick="hansoku1(this);">H</button></th>
             </tr>
             <tr>
                 <th colspan="2" class="count2" id="clickCount2_3">0 : IPPON</th>
@@ -618,22 +618,26 @@
         let isClicked1 = false;
         let isClicked2 = false;
 
-        function hansoku1() {
+        function hansoku1(button) {
             if (!isClicked1) {
+                button.classList.add('clicked1');
                 document.getElementById('score2').classList.add('flashing');
                 document.getElementById('score1').classList.remove('flashing');
             } else {
+                button.classList.remove('clicked1');
                 document.getElementById('score1').classList.remove('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             }
             isClicked1 = !isClicked1;
         }
 
-        function hansoku2() {
+        function hansoku2(button) {
             if (!isClicked2) {
+                button.classList.add('clicked2');
                 document.getElementById('score1').classList.add('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             } else {
+                button.classList.remove('clicked2');
                 document.getElementById('score1').classList.remove('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             }

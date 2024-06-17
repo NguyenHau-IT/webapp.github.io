@@ -250,7 +250,7 @@
                         <td><button class="custom-button" onclick="changeColor1(this)">C2</button></td>
                         <td><button class="custom-button" onclick="changeColor1(this)">C3</button></td>
                         <td><button class="custom-button" onclick="changeColor1(this)">HC</button></td>
-                        <td><button class="custom-button" onclick="changeColor1(this);hansoku1(this);">H</button>
+                        <td><button class="custom-button" onclick="hansoku1(this);">H</button>
                         </td>
                     </table>
                 <td rowspan="4"><button class="custom-buttonS" onclick="changeColorS1(this)">S</button></td>
@@ -268,7 +268,7 @@
                         <td><button class="custom-button" onclick="changeColor2(this)">C2</button></td>
                         <td><button class="custom-button" onclick="changeColor2(this)">C3</button></td>
                         <td><button class="custom-button" onclick="changeColor2(this)">HC</button></td>
-                        <td><button class="custom-button" onclick="changeColor2(this);hansoku2(this);">H</button>
+                        <td><button class="custom-button" onclick="hansoku2(this);">H</button>
                         </td>
                     </table>
                 <td rowspan="4"><button class="custom-buttonS" onclick="changeColorS2(this)">S</button></td>
@@ -645,22 +645,26 @@
         let isClicked1 = false;
         let isClicked2 = false;
 
-        function hansoku1() {
+        function hansoku1(button) {
             if (!isClicked1) {
+                button.classList.add('clicked1');
                 document.getElementById('score2').classList.add('flashing');
                 document.getElementById('score1').classList.remove('flashing');
             } else {
+                button.classList.remove('clicked1');
                 document.getElementById('score1').classList.remove('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             }
             isClicked1 = !isClicked1;
         }
 
-        function hansoku2() {
+        function hansoku2(button) {
             if (!isClicked2) {
+                button.classList.add('clicked2');
                 document.getElementById('score1').classList.add('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             } else {
+                button.classList.remove('clicked2');
                 document.getElementById('score1').classList.remove('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             }
