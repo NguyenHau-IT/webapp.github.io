@@ -233,7 +233,6 @@
                 opacity: 0;
             }
         }
-
     </style>
 
 </head>
@@ -251,7 +250,8 @@
                         <td><button class="custom-button" onclick="changeColor1(this)">C2</button></td>
                         <td><button class="custom-button" onclick="changeColor1(this)">C3</button></td>
                         <td><button class="custom-button" onclick="changeColor1(this)">HC</button></td>
-                        <td><button class="custom-button" onclick="changeColor1(this)">H</button></td>
+                        <td><button class="custom-button" onclick="changeColor1(this);hansoku1(this);">H</button>
+                        </td>
                     </table>
                 <td rowspan="4"><button class="custom-buttonS" onclick="changeColorS1(this)">S</button></td>
                 <th id="score1" class="custom-cell1">0</th>
@@ -268,7 +268,8 @@
                         <td><button class="custom-button" onclick="changeColor2(this)">C2</button></td>
                         <td><button class="custom-button" onclick="changeColor2(this)">C3</button></td>
                         <td><button class="custom-button" onclick="changeColor2(this)">HC</button></td>
-                        <td><button class="custom-button" onclick="changeColor2(this)">H</button></td>
+                        <td><button class="custom-button" onclick="changeColor2(this);hansoku2(this);">H</button>
+                        </td>
                     </table>
                 <td rowspan="4"><button class="custom-buttonS" onclick="changeColorS2(this)">S</button></td>
                 <th id="score2" class="custom-cell2">0</th>
@@ -324,6 +325,11 @@
     </table>
 
     <script>
+        let isClicked = false;
+        var senshu1Clicked = false;
+        var senshu2Clicked = false;
+        const score1 = parseInt(document.getElementById('score1').innerText);
+        const score2 = parseInt(document.getElementById('score2').innerText);
 
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12') {
@@ -537,8 +543,7 @@
                 changeColor('white');
             }
 
-            const score1 = parseInt(document.getElementById('score1').innerText);
-            const score2 = parseInt(document.getElementById('score2').innerText);
+
 
             if (tenths === 0 && (score1 !== score2)) {
                 if (score1 > score2) {
@@ -598,10 +603,6 @@
             }
         }
 
-        let isClicked = false;
-        var senshu1Clicked = false;
-        var senshu2Clicked = false;
-
         function changeColor1(button) {
             if (!isClicked) {
                 button.classList.add('clicked1');
@@ -642,11 +643,29 @@
             isClicked = !isClicked;
         }
 
-        function reloadPage() {
-            var confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
-            if (confirmation) {
-                location.reload();
+        let isClicked1 = false;
+        let isClicked2 = false;
+
+        function hansoku1() {
+            if (!isClicked1) {
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            } else {
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
             }
+            isClicked1 = !isClicked1;
+        }
+
+        function hansoku2() {
+            if (!isClicked2) {
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else {
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            }
+            isClicked2 = !isClicked2;
         }
 
     </script>
