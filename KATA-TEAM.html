@@ -316,13 +316,15 @@
 
     <table class="table">
         <tr>
+            <th class="time" id="countdown1">00:35<span id="tenths1">.0</span></th>
             <th class="time" id="countdown">05:00<span id="tenths">.0</span></th>
         </tr>
         <tr>
-            <th>
-                <button onclick="startCountdown()">Start (1)</button>
+            <th colspan="2">
+                <button onclick="startCountdown1()">Bắt đầu</button>
+                <button onclick="startCountdown();stopCountdown1();">Start (1)</button>
                 <button onclick="stopCountdown()">Pause (2)</button>
-                <button onclick="resetCountdown()">ResetTime(3)</button>
+                <button onclick="resetCountdown();resetCountdown1();">ResetTime(3)</button>
                 <button onclick="updateSeconds()">Set Time(4)</button>
                 <button onclick="reloadPage()">Reset All (=)</button>
             </th>
@@ -426,7 +428,6 @@
             tenths = initialSetTime * 10;
             updateCountdown();
         }
-
         function updateSeconds() {
             const userInput = prompt('Nhập số giây mới:');
             const newSeconds = parseInt(userInput);
@@ -443,6 +444,63 @@
             if (confirmation)
                 location.reload();
         }
+
+        function changeColor1(color) {
+            document.getElementById('countdown1').style.color = color;
+        }
+
+        let countdownTimer1;
+        let isRunning1 = false;
+        let tenths1 = 35 * 10;
+        let initialSetTime1 = 35;
+
+        function startCountdown1() {
+            if (!isRunning1 && tenths1 > 0) {
+                countdownTimer1 = setInterval(updateTime1, 100);
+                isRunning1 = true;
+            }
+            if (tenths1 === 0) {
+                clearInterval(countdownTimer1);
+            }
+        }
+
+        function stopCountdown1() {
+            changeColor1('white');
+            clearInterval(countdownTimer1);
+            isRunning1 = false;
+        }
+
+        function updateTime1() {
+            if (tenths1 > 0) {
+                tenths1 -= 1;
+                updateCountdown1();
+                changeColor1('red');
+            } else {
+                clearInterval(countdownTimer1);
+                isRunning1 = false;
+                changeColor('white');
+            }
+        }
+
+        function updateCountdown1() {
+            const minutes1 = Math.floor((tenths1 / 10) / 60);
+            const seconds1 = Math.floor((tenths1 / 10) % 60);
+
+            const formattedTime1 = `${formatTime(minutes1)}:${formatTime(seconds1)}.${tenths1 % 10}`;
+            document.getElementById('countdown1').textContent = formattedTime1;
+        }
+
+        function formatTime(time1) {
+            return time1 < 10 ? `0${time1}` : time1;
+        }
+
+        function resetCountdown1() {
+            clearInterval(countdownTimer1);
+            isRunning1 = false;
+            tenths1 = initialSetTime1 * 10;
+            updateCountdown1();
+        }
+
     </script>
 </body>
 
