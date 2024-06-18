@@ -400,11 +400,7 @@
             if (tenths > 0) {
                 tenths -= 1;
                 updateCountdown();
-                if (tenths / 10 < 15) {
-                    changeColor('red');
-                } else {
-                    changeColor('yellow');
-                }
+                changeColor('red');
             } else {
                 clearInterval(countdownTimer);
                 isRunning = false;
