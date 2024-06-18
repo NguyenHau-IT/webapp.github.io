@@ -346,12 +346,14 @@
             switch (event.key) {
                 case '1':
                     startCountdown();
+                    stopCountdown1();
                     break;
                 case '2':
                     stopCountdown();
                     break;
                 case '3':
-                    resetCountdown()
+                    resetCountdown();
+                    resetCountdown1();
                     break;
                 case '4':
                     updateSeconds();
