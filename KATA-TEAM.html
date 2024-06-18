@@ -321,11 +321,11 @@
         </tr>
         <tr>
             <th colspan="2">
-                <button onclick="startCountdown1()">Bắt đầu</button>
-                <button onclick="startCountdown();stopCountdown1();">Start (1)</button>
-                <button onclick="stopCountdown()">Pause (2)</button>
-                <button onclick="resetCountdown();resetCountdown1();">ResetTime(3)</button>
-                <button onclick="updateSeconds()">Set Time(4)</button>
+                <button onclick="startCountdown1()">Start 35s(1)</button>
+                <button onclick="startCountdown();stopCountdown1();">Start (2)</button>
+                <button onclick="stopCountdown()">Pause (3)</button>
+                <button onclick="resetCountdown();resetCountdown1();">ResetTime(4)</button>
+                <button onclick="updateSeconds()">Set Time</button>
                 <button onclick="reloadPage()">Reset All (=)</button>
             </th>
         </tr>
@@ -345,18 +345,18 @@
         document.addEventListener('keydown', function (event) {
             switch (event.key) {
                 case '1':
+                    startCountdown1();
+                    break;
+                case '2':
                     startCountdown();
                     stopCountdown1();
                     break;
-                case '2':
+                case '3':
                     stopCountdown();
                     break;
-                case '3':
+                case '4':
                     resetCountdown();
                     resetCountdown1();
-                    break;
-                case '4':
-                    updateSeconds();
                     break;
                 case '=':
                     reloadPage();
