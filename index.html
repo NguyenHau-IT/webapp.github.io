@@ -63,6 +63,7 @@
 </head>
 
 <body>
+    
     <div class="container">
         <h1 class="name">List Karate Point Panel</h1>
         <div class="button" onclick="redirectTo('KATA.html')">KATA</div>
@@ -84,8 +85,10 @@
             e.preventDefault();  // Ngăn chặn menu chuột phải
         });
 
-        if (!localStorage.getItem('loggedIn')) {
-            window.location.href = 'login.html';
+        function checkLoginStatus() {
+            if (!localStorage.getItem('loggedIn')) {
+                window.location.href = 'login.html';
+            }
         }
 
         function redirectTo(url) {
@@ -97,6 +100,7 @@
             window.location.href = 'login.html';
         }
 
+        window.location.href = 'login.html';
     </script>
 </body>
 
