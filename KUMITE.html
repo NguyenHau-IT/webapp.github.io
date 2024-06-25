@@ -503,6 +503,7 @@
             }
         }
 
+        const sound = new Audio('sound/censor-beep-1sec-8112.mp3');
         let countdownTimer;
         let isRunning = false;
         let tenths = 90 * 10;
@@ -542,8 +543,6 @@
                 changeColor('white');
             }
 
-
-
             if (tenths === 0 && (score1 !== score2)) {
                 if (score1 > score2) {
                     document.getElementById('score1').classList.add('flashing');
@@ -569,6 +568,14 @@
                     document.getElementById('score1').classList.remove('flashing');
                     document.getElementById('score2').classList.remove('flashing');
                 }
+            }
+
+            if(tenths / 10 == 15){
+                sound.play();
+            }
+
+            if(tenths === 0){
+                sound.play();
             }
         }
 

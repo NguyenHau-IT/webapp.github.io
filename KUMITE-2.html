@@ -470,6 +470,7 @@
         let isRunning = false;
         let tenths = 90 * 10;
         let initialSetTime = 90;
+        const sound = new Audio('sound/censor-beep-1sec-8112.mp3');
 
         function startCountdown() {
             if (!isRunning && tenths > 0) {
@@ -531,6 +532,14 @@
                     document.getElementById('score1').classList.remove('flashing');
                     document.getElementById('score2').classList.remove('flashing');
                 }
+            }
+
+            if(tenths / 10 == 15){
+                sound.play();
+            }
+
+            if(tenths === 0){
+                sound.play();
             }
         }
 
