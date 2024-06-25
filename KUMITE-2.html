@@ -560,6 +560,8 @@
             isRunning = false;
             tenths = initialSetTime * 10;
             updateCountdown();
+            document.getElementById('score1').classList.remove('flashing');
+            document.getElementById('score2').classList.remove('flashing');
         }
 
         function updateSeconds() {
