@@ -505,154 +505,162 @@
                 changeColor('white');
             }
 
+            if (tenths / 10 == 15) {
+                sound.play();
+            }
+
+            if (tenths === 0) {
+                sound.play();
+            }
+
             const score1 = parseInt(document.getElementById('score1').innerText);
             const score2 = parseInt(document.getElementById('score2').innerText);
 
-            if (tenths === 0 && score1 !== score2) {
-                if (score1 > score2) {
-                    document.getElementById('score1').classList.add('flashing');
-                    document.getElementById('score2').classList.remove('flashing');
-                } else {
-                    document.getElementById('score2').classList.add('flashing');
-                    document.getElementById('score1').classList.remove('flashing');
+            if (tenths === 0) {
+                if (score1 !== score2) {
+                    if (score1 > score2) {
+                        document.getElementById('score1').classList.add('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                        return;
+                    } else {
+                        if (score1 < score2) {
+                            document.getElementById('score2').classList.add('flashing');
+                            document.getElementById('score1').classList.remove('flashing');
+                            return;
+                        }
+                    }
                 }
-            } else {
-                if (tenths === 0 && score1 == score2) {
+                if (score1 === score2) {
                     if (senshu1Clicked == true) {
                         document.getElementById('score1').classList.add('flashing');
                         document.getElementById('score2').classList.remove('flashing');
-                    } else if (senshu2Clicked == true) {
-                        document.getElementById('score1').classList.remove('flashing');
-                        document.getElementById('score2').classList.add('flashing');
+                        return;
+                    } else {
+                        if (senshu2Clicked == true) {
+                            document.getElementById('score2').classList.add('flashing');
+                            document.getElementById('score1').classList.remove('flashing');
+                            return;
+                        }
                     }
-                    else {
-                        document.getElementById('score1').classList.remove('flashing');
-                        document.getElementById('score2').classList.remove('flashing');
-                    }
+                }
+                else {
+                    document.getElementById('score1').classList.remove('flashing');
+                    document.getElementById('score2').classList.remove('flashing');
                 }
             }
+        }
 
+        function updateCountdown() {
+            const minutes = Math.floor((tenths / 10) / 60);
+            const seconds = Math.floor((tenths / 10) % 60);
 
-                if (tenths / 10 == 15) {
-                    sound.play();
-                }
+            const formattedTime = `${formatTime(minutes)}:${formatTime(seconds)}.${tenths % 10}`;
+            document.getElementById('countdown').textContent = formattedTime;
+        }
 
-                if (tenths === 0) {
-                    sound.play();
-                }
-            }
+        function formatTime(time) {
+            return time < 10 ? `0${time}` : time;
+        }
 
-            function updateCountdown() {
-                const minutes = Math.floor((tenths / 10) / 60);
-                const seconds = Math.floor((tenths / 10) % 60);
+        function resetCountdown() {
+            clearInterval(countdownTimer);
+            isRunning = false;
+            tenths = initialSetTime * 10;
+            updateCountdown();
+            document.getElementById('score1').classList.remove('flashing');
+            document.getElementById('score2').classList.remove('flashing');
+        }
 
-                const formattedTime = `${formatTime(minutes)}:${formatTime(seconds)}.${tenths % 10}`;
-                document.getElementById('countdown').textContent = formattedTime;
-            }
+        function updateSeconds() {
+            const userInput = prompt('Nhập số giây mới:');
+            const newSeconds = parseInt(userInput);
 
-            function formatTime(time) {
-                return time < 10 ? `0${time}` : time;
-            }
-
-            function resetCountdown() {
-                clearInterval(countdownTimer);
-                isRunning = false;
-                tenths = initialSetTime * 10;
+            if (!isNaN(newSeconds) && newSeconds >= 0) {
+                initialSetTime = newSeconds;
+                tenths = newSeconds * 10;
                 updateCountdown();
+            }
+        }
+
+        let isClicked = false;
+        var senshu1Clicked = false;
+        var senshu2Clicked = false;
+
+        function changeColor1(button) {
+            if (!isClicked) {
+                button.classList.add('clicked1');
+            } else {
+                button.classList.remove('clicked1');
+            }
+            isClicked = !isClicked;
+        }
+
+        function changeColor2(button) {
+            if (!isClicked) {
+                button.classList.add('clicked2');
+            } else {
+                button.classList.remove('clicked2');
+            }
+            isClicked = !isClicked;
+        }
+
+        function changeColorS1(button) {
+            if (!isClicked) {
+                button.classList.add('clicked1');
+                senshu1Clicked = true;
+            } else {
+                button.classList.remove('clicked1');
+                senshu1Clicked = false;
+            }
+            isClicked = !isClicked;
+        }
+
+        function changeColorS2(button) {
+            if (!isClicked) {
+                button.classList.add('clicked2');
+                senshu2Clicked = true;
+            } else {
+                button.classList.remove('clicked2');
+                senshu2Clicked = false;
+            }
+            isClicked = !isClicked;
+        }
+
+        function reloadPage() {
+            var confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
+            if (confirmation) {
+                location.reload();
+            }
+        }
+
+        let isClicked1 = false;
+        let isClicked2 = false;
+
+        function hansoku1(button) {
+            if (!isClicked1) {
+                button.classList.add('clicked1');
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            } else {
+                button.classList.remove('clicked1');
                 document.getElementById('score1').classList.remove('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             }
+            isClicked1 = !isClicked1;
+        }
 
-            function updateSeconds() {
-                const userInput = prompt('Nhập số giây mới:');
-                const newSeconds = parseInt(userInput);
-
-                if (!isNaN(newSeconds) && newSeconds >= 0) {
-                    initialSetTime = newSeconds;
-                    tenths = newSeconds * 10;
-                    updateCountdown();
-                }
+        function hansoku2(button) {
+            if (!isClicked2) {
+                button.classList.add('clicked2');
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else {
+                button.classList.remove('clicked2');
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
             }
-
-            let isClicked = false;
-            var senshu1Clicked = false;
-            var senshu2Clicked = false;
-
-            function changeColor1(button) {
-                if (!isClicked) {
-                    button.classList.add('clicked1');
-                } else {
-                    button.classList.remove('clicked1');
-                }
-                isClicked = !isClicked;
-            }
-
-            function changeColor2(button) {
-                if (!isClicked) {
-                    button.classList.add('clicked2');
-                } else {
-                    button.classList.remove('clicked2');
-                }
-                isClicked = !isClicked;
-            }
-
-            function changeColorS1(button) {
-                if (!isClicked) {
-                    button.classList.add('clicked1');
-                    senshu1Clicked = true;
-                } else {
-                    button.classList.remove('clicked1');
-                    senshu1Clicked = false;
-                }
-                isClicked = !isClicked;
-            }
-
-            function changeColorS2(button) {
-                if (!isClicked) {
-                    button.classList.add('clicked2');
-                    senshu2Clicked = true;
-                } else {
-                    button.classList.remove('clicked2');
-                    senshu2Clicked = false;
-                }
-                isClicked = !isClicked;
-            }
-
-            function reloadPage() {
-                var confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
-                if (confirmation) {
-                    location.reload();
-                }
-            }
-
-            let isClicked1 = false;
-            let isClicked2 = false;
-
-            function hansoku1(button) {
-                if (!isClicked1) {
-                    button.classList.add('clicked1');
-                    document.getElementById('score2').classList.add('flashing');
-                    document.getElementById('score1').classList.remove('flashing');
-                } else {
-                    button.classList.remove('clicked1');
-                    document.getElementById('score1').classList.remove('flashing');
-                    document.getElementById('score2').classList.remove('flashing');
-                }
-                isClicked1 = !isClicked1;
-            }
-
-            function hansoku2(button) {
-                if (!isClicked2) {
-                    button.classList.add('clicked2');
-                    document.getElementById('score1').classList.add('flashing');
-                    document.getElementById('score2').classList.remove('flashing');
-                } else {
-                    button.classList.remove('clicked2');
-                    document.getElementById('score1').classList.remove('flashing');
-                    document.getElementById('score2').classList.remove('flashing');
-                }
-                isClicked2 = !isClicked2;
-            }
+            isClicked2 = !isClicked2;
+        }
 
     </script>
 </body>
