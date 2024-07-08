@@ -539,7 +539,7 @@
                 changeColor('white');
             }
             var senshu1Clicked = false;
-        var senshu2Clicked = false;
+            var senshu2Clicked = false;
             const score1 = parseInt(document.getElementById('score1').innerText);
             const score2 = parseInt(document.getElementById('score2').innerText);
 
@@ -554,18 +554,16 @@
                             document.getElementById('score1').classList.remove('flashing');
                         }
                         else {
-                            if (score1 == score2) {
-                                if (senshu1Clicked == true) {
-                                    document.getElementById('score1').classList.add('flashing');
-                                    document.getElementById('score2').classList.remove('flashing');
-                                } else if (senshu2Clicked == true) {
-                                    document.getElementById('score1').classList.remove('flashing');
-                                    document.getElementById('score2').classList.add('flashing');
-                                }
-                                else {
-                                    document.getElementById('score1').classList.remove('flashing');
-                                    document.getElementById('score2').classList.remove('flashing');
-                                }
+                            if (senshu1Clicked == true) {
+                                document.getElementById('score1').classList.add('flashing');
+                                document.getElementById('score2').classList.remove('flashing');
+                            } else if (senshu2Clicked == true) {
+                                document.getElementById('score1').classList.remove('flashing');
+                                document.getElementById('score2').classList.add('flashing');
+                            }
+                            else {
+                                document.getElementById('score1').classList.remove('flashing');
+                                document.getElementById('score2').classList.remove('flashing');
                             }
                         }
                     }
