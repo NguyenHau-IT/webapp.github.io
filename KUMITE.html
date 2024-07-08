@@ -543,7 +543,7 @@
                 changeColor('white');
             }
 
-            if (tenths === 0 && (score1 !== score2)) {
+            if (tenths === 0) {
                 if (score1 > score2) {
                     document.getElementById('score1').classList.add('flashing');
                     document.getElementById('score2').classList.remove('flashing');
@@ -554,7 +554,7 @@
                     }
                 }
             } else {
-                if (tenths === 0 && score1 == score2) {
+                if (score1 === score2) {
                     if (senshu1Clicked == true) {
                         document.getElementById('score1').classList.add('flashing');
                         document.getElementById('score2').classList.remove('flashing');
