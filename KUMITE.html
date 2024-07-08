@@ -558,21 +558,23 @@
                     }
                 }
                 else {
-                    if (senshu1Clicked == true) {
-                        document.getElementById('score1').classList.add('flashing');
-                        document.getElementById('score2').classList.remove('flashing');
-                        return;
-                    } else {
-                        if (senshu2Clicked == true) {
-                            document.getElementById('score1').classList.remove('flashing');
-                            document.getElementById('score2').classList.add('flashing');
-                            return;
-                        }
-                        else {
-                            document.getElementById('score1').classList.remove('flashing');
+                    if (score1 === score2) {
+                        if (senshu1Clicked == true) {
+                            document.getElementById('score1').classList.add('flashing');
                             document.getElementById('score2').classList.remove('flashing');
                             return;
+                        } else {
+                            if (senshu2Clicked == true) {
+                                document.getElementById('score1').classList.remove('flashing');
+                                document.getElementById('score2').classList.add('flashing');
+                                return;
+                            }
                         }
+                    }
+                    else {
+                        document.getElementById('score1').classList.remove('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                        return;
                     }
                 }
             }
