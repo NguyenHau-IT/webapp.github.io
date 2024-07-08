@@ -548,8 +548,10 @@
                     document.getElementById('score1').classList.add('flashing');
                     document.getElementById('score2').classList.remove('flashing');
                 } else {
+                    if (score1 > score2) {
                     document.getElementById('score2').classList.add('flashing');
                     document.getElementById('score1').classList.remove('flashing');
+                    }
                 }
             } else {
                 if (tenths === 0 && score1 == score2) {
