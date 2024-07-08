@@ -325,8 +325,6 @@
 
     <script>
         let isClicked = false;
-        var senshu1Clicked = false;
-        var senshu2Clicked = false;
 
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12') {
@@ -540,6 +538,8 @@
                 isRunning = false;
                 changeColor('white');
             }
+            var senshu1Clicked = false;
+        var senshu2Clicked = false;
             const score1 = parseInt(document.getElementById('score1').innerText);
             const score2 = parseInt(document.getElementById('score2').innerText);
 
