@@ -552,11 +552,6 @@
                     document.getElementById('score1').classList.remove('flashing');
                 }
             } else {
-                document.getElementById('score1').classList.remove('flashing');
-                document.getElementById('score2').classList.remove('flashing');
-            }
-
-            if (tenths === 0 && score1 == score2) {
                 if (senshu1Clicked == true) {
                     document.getElementById('score1').classList.add('flashing');
                     document.getElementById('score2').classList.remove('flashing');
@@ -567,7 +562,7 @@
                 else {
                     document.getElementById('score1').classList.remove('flashing');
                     document.getElementById('score2').classList.remove('flashing');
-                }
+                }cument.getElementById('score2').classList.remove('flashing');
             }
 
             if(tenths / 10 == 15){
