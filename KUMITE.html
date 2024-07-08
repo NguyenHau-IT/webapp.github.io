@@ -539,40 +539,36 @@
                 changeColor('white');
             }
             var senshu1Clicked = false;
-var senshu2Clicked = false;
+            var senshu2Clicked = false;
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
 
-// Ensure score elements exist before parsing their values
-const score1Element = document.getElementById('score1');
-const score2Element = document.getElementById('score2');
-
-if (score1Element && score2Element) {
-    const score1 = parseInt(score1Element.innerText);
-    const score2 = parseInt(score2Element.innerText);
-
-    if (tenths === 0) {
-        if (score1 > score2) {
-            // Case 1: Score 1 is greater than Score 2
-            score1Element.classList.add('flashing');
-            score2Element.classList.remove('flashing');
-        } else if (score1 < score2) {
-            // Case 2: Score 1 is less than Score 2
-            score2Element.classList.add('flashing');
-            score1Element.classList.remove('flashing');
-        } else {
-            // Case 3: Score 1 is equal to Score 2
-            if (senshu1Clicked) {
-                score1Element.classList.add('flashing');
-                score2Element.classList.remove('flashing');
-            } else if (senshu2Clicked) {
-                score1Element.classList.remove('flashing');
-                score2Element.classList.add('flashing');
-            } else {
-                score1Element.classList.remove('flashing');
-                score2Element.classList.remove('flashing');
+            if (tenths === 0) {
+                if (score1 !== score2) {
+                    if (score1 > score2) {
+                        document.getElementById('score1').classList.add('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                    } else {
+                        if (score1 < score2) {
+                            document.getElementById('score2').classList.add('flashing');
+                            document.getElementById('score1').classList.remove('flashing');
+                        }
+                    }
+                }
+                else {
+                    if (senshu1Clicked == true) {
+                        document.getElementById('score1').classList.add('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                    } else if (senshu2Clicked == true) {
+                        document.getElementById('score1').classList.remove('flashing');
+                        document.getElementById('score2').classList.add('flashing');
+                    }
+                    else {
+                        document.getElementById('score1').classList.remove('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                    }
+                }
             }
-        }
-    }
-}
 
 
             if (tenths / 10 == 15) {
