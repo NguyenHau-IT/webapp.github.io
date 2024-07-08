@@ -552,24 +552,27 @@
                     document.getElementById('score1').classList.remove('flashing');
                 }
             } else {
-                if (senshu1Clicked == true) {
-                    document.getElementById('score1').classList.add('flashing');
-                    document.getElementById('score2').classList.remove('flashing');
-                } else if (senshu2Clicked == true) {
-                    document.getElementById('score1').classList.remove('flashing');
-                    document.getElementById('score2').classList.add('flashing');
+                if (tenths === 0 && score1 == score2) {
+                    if (senshu1Clicked == true) {
+                        document.getElementById('score1').classList.add('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                    } else if (senshu2Clicked == true) {
+                        document.getElementById('score1').classList.remove('flashing');
+                        document.getElementById('score2').classList.add('flashing');
+                    }
+                    else {
+                        document.getElementById('score1').classList.remove('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                    }
                 }
-                else {
-                    document.getElementById('score1').classList.remove('flashing');
-                    document.getElementById('score2').classList.remove('flashing');
-                }cument.getElementById('score2').classList.remove('flashing');
             }
 
-            if(tenths / 10 == 15){
+
+            if (tenths / 10 == 15) {
                 sound.play();
             }
 
-            if(tenths === 0){
+            if (tenths === 0) {
                 sound.play();
             }
         }
