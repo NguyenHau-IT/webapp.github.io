@@ -13,35 +13,6 @@
     <link rel="icon" href="image/vuidokan.jpg" rel="image/vuidokan">
     <title>KARATE SCORE BOARD:KUMITE 2</title>
     <style>
-        body {
-            height: 100%;
-            width: 100%;
-            background-color: #000
-        }
-
-        .table {
-            width: 100%;
-            /* Đổi chiều rộng của ô */
-            height: 100%;
-            /* Đổi chiều cao của ô */
-        }
-
-        .VS {
-            color: #fff;
-            font-size: 270px
-        }
-
-        .score1 {
-            font-size: 350px;
-            color: red;
-        }
-
-        .score2 {
-            font-size: 350px;
-            color: #4169E1;
-        }
-
-
         .chui {
             border-radius: 50px;
             background-color: black;
@@ -51,7 +22,7 @@
             color: white;
         }
 
-        .custom-buttonT {
+        .Time {
             border-radius: 50px;
             cursor: pointer;
             width: 280px;
@@ -59,7 +30,7 @@
             font-size: 40px;
         }
 
-        .custom-button2 {
+        .aka {
             border-radius: 50px;
             background-color: red;
             width: 250px;
@@ -68,7 +39,7 @@
             color: white;
         }
 
-        .custom-button3 {
+        .ao {
             border-radius: 50px;
             background-color: #4169E1;
             width: 250px;
@@ -77,7 +48,7 @@
             color: white;
         }
 
-        .custom-buttonS {
+        .Senshu {
             top: 50%;
             right: 50%;
             border-color: #fff;
@@ -100,12 +71,7 @@
             border-color: #000;
             border: 10px
         }
-
-        .time {
-            font-size: 375px;
-            color: #fff
-        }
-
+        
         .count1 {
             text-align: center;
             border-radius: 50px;
@@ -204,9 +170,9 @@
     </style>
 </head>
 
-<body>
+<body style=" height: 100%; width: 100%; background-color: #000">
     <table>
-        <table class="table">
+        <table style="width: 100%; height: 100%;">
             <tr>
                 <div class="input-container">
                     <input type="text" class="VDV2" placeholder="AO">
@@ -216,13 +182,13 @@
             <tr>
                 <td>
                 <th></th>
-                <th><button class="custom-buttonS" id="senshu2" onclick="changeColorS2(this)">S</button></th>
-                <th id="score2" class="score2">0</th>
+                <th><button class="Senshu" id="senshu2" onclick="changeColorS2(this)">S</button></th>
+                <th id="score2" style="font-size: 350px; color: #4169E1;">0</th>
                 </td>
                 <td colspan="3"></td>
                 <td>
-                <th><button class="custom-buttonS" id="senshu1" onclick="changeColorS1(this)">S</button></th>
-                <th id="score1" class="score1">0</th>
+                <th><button class="Senshu" id="senshu1" onclick="changeColorS1(this)">S</button></th>
+                <th id="score1" style="font-size: 350px; color: red">0</th>
                 <th></th>
                 </td>
             </tr>
@@ -232,7 +198,7 @@
                 <th> <button class="chui" onclick="changeColor2(this)">C3</button></th>
                 <th> <button class="chui" onclick="changeColor2(this)">HC</button></th>
                 <th> <button class="chui" onclick="hansoku2(this);">H</button></th>
-                <th colspan="2" class="VS">VS</th>
+                <th colspan="2" style="color: #fff; font-size: 270px">VS</th>
                 <th> <button class="chui" onclick="changeColor1(this)">C1</button></th>
                 <th> <button class="chui" onclick="changeColor1(this)">C2</button></th>
                 <th> <button class="chui" onclick="changeColor1(this)">C3</button></th>
@@ -249,9 +215,9 @@
                 <th colspan="2" class="count1" id="clickCount1_3">0 : IPPON</th>
             </tr>
         </table>
-        <table class="table">
+        <table style="width: 100%; height: 100%;">
             <tr>
-                <th colspan="12" class="time" id="countdown">01:30<span id="tenths">.0</span></th>
+                <th colspan="12" style="font-size: 375px; color: #fff" id="countdown">01:30<span id="tenths">.0</span></th>
             </tr>
             <tr>
                 <th class="TSaoD" id="TSaoD_1">0</th>
@@ -266,28 +232,28 @@
                 <th class="TSakaD" id="TSakaD_5">0</th>
             </tr>
             <tr>
-                <th><button class="custom-button3" onclick="addScore(2, 1,0)">+1</button></th>
-                <th><button class="custom-button3" onclick="addScore(2, 2,1)">+2</button></th>
-                <th><button class="custom-button3" onclick="addScore(2, 3,1)">+3</button></th>
-                <th><button class="custom-buttonT" onclick="startCountdown()">Start (1)</button></th>
-                <th><button class="custom-buttonT" onclick="stopCountdown()">Pause (2)</button></th>
-                <th><button class="custom-buttonT" onclick="resetCountdown()">ResetTime (3)</button></th>
-                <th><button class="custom-buttonT" onclick="reloadPage()">Reset All (=)</button></th>
-                <th><button class="custom-button2" onclick="addScore(1, 1,0)">+1</button></th>
-                <th><button class="custom-button2" onclick="addScore(1, 2,1)">+2</button></th>
-                <th><button class="custom-button2" onclick="addScore(1, 3,1)">+3</button></th>
+                <th><button class="ao" onclick="addScore(2, 1,0)">+1</button></th>
+                <th><button class="ao" onclick="addScore(2, 2,1)">+2</button></th>
+                <th><button class="ao" onclick="addScore(2, 3,1)">+3</button></th>
+                <th><button class="Time" onclick="startCountdown()">Start (1)</button></th>
+                <th><button class="Time" onclick="stopCountdown()">Pause (2)</button></th>
+                <th><button class="Time" onclick="resetCountdown()">ResetTime (3)</button></th>
+                <th><button class="Time" onclick="reloadPage()">Reset All (=)</button></th>
+                <th><button class="aka" onclick="addScore(1, 1,0)">+1</button></th>
+                <th><button class="aka" onclick="addScore(1, 2,1)">+2</button></th>
+                <th><button class="aka" onclick="addScore(1, 3,1)">+3</button></th>
             </tr>
             <tr>
-                <th><button class="custom-button3" onclick="subtractScore(2, 1,0)">-1</button></th>
-                <th><button class="custom-button3" onclick="subtractScore(2, 2,1)">-2</button></th>
-                <th><button class="custom-button3" onclick="subtractScore(2, 3,1)">-3</button></th>
-                <th><button class="custom-button3" onclick="win(2)">AO</button></th>
-                <th><button class="custom-buttonT" onclick="updateSeconds()"> SET TIME</button></th>
-                <th><button class="custom-buttonT" onclick="win(0)">DRAW</button></th>
-                <th><button class="custom-button2" onclick="win(1)">AKA</button></th>
-                <th><button class="custom-button2" onclick="subtractScore(1, 1,0)">-1</button></th>
-                <th><button class="custom-button2" onclick="subtractScore(1, 2,1)">-2</button></th>
-                <th><button class="custom-button2" onclick="subtractScore(1, 3,1)">-3</button></th>
+                <th><button class="ao" onclick="subtractScore(2, 1,0)">-1</button></th>
+                <th><button class="ao" onclick="subtractScore(2, 2,1)">-2</button></th>
+                <th><button class="ao" onclick="subtractScore(2, 3,1)">-3</button></th>
+                <th><button class="ao" onclick="win(2)">AO</button></th>
+                <th><button class="Time" onclick="updateSeconds()"> SET TIME</button></th>
+                <th><button class="Time" onclick="win(0)">DRAW</button></th>
+                <th><button class="aka" onclick="win(1)">AKA</button></th>
+                <th><button class="aka" onclick="subtractScore(1, 1,0)">-1</button></th>
+                <th><button class="aka" onclick="subtractScore(1, 2,1)">-2</button></th>
+                <th><button class="aka" onclick="subtractScore(1, 3,1)">-3</button></th>
             </tr>
         </table>
     </table>
@@ -327,18 +293,17 @@
             window.location.href = "index.html";
         }
 
-        var TSaka_1 = 0;
-        var TSaka_2 = 0;
-        var TSaka_3 = 0;
-        var TSaka_4 = 0;
-        var TSaka_5 = 0;
-        var TSao_1 = 0;
-        var TSao_2 = 0;
-        var TSao_3 = 0;
-        var TSao_4 = 0;
-        var TSao_5 = 0;
-
         function win(player) {
+            var TSaka_1 = 0;
+            var TSaka_2 = 0;
+            var TSaka_3 = 0;
+            var TSaka_4 = 0;
+            var TSaka_5 = 0;
+            var TSao_1 = 0;
+            var TSao_2 = 0;
+            var TSao_3 = 0;
+            var TSao_4 = 0;
+            var TSao_5 = 0;
             var winId = "win" + player;
             var matchwin1;
             var matchwin2;
