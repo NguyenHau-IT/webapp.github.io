@@ -402,7 +402,7 @@
             buttons.forEach(function (button) {
                 button.classList.remove('clicked1', 'clicked2');
             });
-            var buttonsS = document.querySelectorAll('.custom-buttonS');
+            var buttonsS = document.querySelectorAll('.Senshu');
             buttonsS.forEach(function (button) {
                 button.classList.remove('clicked1', 'clicked2');
             })
@@ -461,10 +461,10 @@
             var clickCountId_2 = "clickCount" + player + "_2";
             var clickCountId_3 = "clickCount" + player + "_3";
             var scoreId = "score" + player;
-            var currentScore = parseInt(document.getElementById(scoreId).innerText);
-            document.getElementById(scoreId).innerText = currentScore - points;
             var currentcount2;
             var currentcount3;
+            var currentScore = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById(scoreId).innerText = currentScore - points;
             if (points === 2) {
                 currentcount2 = parseInt(document.getElementById(clickCountId_2).innerText);
                 document.getElementById(clickCountId_2).innerText = (currentcount2 - Count) + " WAZA";
@@ -505,6 +505,7 @@
             clearInterval(countdownTimer);
             isRunning = false;
         }
+        
         function updateTime() {
             if (tenths > 0) {
                 tenths -= 1;
