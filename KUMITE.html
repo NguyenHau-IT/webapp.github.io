@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="image/vuidokan.jpg" rel="image/vuidokan">
     <title>KARATE SCORE BOARD:KUMITE</title>
+
     <style>
 
         .Score1 {
@@ -208,51 +209,75 @@
                 opacity: 0;
             }
         }
+
     </style>
 
 </head>
 
 <body style="height: 100%; width: 100%; background-color: black;">
+
     <table>
+
         <table style="width: 100%; height: 130px;">
+
             <tr>
+
                 <th> <label for="inputField"></label>
-                    <input type="text" id="inputField" name="inputField" autocomplete="off" class="VDV1"
-                        placeholder="AKA">
+                    <input type="text" id="inputField" name="inputField" autocomplete="off" class="VDV1" placeholder="AKA">
+            
                     <table>
                         <td style="color: red; font-size: 100px;">PENALTY</td>
                         <td><button class="chui" onclick="changeColor1(this)">C1</button></td>
                         <td><button class="chui" onclick="changeColor1(this)">C2</button></td>
                         <td><button class="chui" onclick="changeColor1(this)">C3</button></td>
                         <td><button class="chui" onclick="changeColor1(this)">HC</button></td>
-                        <td><button class="chui" onclick="hansoku1(this);">H</button>
-                        </td>
+                        <td><button class="chui" onclick="hansoku1(this);">H</button></td>
                     </table>
+            
                 <td rowspan="4"><button class="Senshu" onclick="changeColorS1(this)">S</button></td>
+            
                 <th id="score1" class="Score1">0</th>
+
+                </th>
+
+            </tr>
+
         </table>
+
         <table style="width: 100%; height: 130px;">
+        
             <tr>
+        
                 <th>
+        
                     <label for="inputField"></label>
                     <input colspan="6" type="text" id="inputField" name="inputField" autocomplete="off" class="VDV2"
                         placeholder="AO">
+
                     <table>
                         <td style="color: blue; font-size: 100px;">PENALTY</td>
                         <td><button class="chui" onclick="changeColor2(this)">C1</button></td>
                         <td><button class="chui" onclick="changeColor2(this)">C2</button></td>
                         <td><button class="chui" onclick="changeColor2(this)">C3</button></td>
                         <td><button class="chui" onclick="changeColor2(this)">HC</button></td>
-                        <td><button class="chui" onclick="hansoku2(this);">H</button>
-                        </td>
+                        <td><button class="chui" onclick="hansoku2(this);">H</button></td>
                     </table>
-                <td rowspan="4"><button class="Senshu" onclick="changeColorS2(this)">S</button></td>
-                <th id="score2" class="Score2">0</th>
+
+                    <td rowspan="4"><button class="Senshu" onclick="changeColorS2(this)">S</button></td>
+
+                    <th id="score2" class="Score2">0</th>
+                </th>
+
+            </tr>
+        
         </table>
+
         <table class="table-time">
+
             <tr>
                 <th colspan="14" style="font-size: 320px; color: white;" id="countdown">01:30<span id="tenths">.0</span></th>
             </tr>
+
             <tr>
                 <th class="TSaoD" id="TSaoD_1">0</th>
                 <th class="TSakaD" id="TSakaD_1">0</th>
@@ -267,6 +292,7 @@
                 <th id="win2">0 :AO</th>
                 <th id="win1">0 :AKA</th>
             </tr>
+
             <tr>
                 <td><button class="Time" onclick="startCountdown()">Start (1)</button></td>
                 <td><button class="Time" onclick="stopCountdown()">Pause (2)</button></td>
@@ -281,6 +307,7 @@
                 <td class="countpoint1" id="clickCount1_3">0 : IPPON</td>
                 <td><button class="winner1" onclick="win(1)">AKA</button></td>
             </tr>
+
             <tr>
                 <td><button class="Time" onclick="resetCountdown()">ResetTime (3)</button></td>
                 <td><button class="Time" onclick="reloadPage()">Reset All (=)</button></td>
@@ -295,8 +322,11 @@
                 <td class="countpoint2" id="clickCount2_3">0 : IPPON</td>
                 <td><button class="winner2" onclick="win(2)">AO</button></td>
             </tr>
+
         </table>
+
     </table>
+
     <footer style="color:white; text-align: center; font-size: 25px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</footer>
 
     <script>
@@ -384,8 +414,8 @@
             TSaka_1 = TSaka;
             TSao_1 = TSao;
 
-            document.getElementById("TSakaD_1").innerText = TSaka;
-            document.getElementById("TSaoD_1").innerText = TSao;
+            document.getElementById("TSakaD_1").innerText = TSaka_1;
+            document.getElementById("TSaoD_1").innerText = TSao_1;
             document.getElementById("TSakaD_2").innerText = TSaka_2;
             document.getElementById("TSaoD_2").innerText = TSao_2;
             document.getElementById("TSakaD_3").innerText = TSaka_3;
