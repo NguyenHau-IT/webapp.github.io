@@ -167,20 +167,76 @@
             text-align: left;
         }
 
-        .akaw {
+        .akawr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 90px;
+            height: 150px;
+            font-size: 145px;
             background-color: red;
             color: white;
         }
 
-        .aow {
+        .akawl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 90px;
+            height: 150px;
+            font-size: 145px;
+            background-color: red;
+            color: white;
+        }
+
+        .aowr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 90px;
+            height: 150px;
+            font-size: 145px;
             background-color: blue;
             color: white;
+        }
+
+        .aowl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 90px;
+            height: 150px;
+            font-size: 145px;
+            background-color: blue;
+            color: white;
+        }
+
+        .drawl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 90px;
+            height: 150px;
+            font-size: 145px;
+            background-color: #828282;
+            color: white
+        }
+
+        .drawr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 90px;
+            height: 150px;
+            font-size: 145px;
+            background-color: #828282;
+            color: white
         }
     </style>
 
 </head>
 
-<body style=" height: 100%; width: 100%; background-color: #000">
+<body style=" height: 100%; width: 99%; background-color: #000">
 
     <table>
 
@@ -279,13 +335,14 @@
 
     </table>
 
-    <footer style="color:white; text-align: center; font-size: 35px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</footer>
+    <footer style="color:white; text-align: center; font-size: 35px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN
+        THỂ THAO VUIDOKAN</footer>
 
     <script>
 
         var TSaka_1 = 0, TSaka_2 = 0, TSaka_3 = 0, TSaka_4 = 0, TSaka_5 = 0;
         var TSao_1 = 0, TSao_2 = 0, TSao_3 = 0, TSao_4 = 0, TSao_5 = 0;
-        var wr1 = 0, wr2 = 0, wr3 = 0, wr4 = 0, wr5 = 0, r = 0;
+        var wr1 = -1, wr2 = -1, wr3 = -1, wr4 = -1, wr5 = -1, r = 0;
 
         let countdownTimer;
         let isRunning = false;
@@ -387,6 +444,35 @@
             document.getElementById("TSakaD_5").innerText = TSaka_5;
             document.getElementById("TSaoD_5").innerText = TSao_5;
 
+            switch (r) {
+                case 1:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    break;
+                case 2:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    break;
+                case 3:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    break;
+                case 4:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    highlightResult(wr4, p_aka4, p_ao4);
+                    break;
+                case 5:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    highlightResult(wr4, p_aka4, p_ao4);
+                    highlightResult(wr5, p_aka5, p_ao5);
+                    break;
+            }
+
+
             if (player === 1) {
                 matchwin1 = parseInt(document.getElementById(winId).innerText);
                 document.getElementById(winId).innerText = (matchwin1 + 1) + " AKA";
@@ -395,12 +481,6 @@
                 matchwin2 = parseInt(document.getElementById(winId).innerText);
                 document.getElementById(winId).innerText = (matchwin2 + 1) + " AO";
             }
-
-            highlightResult(wr1, p_aka1, p_ao1);
-            highlightResult(wr2, p_aka2, p_ao2);
-            highlightResult(wr3, p_aka3, p_ao3);
-            highlightResult(wr4, p_aka4, p_ao4);
-            highlightResult(wr5, p_aka5, p_ao5);
 
             var buttons = document.querySelectorAll('.chui');
             buttons.forEach(function (button) {
@@ -413,17 +493,30 @@
             isClicked = false;
 
         }
+        function clearClasses(element) {
+            element.className = '';
+        }
 
         function highlightResult(wr, p_aka, p_ao) {
-            if (wr == 1) {
-                p_aka.classList.add('akaw');
-                p_ao.classList.add('akaw');
-            } else if (wr == 2) {
-                p_aka.classList.add('aow');
-                p_ao.classList.add('aow');
+            clearClasses(p_aka);
+            clearClasses(p_ao);
+
+            switch (wr) {
+                case 0:
+                    p_aka.classList.add('drawr');
+                    p_ao.classList.add('drawl');
+                    break;
+                case 1:
+                    p_aka.classList.add('akawr');
+                    p_ao.classList.add('akawl');
+                    break;
+                case 2:
+                    p_aka.classList.add('aowr');
+                    p_ao.classList.add('aowl');
+                    break;
             }
         }
-        
+
         function changeColor(color) {
             document.getElementById('countdown').style.color = color;
         }

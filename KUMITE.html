@@ -34,8 +34,8 @@
             border-radius: 50px;
             background-color: red;
             width: 150px;
-            height: 50px;
-            font-size: 40px;
+            height: 55px;
+            font-size: 50px;
             color: white;
         }
 
@@ -43,8 +43,8 @@
             border-radius: 50px;
             background-color: blue;
             width: 150px;
-            height: 50px;
-            font-size: 40px;
+            height: 55px;
+            font-size: 50px;
             color: white;
         }
 
@@ -61,16 +61,16 @@
             border-radius: 50px;
             cursor: pointer;
             width: 170px;
-            height: 50px;
-            font-size: 20px;
+            height: 55px;
+            font-size: 23px;
         }
 
         .aka {
             border-radius: 50px;
             background-color: red;
             width: 170px;
-            height: 50px;
-            font-size: 40px;
+            height: 55px;
+            font-size: 50px;
             color: white;
         }
 
@@ -78,8 +78,8 @@
             border-radius: 50px;
             background-color: blue;
             width: 170px;
-            height: 50px;
-            font-size: 40px;
+            height: 55px;
+            font-size: 50px;
             color: white;
         }
 
@@ -144,11 +144,9 @@
             text-align: center;
             border-top-left-radius: 100px;
             border-bottom-left-radius: 100px;
-            border: 20px;
-            border-color: white;
             width: 70px;
-            height: 60px;
-            font-size: 60px;
+            height: 90px;
+            font-size: 85px;
             background-color: white;
             color: blue;
         }
@@ -157,11 +155,9 @@
             text-align: center;
             border-top-right-radius: 100px;
             border-bottom-right-radius: 100px;
-            border: 20px;
-            border-color: white;
             width: 70px;
-            height: 60px;
-            font-size: 60px;
+            height: 90px;
+            font-size: 85px;
             background-color: white;
             color: red;
         }
@@ -210,11 +206,76 @@
             }
         }
 
+        .akawr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: red;
+            color: white;
+        }
+
+        .akawl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: red;
+            color: white;
+        }
+
+        .aowr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: blue;
+            color: white;
+        }
+
+        .aowl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: blue;
+            color: white;
+        }
+
+        .drawl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: #828282;
+            color: white
+        }
+
+        .drawr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: #828282;
+            color: white
+        }
     </style>
 
 </head>
 
-<body style="height: 100%; width: 100%; background-color: black;">
+<body style="height: 100%; width: 99%; background-color: black;">
 
     <table>
 
@@ -275,7 +336,7 @@
         <table class="table-time">
 
             <tr>
-                <th colspan="14" style="font-size: 320px; color: white;" id="countdown">01:30<span id="tenths">.0</span></th>
+                <th colspan="12" style="font-size: 310px; color: white;" id="countdown">01:30<span id="tenths">.0</span></th>
             </tr>
 
             <tr>
@@ -330,7 +391,23 @@
     <footer style="color:white; text-align: center; font-size: 25px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</footer>
 
     <script>
+
+        var TSaka_1 = 0, TSaka_2 = 0, TSaka_3 = 0, TSaka_4 = 0, TSaka_5 = 0;
+        var TSao_1 = 0, TSao_2 = 0, TSao_3 = 0, TSao_4 = 0, TSao_5 = 0;
+        var wr1 = -1, wr2 = -1, wr3 = -1, wr4 = -1, wr5 = -1, r = 0;
+
+        let countdownTimer;
+        let isRunning = false;
+        let tenths = 90 * 10;
+        let initialSetTime = 90;
+        const sound = new Audio('sound/censor-beep-1sec-8112.mp3');
+
         let isClicked = false;
+        var senshu1Clicked = false;
+        var senshu2Clicked = false;
+
+        let isClicked1 = false;
+        let isClicked2 = false;
 
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12') {
@@ -366,53 +443,47 @@
             window.location.href = "index.html";
         }
 
-        var senshu1Clicked = false;
-        var senshu2Clicked = false;
-
-        var TSaka_1 = 0;
-        var TSaka_2 = 0;
-        var TSaka_3 = 0;
-        var TSaka_4 = 0;
-        var TSaka_5 = 0;
-        var TSao_1 = 0;
-        var TSao_2 = 0;
-        var TSao_3 = 0;
-        var TSao_4 = 0;
-        var TSao_5 = 0;
-
         function win(player) {
             var winId = "win" + player;
             var matchwin1;
             var matchwin2;
-            var scoreId = "score" + player;
+            var scoreId;
+            var TSaka = parseInt(document.getElementById('score1').innerText);
+            var TSao = parseInt(document.getElementById('score2').innerText);
             resetCountdown();
-            if (player === 1) {
-                matchwin1 = parseInt(document.getElementById(winId).innerText);
-                document.getElementById(winId).innerText = (matchwin1 + 1) + ": AKA";
-            }
-            else if (player === 2) {
-                matchwin2 = parseInt(document.getElementById(winId).innerText);
-                document.getElementById(winId).innerText = (matchwin2 + 1) + ": AO";
-            }
-            player = 1;
-            scoreId = "score" + player;
-            TSaka = parseInt(document.getElementById(scoreId).innerText);
+
             document.getElementById('score1').innerText = '0';
-            player = 2;
-            scoreId = "score" + player;
-            TSao = parseInt(document.getElementById(scoreId).innerText);
             document.getElementById('score2').innerText = '0';
+            document.getElementById('score1').classList.remove('flashing');
+            document.getElementById('score2').classList.remove('flashing');
 
             TSaka_5 = TSaka_4;
             TSao_5 = TSao_4;
+            wr5 = wr4;
             TSaka_4 = TSaka_3;
             TSao_4 = TSao_3;
+            wr4 = wr3;
             TSaka_3 = TSaka_2;
             TSao_3 = TSao_2;
+            wr3 = wr2;
             TSaka_2 = TSaka_1;
             TSao_2 = TSao_1;
+            wr2 = wr1;
             TSaka_1 = TSaka;
             TSao_1 = TSao;
+            wr1 = player;
+            r++;
+
+            var p_aka1 = document.getElementById('TSakaD_1');
+            var p_ao1 = document.getElementById('TSaoD_1');
+            var p_aka2 = document.getElementById('TSakaD_2');
+            var p_ao2 = document.getElementById('TSaoD_2');
+            var p_aka3 = document.getElementById('TSakaD_3');
+            var p_ao3 = document.getElementById('TSaoD_3');
+            var p_aka4 = document.getElementById('TSakaD_4');
+            var p_ao4 = document.getElementById('TSaoD_4');
+            var p_aka5 = document.getElementById('TSakaD_5');
+            var p_ao5 = document.getElementById('TSaoD_5');
 
             document.getElementById("TSakaD_1").innerText = TSaka_1;
             document.getElementById("TSaoD_1").innerText = TSao_1;
@@ -425,17 +496,77 @@
             document.getElementById("TSakaD_5").innerText = TSaka_5;
             document.getElementById("TSaoD_5").innerText = TSao_5;
 
-            var buttons = document.querySelectorAll('.custom-button');
+            switch (r) {
+                case 1:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    break;
+                case 2:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    break;
+                case 3:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    break;
+                case 4:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    highlightResult(wr4, p_aka4, p_ao4);
+                    break;
+                case 5:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    highlightResult(wr4, p_aka4, p_ao4);
+                    highlightResult(wr5, p_aka5, p_ao5);
+                    break;
+            }
+
+
+            if (player === 1) {
+                matchwin1 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin1 + 1) + " AKA";
+            }
+            else if (player === 2) {
+                matchwin2 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin2 + 1) + " AO";
+            }
+
+            var buttons = document.querySelectorAll('.chui');
             buttons.forEach(function (button) {
                 button.classList.remove('clicked1', 'clicked2');
             });
-            var buttonsS = document.querySelectorAll('.custom-buttonS');
+            var buttonsS = document.querySelectorAll('.Senshu');
             buttonsS.forEach(function (button) {
                 button.classList.remove('clicked1', 'clicked2');
             })
             isClicked = false;
-            document.getElementById('score1').classList.remove('flashing');
-            document.getElementById('score2').classList.remove('flashing');
+
+        }
+        function clearClasses(element) {
+            element.className = '';
+        }
+
+        function highlightResult(wr, p_aka, p_ao) {
+            clearClasses(p_aka);
+            clearClasses(p_ao);
+
+            switch (wr) {
+                case 0:
+                    p_aka.classList.add('drawr');
+                    p_ao.classList.add('drawl');
+                    break;
+                case 1:
+                    p_aka.classList.add('akawr');
+                    p_ao.classList.add('akawl');
+                    break;
+                case 2:
+                    p_aka.classList.add('aowr');
+                    p_ao.classList.add('aowl');
+                    break;
+            }
         }
 
         function changeColor(color) {
@@ -452,11 +583,11 @@
             var currentcount3;
             if (points === 2) {
                 currentcount2 = parseInt(document.getElementById(clickCountId_2).innerText);
-                document.getElementById(clickCountId_2).innerText = (currentcount2 + Count) + ": WAZA";
+                document.getElementById(clickCountId_2).innerText = (currentcount2 + Count) + " WAZA";
             }
             else if (points === 3) {
                 currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
-                document.getElementById(clickCountId_3).innerText = (currentcount3 + Count) + ": IPPON";
+                document.getElementById(clickCountId_3).innerText = (currentcount3 + Count) + " IPPON";
             }
 
             const score1 = parseInt(document.getElementById('score1').innerText);
@@ -479,17 +610,17 @@
             var clickCountId_2 = "clickCount" + player + "_2";
             var clickCountId_3 = "clickCount" + player + "_3";
             var scoreId = "score" + player;
-            var currentScore = parseInt(document.getElementById(scoreId).innerText);
-            document.getElementById(scoreId).innerText = currentScore - points;
             var currentcount2;
             var currentcount3;
+            var currentScore = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById(scoreId).innerText = currentScore - points;
             if (points === 2) {
                 currentcount2 = parseInt(document.getElementById(clickCountId_2).innerText);
-                document.getElementById(clickCountId_2).innerText = (currentcount2 - Count) + ": WAZA";
+                document.getElementById(clickCountId_2).innerText = (currentcount2 - Count) + " WAZA";
             }
             else if (points === 3) {
                 currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
-                document.getElementById(clickCountId_3).innerText = (currentcount3 - Count) + ": IPPON";
+                document.getElementById(clickCountId_3).innerText = (currentcount3 - Count) + " IPPON";
             }
 
             const score1 = parseInt(document.getElementById('score1').innerText);
@@ -507,12 +638,6 @@
                 document.getElementById('score2').classList.remove('flashing');
             }
         }
-
-        const sound = new Audio('sound/censor-beep-1sec-8112.mp3');
-        let countdownTimer;
-        let isRunning = false;
-        let tenths = 90 * 10;
-        let initialSetTime = 90;
 
         function startCountdown() {
             if (!isRunning && tenths > 0) {
@@ -555,7 +680,7 @@
             if (tenths === 0) {
                 sound.play();
             }
-            
+
             const score1 = parseInt(document.getElementById('score1').innerText);
             const score2 = parseInt(document.getElementById('score2').innerText);
 
@@ -591,7 +716,6 @@
                     document.getElementById('score2').classList.remove('flashing');
                 }
             }
-
         }
 
         function updateCountdown() {
@@ -626,6 +750,24 @@
             }
         }
 
+        function changeColor1(button) {
+            if (!isClicked) {
+                button.classList.add('clicked1');
+            } else {
+                button.classList.remove('clicked1');
+            }
+            isClicked = !isClicked;
+        }
+
+        function changeColor2(button) {
+            if (!isClicked) {
+                button.classList.add('clicked2');
+            } else {
+                button.classList.remove('clicked2');
+            }
+            isClicked = !isClicked;
+        }
+
         function changeColorS1(button) {
             if (!isClicked) {
                 button.classList.add('clicked1');
@@ -648,26 +790,12 @@
             isClicked = !isClicked;
         }
 
-        function changeColor1(button) {
-            if (!isClicked) {
-                button.classList.add('clicked1');
-            } else {
-                button.classList.remove('clicked1');
+        function reloadPage() {
+            var confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
+            if (confirmation) {
+                location.reload();
             }
-            isClicked = !isClicked;
         }
-
-        function changeColor2(button) {
-            if (!isClicked) {
-                button.classList.add('clicked2');
-            } else {
-                button.classList.remove('clicked2');
-            }
-            isClicked = !isClicked;
-        }
-
-        let isClicked1 = false;
-        let isClicked2 = false;
 
         function hansoku1(button) {
             if (!isClicked1) {
@@ -695,15 +823,7 @@
             isClicked2 = !isClicked2;
         }
 
-        function reloadPage() {
-            var confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
-            if (confirmation) {
-                location.reload();
-            }
-        }
-
     </script>
-
 </body>
 
 </html>
