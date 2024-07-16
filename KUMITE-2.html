@@ -13,7 +13,6 @@
     <link rel="icon" href="image/vuidokan.jpg" rel="image/vuidokan">
     <title>KARATE SCORE BOARD:KUMITE 2</title>
     <style>
-        
         .chui {
             border-radius: 50px;
             background-color: black;
@@ -177,7 +176,6 @@
             background-color: blue;
             color: white;
         }
-
     </style>
 
 </head>
@@ -231,7 +229,8 @@
                 <th class="count2" id="clickCount2_3">0 IPPON</th>
                 <th class="count2" id="clickCount2_2">0 WAZA</th>
                 <th id="win2">0 AO</th>
-                <th colspan="4" style="font-size: 385px; color: #fff" id="countdown">01:30<span id="tenths">.0</span></th>
+                <th colspan="4" style="font-size: 385px; color: #fff" id="countdown">01:30<span id="tenths">.0</span>
+                </th>
                 <th id="win1">0 AKA</th>
                 <th class="count1" id="clickCount1_2">0 WAZA</th>
                 <th class="count1" id="clickCount1_3">0 IPPON</th>
@@ -283,18 +282,11 @@
     <footer style="color:white; text-align: center; font-size: 35px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</footer>
 
     <script>
-        
-        var TSaka_1 = 0;
-        var TSaka_2 = 0;
-        var TSaka_3 = 0;
-        var TSaka_4 = 0;
-        var TSaka_5 = 0;
-        var TSao_1 = 0;
-        var TSao_2 = 0;
-        var TSao_3 = 0;
-        var TSao_4 = 0;
-        var TSao_5 = 0;
-        
+
+        var TSaka_1 = 0, TSaka_2 = 0, TSaka_3 = 0, TSaka_4 = 0, TSaka_5 = 0;
+        var TSao_1 = 0, TSao_2 = 0, TSao_3 = 0, TSao_4 = 0, TSao_5 = 0;
+        var wr1 = 0, wr2 = 0, wr3 = 0, wr4 = 0, wr5 = 0, r = 0;
+
         let countdownTimer;
         let isRunning = false;
         let tenths = 90 * 10;
@@ -307,7 +299,7 @@
 
         let isClicked1 = false;
         let isClicked2 = false;
-        
+
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12') {
                 e.preventDefault();
@@ -350,14 +342,6 @@
             var TSaka = parseInt(document.getElementById('score1').innerText);
             var TSao = parseInt(document.getElementById('score2').innerText);
             resetCountdown();
-            if (player === 1) {
-                matchwin1 = parseInt(document.getElementById(winId).innerText);
-                document.getElementById(winId).innerText = (matchwin1 + 1) + " AKA";
-            }
-            else if (player === 2) {
-                matchwin2 = parseInt(document.getElementById(winId).innerText);
-                document.getElementById(winId).innerText = (matchwin2 + 1) + " AO";
-            }
 
             document.getElementById('score1').innerText = '0';
             document.getElementById('score2').innerText = '0';
@@ -366,25 +350,20 @@
 
             TSaka_5 = TSaka_4;
             TSao_5 = TSao_4;
+            wr5 = wr4;
             TSaka_4 = TSaka_3;
             TSao_4 = TSao_3;
+            wr4 = wr3;
             TSaka_3 = TSaka_2;
             TSao_3 = TSao_2;
+            wr3 = wr2;
             TSaka_2 = TSaka_1;
             TSao_2 = TSao_1;
+            wr2 = wr1;
             TSaka_1 = TSaka;
             TSao_1 = TSao;
-
-            document.getElementById("TSakaD_1").innerText = TSaka_1;
-            document.getElementById("TSaoD_1").innerText = TSao_1;
-            document.getElementById("TSakaD_2").innerText = TSaka_2;
-            document.getElementById("TSaoD_2").innerText = TSao_2;
-            document.getElementById("TSakaD_3").innerText = TSaka_3;
-            document.getElementById("TSaoD_3").innerText = TSao_3;
-            document.getElementById("TSakaD_4").innerText = TSaka_4;
-            document.getElementById("TSaoD_4").innerText = TSao_4;
-            document.getElementById("TSakaD_5").innerText = TSaka_5;
-            document.getElementById("TSaoD_5").innerText = TSao_5;
+            wr1 = player;
+            r++;
 
             var p_aka1 = document.getElementById('TSakaD_1');
             var p_ao1 = document.getElementById('TSaoD_1');
@@ -397,22 +376,31 @@
             var p_aka5 = document.getElementById('TSakaD_5');
             var p_ao5 = document.getElementById('TSaoD_5');
 
-            var aka1 = parseInt(p_aka1.textContent);
-            var ao1 = parseInt(p_ao1.textContent);
-            var aka2 = parseInt(p_aka2.textContent);
-            var ao2 = parseInt(p_ao2.textContent);
-            var aka3 = parseInt(p_aka3.textContent);
-            var ao3 = parseInt(p_ao3.textContent);
-            var aka4 = parseInt(p_aka4.textContent);
-            var ao4 = parseInt(p_ao4.textContent);
-            var aka5 = parseInt(p_aka5.textContent);
-            var ao5 = parseInt(p_ao5.textContent);
+            document.getElementById("TSakaD_1").innerText = TSaka_1;
+            document.getElementById("TSaoD_1").innerText = TSao_1;
+            document.getElementById("TSakaD_2").innerText = TSaka_2;
+            document.getElementById("TSaoD_2").innerText = TSao_2;
+            document.getElementById("TSakaD_3").innerText = TSaka_3;
+            document.getElementById("TSaoD_3").innerText = TSao_3;
+            document.getElementById("TSakaD_4").innerText = TSaka_4;
+            document.getElementById("TSaoD_4").innerText = TSao_4;
+            document.getElementById("TSakaD_5").innerText = TSaka_5;
+            document.getElementById("TSaoD_5").innerText = TSao_5;
 
-            highlightResult(aka1, ao1, p_aka1, p_ao1);
-            highlightResult(aka2, ao2, p_aka2, p_ao2);
-            highlightResult(aka3, ao3, p_aka3, p_ao3);
-            highlightResult(aka4, ao4, p_aka4, p_ao4);
-            highlightResult(aka5, ao5, p_aka5, p_ao5);
+            if (player === 1) {
+                matchwin1 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin1 + 1) + " AKA";
+            }
+            else if (player === 2) {
+                matchwin2 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin2 + 1) + " AO";
+            }
+
+            highlightResult(wr1, p_aka1, p_ao1);
+            highlightResult(wr2, p_aka2, p_ao2);
+            highlightResult(wr3, p_aka3, p_ao3);
+            highlightResult(wr4, p_aka4, p_ao4);
+            highlightResult(wr5, p_aka5, p_ao5);
 
             var buttons = document.querySelectorAll('.chui');
             buttons.forEach(function (button) {
@@ -426,16 +414,16 @@
 
         }
 
-        function highlightResult(aka, ao, p_aka, p_ao) {
-            if (aka > ao) {
+        function highlightResult(wr, p_aka, p_ao) {
+            if (wr == 1) {
                 p_aka.classList.add('akaw');
                 p_ao.classList.add('akaw');
-            } else if (aka < ao) {
+            } else if (wr == 2) {
                 p_aka.classList.add('aow');
                 p_ao.classList.add('aow');
             }
         }
-
+        
         function changeColor(color) {
             document.getElementById('countdown').style.color = color;
         }
