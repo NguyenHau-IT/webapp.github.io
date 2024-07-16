@@ -86,6 +86,12 @@
             e.preventDefault();
         });
 
+        function checkLoginStatus() {
+            if (!localStorage.getItem('loggedIn')) {
+                window.location.href = 'login.html';
+            }
+        }
+
         function redirectTo(url) {
             window.location.href = url;
         }
