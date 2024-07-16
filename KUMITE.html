@@ -288,10 +288,10 @@
             
                     <table>
                         <td style="color: red; font-size: 100px;">PENALTY</td>
-                        <td><button class="chui" onclick="changeColor1(this)">C1</button></td>
-                        <td><button class="chui" onclick="changeColor1(this)">C2</button></td>
-                        <td><button class="chui" onclick="changeColor1(this)">C3</button></td>
-                        <td><button class="chui" onclick="changeColor1(this)">HC</button></td>
+                        <td><button class="chui" id="C1_1" onclick="changeColor1(this, C1_1)">C1</button></td>
+                        <td><button class="chui" id="C2_1" onclick="changeColor1(this, C2_1)">C2</button></td>
+                        <td><button class="chui" id="C3_1" onclick="changeColor1(this, C3_1)">C3</button></td>
+                        <td><button class="chui" id="HC_1" onclick="changeColor1(this, HC_1)">HC</button></td>
                         <td><button class="chui" onclick="hansoku1(this);">H</button></td>
                     </table>
             
@@ -317,10 +317,10 @@
 
                     <table>
                         <td style="color: blue; font-size: 100px;">PENALTY</td>
-                        <td><button class="chui" onclick="changeColor2(this)">C1</button></td>
-                        <td><button class="chui" onclick="changeColor2(this)">C2</button></td>
-                        <td><button class="chui" onclick="changeColor2(this)">C3</button></td>
-                        <td><button class="chui" onclick="changeColor2(this)">HC</button></td>
+                        <td><button class="chui" id="C1_2" onclick="changeColor2(this, C1_2)">C1</button></td>
+                        <td><button class="chui" id="C2_2" onclick="changeColor2(this, C2_2)">C2</button></td>
+                        <td><button class="chui" id="C3_2" onclick="changeColor2(this, C3_2)">C3</button></td>
+                        <td><button class="chui" id="HC_2" onclick="changeColor2(this, HC_2)">HC</button></td>
                         <td><button class="chui" onclick="hansoku2(this);">H</button></td>
                     </table>
 
@@ -750,18 +750,56 @@
             }
         }
 
-        function changeColor1(button) {
+        function changeColor1(button, id) {
             if (!isClicked) {
-                button.classList.add('clicked1');
+                switch (id)
+                {
+                    case C1_1:
+                    C1_1.classList.add('clicked1');
+                    break;
+                    case C2_1:
+                    C1_1.classList.add('clicked1');
+                    C2_1.classList.add('clicked1');
+                    break;
+                    case C3_1:
+                    C1_1.classList.add('clicked1');
+                    C2_1.classList.add('clicked1');
+                    C3_1.classList.add('clicked1');
+                    break;
+                    case HC_1:
+                    C1_1.classList.add('clicked1');
+                    C2_1.classList.add('clicked1');
+                    C3_1.classList.add('clicked1');
+                    HC_1.classList.add('clicked1');
+                }
             } else {
                 button.classList.remove('clicked1');
             }
             isClicked = !isClicked;
         }
 
-        function changeColor2(button) {
+        function changeColor2(button, id) {
             if (!isClicked) {
-                button.classList.add('clicked2');
+                switch (id)
+                {
+                    case C1_2:
+                    C1_2.classList.add('clicked2');
+                    break;
+                    case C2_2:
+                    C1_2.classList.add('clicked2');
+                    C2_2.classList.add('clicked2');
+                    break;
+                    case C3_2:
+                    C1_2.classList.add('clicked2');
+                    C2_2.classList.add('clicked2');
+                    C3_2.classList.add('clicked2');
+                    break;
+                    case HC_2:
+                    C1_2.classList.add('clicked2');
+                    C2_2.classList.add('clicked2');
+                    C3_2.classList.add('clicked2');
+                    HC_2.classList.add('clicked2');
+                }
             } else {
                 button.classList.remove('clicked2');
             }
@@ -800,6 +838,7 @@
         function hansoku1(button) {
             if (!isClicked1) {
                 button.classList.add('clicked1');
+                changeColor1(button,HC_1);
                 document.getElementById('score2').classList.add('flashing');
                 document.getElementById('score1').classList.remove('flashing');
             } else {
@@ -813,6 +852,7 @@
         function hansoku2(button) {
             if (!isClicked2) {
                 button.classList.add('clicked2');
+                changeColor2(button,HC_2);
                 document.getElementById('score1').classList.add('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             } else {
