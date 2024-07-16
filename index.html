@@ -63,7 +63,7 @@
 </head>
 
 <body>
-    
+
     <div class="container">
         <h1 class="name">List Karate Point Panel</h1>
         <div class="button" onclick="redirectTo('KATA.html')">KATA</div>
@@ -73,7 +73,7 @@
         <button class="logout-btn" onclick="logout()">Đăng Xuất</button>
         <div style="color:black; text-align: center; font-size: 30px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</div>
     </div>
-    
+
     <script>
 
         document.addEventListener('keydown', function (e) {
@@ -84,6 +84,15 @@
 
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
+        });
+
+        window.addEventListener("beforeunload", function (event) {
+            // Xóa item khỏi localStorage
+            localStorage.removeItem("loggedIn");
+
+            // Nếu bạn muốn hiển thị thông báo cảnh báo cho người dùng (tùy chọn)
+            event.preventDefault();
+            event.returnValue = '';
         });
 
         function checkLoginStatus() {
