@@ -79,12 +79,9 @@
         });
 
         window.addEventListener("beforeunload", function (event) {
-            // Xóa item khỏi localStorage
-            localStorage.removeItem("loggedIn");
-
-            // Nếu bạn muốn hiển thị thông báo cảnh báo cho người dùng (tùy chọn)
-            event.preventDefault();
-            event.returnValue = '';
+            var timeout = setTimeout(function() {
+                localStorage.removeItem("loggedIn");
+        }, 60000);
         });
 
         const users =
