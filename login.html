@@ -62,15 +62,14 @@
             <input type="password" id="password" placeholder="Mật khẩu" required autocomplete="off">
             <input type="submit" value="Đăng Nhập">
         </form>
-        <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
+        <p>Chưa có tài khoản, liên hệ Gmail: nguyenviethau.it.2004@gmail.com</p>
         <th style="color:white; text-align: center; font-size: 30px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</th>
     </div>
     
     <script>
-
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12') {
-                e.preventDefault()
+                e.preventDefault();
             }
         });
 
@@ -78,11 +77,10 @@
             e.preventDefault();
         });
 
-        const users =
-            [
-                { username: 'admin1', password: 'vuidokan' },
-                { username: 'admin', password: 'karatepp' }
-            ];
+        const users = [
+            { username: 'admin1', password: 'vuidokan' },
+            { username: 'admin', password: 'karatepp' }
+        ];
 
         function login(event) {
             event.preventDefault();
@@ -92,7 +90,7 @@
             const user = users.find(user => user.username === username && user.password === password);
 
             if (user) {
-                localStorage.setItem('loggedIn', 'true');
+                alert('Đăng nhập thành công!');
                 window.location.href = 'index.html';
             } else {
                 alert('Tên đăng nhập hoặc mật khẩu không đúng');
