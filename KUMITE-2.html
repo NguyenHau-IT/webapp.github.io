@@ -252,29 +252,29 @@
             <tr>
                 <td>
                 <th></th>
-                <th><button class="Senshu" id="senshu2" onclick="changeColorS2(this)">S</button></th>
+                <th><button class="Senshu" id="senshu2" onclick="S2(this)">S</button></th>
                 <th id="score2" style="font-size: 370px; color: #4169E1;">0</th>
                 </td>
                 <td colspan="3"></td>
                 <td>
-                <th><button class="Senshu" id="senshu1" onclick="changeColorS1(this)">S</button></th>
+                <th><button class="Senshu" id="senshu1" onclick="S1(this)">S</button></th>
                 <th id="score1" style="font-size: 370px; color: red">0</th>
                 <th></th>
                 </td>
             </tr>
 
             <tr>
-                <th><button class="chui" id="C1_2" onclick="changeColor2(this, C1_2)">C1</button></th>
-                <th><button class="chui" id="C2_2" onclick="changeColor2(this, C2_2)">C2</button></th>
-                <th><button class="chui" id="C3_2" onclick="changeColor2(this, C3_2)">C3</button></th>
-                <th><button class="chui" id="HC_2" onclick="changeColor2(this, HC_2)">HC</button></th>
-                <th><button class="chui" onclick="hansoku2(this);">H</button></th>
+                <th><button class="chui" id="C1_2" onclick="chui2(this, C1_2)">C1</button></th>
+                <th><button class="chui" id="C2_2" onclick="chui2(this, C2_2)">C2</button></th>
+                <th><button class="chui" id="C3_2" onclick="chui2(this, C3_2)">C3</button></th>
+                <th><button class="chui" id="HC_2" onclick="chui2(this, HC_2)">HC</button></th>
+                <th><button class="chui" onclick="H22(this);">H</button></th>
                 <th colspan="2" style="color: #fff; font-size: 270px">VS</th>
-                <th><button class="chui" id="C1_1" onclick="changeColor1(this, C1_1)">C1</button></th>
-                <th><button class="chui" id="C2_1" onclick="changeColor1(this, C2_1)">C2</button></th>
-                <th><button class="chui" id="C3_1" onclick="changeColor1(this, C3_1)">C3</button></th>
-                <th><button class="chui" id="HC_1" onclick="changeColor1(this, HC_1)">HC</button></th>
-                <th><button class="chui" onclick="hansoku1(this);">H</button></th>
+                <th><button class="chui" id="C1_1" onclick="chui1(this, C1_1)">C1</button></th>
+                <th><button class="chui" id="C2_1" onclick="chui1(this, C2_1)">C2</button></th>
+                <th><button class="chui" id="C3_1" onclick="chui1(this, C3_1)">C3</button></th>
+                <th><button class="chui" id="HC_1" onclick="chui1(this, HC_1)">HC</button></th>
+                <th><button class="chui" onclick="H1(this);">H</button></th>
             </tr>
 
         </table>
@@ -698,7 +698,7 @@
             }
         }
 
-        function changeColor1(button, id) {
+        function chui1(button, id) {
             if (!isClicked) {
                 switch (id)
                 {
@@ -719,6 +719,7 @@
                     C2_1.classList.add('clicked1');
                     C3_1.classList.add('clicked1');
                     HC_1.classList.add('clicked1');
+                    break;
                 }
             } else {
                 button.classList.remove('clicked1');
@@ -726,7 +727,7 @@
             isClicked = !isClicked;
         }
 
-        function changeColor2(button, id) {
+        function chui2(button, id) {
             if (!isClicked) {
                 switch (id)
                 {
@@ -747,6 +748,7 @@
                     C2_2.classList.add('clicked2');
                     C3_2.classList.add('clicked2');
                     HC_2.classList.add('clicked2');
+                    break;
                 }
             } else {
                 button.classList.remove('clicked2');
@@ -754,7 +756,7 @@
             isClicked = !isClicked;
         }
 
-        function changeColorS1(button) {
+        function S1(button) {
             if (!isClicked) {
                 button.classList.add('clicked1');
                 senshu1Clicked = true;
@@ -765,7 +767,7 @@
             isClicked = !isClicked;
         }
 
-        function changeColorS2(button) {
+        function S2(button) {
             if (!isClicked) {
                 button.classList.add('clicked2');
                 senshu2Clicked = true;
@@ -783,10 +785,10 @@
             }
         }
 
-        function hansoku1(button) {
+        function H1(button) {
             if (!isClicked1) {
                 button.classList.add('clicked1');
-                changeColor1(button,HC_1);
+                chui1(button,HC_1);
                 document.getElementById('score2').classList.add('flashing');
                 document.getElementById('score1').classList.remove('flashing');
             } else {
@@ -797,10 +799,10 @@
             isClicked1 = !isClicked1;
         }
 
-        function hansoku2(button) {
+        function H22(button) {
             if (!isClicked2) {
                 button.classList.add('clicked2');
-                changeColor2(button,HC_2);
+                chui2(button,HC_2);
                 document.getElementById('score1').classList.add('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             } else {
