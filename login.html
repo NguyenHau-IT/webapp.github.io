@@ -80,7 +80,7 @@
 
         window.addEventListener("beforeunload", function (event) {
             var timeout = setTimeout(function() {
-                localStorage.removeItem("loggedIn");
+                localStorage.removeItem("loggedIn",'true');
         }, 60000);
         });
 
