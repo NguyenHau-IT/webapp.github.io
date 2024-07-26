@@ -78,16 +78,12 @@
             e.preventDefault();
         });
 
-        window.addEventListener("beforeunload", function (event) {
-            var timeout = setTimeout(function() {
-                localStorage.removeItem("loggedIn",'true');
-        }, 60000);
-        });
-
         const users =
             [
+                { username: 'admin', password: 'karatepp' },
                 { username: 'admin1', password: 'vuidokan' },
-                { username: 'admin', password: 'karatepp' }
+                { username: 'admin2', password: 'karatepp' },
+                { username: 'admin3', password: 'karatepp' },
             ];
 
         function login(event) {
