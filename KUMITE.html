@@ -524,6 +524,13 @@
                     break;
             }
 
+            if (r > 5) {
+                highlightResult(wr1, p_aka1, p_ao1);
+                highlightResult(wr2, p_aka2, p_ao2);
+                highlightResult(wr3, p_aka3, p_ao3);
+                highlightResult(wr4, p_aka4, p_ao4);
+                highlightResult(wr5, p_aka5, p_ao5);
+            }
 
             if (player === 1) {
                 matchwin1 = parseInt(document.getElementById(winId).innerText);
