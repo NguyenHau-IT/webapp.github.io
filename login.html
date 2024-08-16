@@ -66,86 +66,86 @@
         <th style="color:white; text-align: center; font-size: 30px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</th>
     </div>
     
-    <script>
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'F12') {
-                e.preventDefault();
-            }
-        });
-    
-        document.addEventListener('contextmenu', function (e) {
+<script>
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'F12') {
             e.preventDefault();
-        });
-    
-        const users =
-            [
-                { username: 'admin', password: 'karatepp' },
-                { username: 'admin1', password: 'vuidokan' },
-                { username: 'admin2', password: 'karatepp' },
-                { username: 'admin3', password: 'karatepp' },
-            ];
-    
-        function setKeyWithExpiry(key, value, ttl) {
-            const now = new Date();
-            const expiryTime = now.getTime() + ttl;
-    
-            const item = {
-                value: value,
-                expiry: expiryTime
-            };
-            localStorage.setItem(key, JSON.stringify(item));
         }
-    
-        function getKeyWithExpiry(key) {
-            const itemStr = localStorage.getItem(key);
-    
-            if (!itemStr) {
-                return null;
-            }
-    
-            const item = JSON.parse(itemStr);
-            const now = new Date();
-    
-            if (now.getTime() > item.expiry) {
-                localStorage.removeItem(key);
-                return null;
-            }
-    
-            return item.value;
+    });
+
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    const users =
+        [
+            { username: 'admin', password: 'karatepp' },
+            { username: 'admin1', password: 'vuidokan' },
+            { username: 'admin2', password: 'karatepp' },
+            { username: 'admin3', password: 'karatepp' },
+        ];
+
+    function setKeyWithExpiry(key, value, ttl) {
+        const now = new Date();
+        const expiryTime = now.getTime() + ttl;
+
+        const item = {
+            value: value,
+            expiry: expiryTime
+        };
+        localStorage.setItem(key, JSON.stringify(item));
+    }
+
+    function getKeyWithExpiry(key) {
+        const itemStr = localStorage.getItem(key);
+
+        if (!itemStr) {
+            return null;
         }
-    
-        function login(event) {
-            event.preventDefault();
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-    
-            const user = users.find(user => user.username === username && user.password === password);
-    
-            if (user) {
-                // Lưu key với thời gian sống là 30 giây (30 * 1000 ms)
-                setKeyWithExpiry('loggedIn', 'true', 30 * 1000);
-                window.location.href = 'index.html';
-            } else {
-                alert('Tên đăng nhập hoặc mật khẩu không đúng');
-            }
+
+        const item = JSON.parse(itemStr);
+        const now = new Date();
+
+        if (now.getTime() > item.expiry) {
+            localStorage.removeItem(key);
+            return null;
         }
-    
-        function checkTokenOnPageLoad() {
-            const loggedIn = getKeyWithExpiry('loggedIn');
-    
-            if (!loggedIn) {
-                // Nếu key đã hết hạn hoặc không tồn tại, chuyển hướng tới trang đăng nhập
-                window.location.href = 'login.html';
-            } else {
-                console.log('Token vẫn hợp lệ:', loggedIn);
-                // Thực hiện các hành động khác nếu cần thiết
-            }
+
+        return item.value;
+    }
+
+    function login(event) {
+        event.preventDefault();
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            // Lưu key với thời gian sống là 30 giây (30 * 1000 ms)
+            setKeyWithExpiry('loggedIn', 'true', 30 * 1000);
+            window.location.href = 'index.html';
+        } else {
+            alert('Tên đăng nhập hoặc mật khẩu không đúng');
         }
-    
-        // Gọi hàm này khi trang được tải
-        checkTokenOnPageLoad();
-    </script>
-    
+    }
+
+    function checkTokenOnPageLoad() {
+        const loggedIn = getKeyWithExpiry('loggedIn');
+
+        if (!loggedIn) {
+            // Nếu key đã hết hạn hoặc không tồn tại, chuyển hướng tới trang đăng nhập
+            window.location.href = 'login.html';
+        } else {
+            console.log('Token vẫn hợp lệ:', loggedIn);
+            // Thực hiện các hành động khác nếu cần thiết
+        }
+    }
+
+    // Gọi hàm này khi trang được tải
+    checkTokenOnPageLoad();
+</script>
+
 </body>
 
 </html>
