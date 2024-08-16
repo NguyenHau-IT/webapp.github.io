@@ -63,9 +63,10 @@
             <input type="submit" value="Đăng Nhập">
         </form>
         <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
-        <th style="color:white; text-align: center; font-size: 30px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</th>
+        <th style="color:white; text-align: center; font-size: 30px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN
+            THỂ THAO VUIDOKAN</th>
     </div>
-    
+
     <script>
 
         document.addEventListener('keydown', function (e) {
@@ -93,11 +94,14 @@
             const user = users.find(user => user.username === username && user.password === password);
 
             if (user) {
-                localStorage.setItem('loggedIn', 'true');
-                window.location.href = 'index.html';
-            } else {
-                alert('Tên đăng nhập hoặc mật khẩu không đúng');
-            }
+    sessionStorage.setItem('loggedIn', 'true');
+    sessionStorage.setItem('loginTime', new Date().getTime());
+    window.location.href = 'index.html';
+} else {
+    alert('Tên đăng nhập hoặc mật khẩu không đúng');
+}
+
+
         }
     </script>
 </body>

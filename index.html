@@ -87,8 +87,28 @@
         });
 
         function checkLoginStatus() {
-            if (!localStorage.getItem('loggedIn')) {
-                window.location.href = 'login.html';
+            const loggedIn = sessionStorage.getItem('loggedIn');
+            const loginTime = sessionStorage.getItem('loginTime');
+
+            if (loggedIn && loginTime) {
+                const currentTime = new Date().getTime();
+                const timeElapsed = currentTime - loginTime; // thời gian đã trôi qua tính bằng milliseconds
+
+                const twelveHours = 12 * 60 * 60 * 1000; // 1 phút tính bằng milliseconds
+
+                if (timeElapsed > oneMinute) {
+                    // Xóa dữ liệu nếu đã quá 1 phút
+                    sessionStorage.removeItem('loggedIn');
+                    sessionStorage.removeItem('loginTime');
+                    alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
+                    window.location.href = 'login.html'; // Chuyển hướng về trang đăng nhập
+                } else {
+                    // Phiên đăng nhập vẫn còn hiệu lực
+                    console.log('Phiên đăng nhập vẫn còn hiệu lực');
+                }
+            } else {
+                // Người dùng chưa đăng nhập hoặc dữ liệu bị mất
+                window.location.href = 'login.html'; // Chuyển hướng về trang đăng nhập
             }
         }
 
@@ -97,12 +117,14 @@
         }
 
         function logout() {
-            localStorage.removeItem('loggedIn');
+            sessionStorage.removeItem('loggedIn');
+            sessionStorage.removeItem('loginTime'); // Xóa luôn thời gian đăng nhập khi logout
             window.location.href = 'login.html';
         }
 
-        checkLoginStatus()
-        localStorage.removeItem('loggedIn');
+        // Kiểm tra trạng thái đăng nhập và thời gian hết hạn mỗi khi trang được tải
+        checkLoginStatus();
+
     </script>
 </body>
 
