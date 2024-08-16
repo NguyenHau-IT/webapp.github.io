@@ -81,28 +81,65 @@
                 e.preventDefault();
             }
         });
-
+    
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
-
+    
+        function setKeyWithExpiry(key, value, ttl) {
+            const now = new Date();
+            const expiryTime = now.getTime() + ttl;
+            
+            const item = {
+                value: value,
+                expiry: expiryTime
+            };
+            localStorage.setItem(key, JSON.stringify(item));
+        }
+    
+        function getKeyWithExpiry(key) {
+            const itemStr = localStorage.getItem(key);
+            
+            if (!itemStr) {
+                return null;
+            }
+    
+            const item = JSON.parse(itemStr);
+            const now = new Date();
+    
+            if (now.getTime() > item.expiry) {
+                localStorage.removeItem(key);
+                return null;
+            }
+    
+            return item.value;
+        }
+    
         function checkLoginStatus() {
-            if (!localStorage.getItem('loggedIn')) {
+            const token = getKeyWithExpiry('loggedIn');
+            if (!token) {
                 window.location.href = 'login.html';
             }
         }
-
+    
         function redirectTo(url) {
             window.location.href = url;
         }
-
+    
         function logout() {
             localStorage.removeItem('loggedIn');
             window.location.href = 'login.html';
         }
-
-        checkLoginStatus()
+    
+        // Giả sử bạn muốn lưu token sau khi người dùng đăng nhập
+        function onLoginSuccess(token) {
+            // Lưu token với thời gian sống là 30 giây
+            setKeyWithExpiry('loggedIn', token, 30 * 1000);
+        }
+    
+        checkLoginStatus();
     </script>
+    
 </body>
 
 </html>
