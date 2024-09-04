@@ -30,18 +30,31 @@
             color: white;
         }
 
-        .table {
-            background: black;
-            width: 100%;
+        #datalist {
+            width: 99%;
+            height: 90px;
+            font-size: 100px;
+            border: 1px solid white;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 5px;
+            transition: border-color 0.3s ease;
+            text-align: right;
         }
 
-        select {
-            background-color: black;
-            color: white;
-            height: 180px;
-            width: 100%;
-            font-size: 120px;
-            text-align: right;
+        /* Hiệu ứng khi focus vào input */
+        #datalist:focus {
+            border-color: #66afe9;
+            outline: none;
+            box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+
+        /* Tùy chỉnh các tùy chọn trong datalist (chỉ hỗ trợ trong Firefox) */
+        datalist option {
+            font-size: 50px;
+            padding: 5px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
         }
 
         .AKA {
@@ -64,7 +77,7 @@
 
         .time {
             color: white;
-            font-size: 200px;
+            font-size: 250px;
             align-items: center;
         }
 
@@ -82,7 +95,7 @@
 </head>
 
 <body>
-    <table class="table">
+    <table>
         <tr class="AKA">
             <th>
                 <label for="inputField1"></label>
@@ -91,111 +104,113 @@
         </tr>
         <tr>
             <th>
-                <select id="kata1" name="KATA NAME">
-                    <option>000. KATA NAME</option>
-                    <option>001. Anan</option>
-                    <option>002. Anan Dai</option>
-                    <option>003. Ananko</option>
-                    <option>004. Aoyagi</option>
-                    <option>005. Bassai</option>
-                    <option>006. Bassai Dai</option>
-                    <option>007. Bassai Sho</option>
-                    <option>008. Chatanyara Kusanku</option>
-                    <option>009. Chibana No Kushanku</option>
-                    <option>010. Chinte</option>
-                    <option>011. Chinto</option>
-                    <option>012. Enpi</option>
-                    <option>013. Fukyugata Ichi</option>
-                    <option>014. Fukyugata Ni</option>
-                    <option>015. Gankaku</option>
-                    <option>016. Garyu</option>
-                    <option>017. Gekisai (Geksai) 1</option>
-                    <option>018. Gekisai (Geksai) 2</option>
-                    <option>019. Gojushiho</option>
-                    <option>020. Gojushiho Dai</option>
-                    <option>021. Gojushiho Sho</option>
-                    <option>022. Hakucho</option>
-                    <option>023. Hangetsu</option>
-                    <option>024. Haufa/ Haffa</option>
-                    <option>025. Heian Shodan</option>
-                    <option>026. Heian Nidan</option>
-                    <option>027. Heian Sandan</option>
-                    <option>028. Heian Yondan</option>
-                    <option>029. Heian Godan</option>
-                    <option>030. Heiku</option>
-                    <option>031. Ishimine Bassai</option>
-                    <option>032. Itosu Rohai Shodan</option>
-                    <option>033. Itosu Rohai Nidan</option>
-                    <option>034. Itosu Rohai Sandan</option>
-                    <option>035. Jiin</option>
-                    <option>036. Jion</option>
-                    <option>037. Jitte</option>
-                    <option>038. Juroku</option>
-                    <option>039. Kanchin</option>
-                    <option>040. Kanku Dai</option>
-                    <option>041. Kanku Sho</option>
-                    <option>042. Kanshu</option>
-                    <option>043. Kishimoto No Kushanku</option>
-                    <option>044. Kousoukun</option>
-                    <option>045. Kousoukun Dai</option>
-                    <option>046. Kousoukun Sho</option>
-                    <option>047. Kururunfa</option>
-                    <option>048. Kusanku</option>
-                    <option>049. Kyan No Chinto</option>
-                    <option>050. Kyan No Wanshu</option>
-                    <option>051. Matsukaze</option>
-                    <option>052. Matsumura Bassai</option>
-                    <option>053. Matsumura Rohai</option>
-                    <option>054. Meikyo</option>
-                    <option>055. Myojo</option>
-                    <option>056. Naifanchin Shodan</option>
-                    <option>057. Naifanchin Nidan</option>
-                    <option>058. Naifanchin Sandan</option>
-                    <option>059. Naihanchi</option>
-                    <option>060. Nijushiho</option>
-                    <option>061. Nipaipo</option>
-                    <option>062. Niseishi</option>
-                    <option>063. Ohan</option>
-                    <option>064. Ohan Dai</option>
-                    <option>065. Oyadomari No Passai</option>
-                    <option>066. Pachu</option>
-                    <option>067. Paiku</option>
-                    <option>068. Papuren</option>
-                    <option>069. Passai</option>
-                    <option>070. Pinan Shodan</option>
-                    <option>071. Pinan Nidan</option>
-                    <option>072. Pinan Sandan</option>
-                    <option>073. Pinan Yondan</option>
-                    <option>074. Pinan Godan</option>
-                    <option>075. Rohai</option>
-                    <option>076. Saifa</option>
-                    <option>077. Sanchin</option>
-                    <option>078. Sansai</option>
-                    <option>079. Sanseiru</option>
-                    <option>080. Sanseru</option>
-                    <option>081. Seichin</option>
-                    <option>082. Seienchin/ Seiyunchin</option>
-                    <option>083. Seipai</option>
-                    <option>084. Seiryu</option>
-                    <option>085. Seishan</option>
-                    <option>086. Seisan (Sesan)</option>
-                    <option>087. Shiho Kousoukun</option>
-                    <option>088. Shinpa</option>
-                    <option>089. Shinsei</option>
-                    <option>090. Shisochin</option>
-                    <option>091. Sochin</option>
-                    <option>092. Suparinpei</option>
-                    <option>093. Tekki Shodan</option>
-                    <option>094. Tekki Nidan</option>
-                    <option>095. Tekki Sandan</option>
-                    <option>096. Tensho</option>
-                    <option>097. Tomari Bassai</option>
-                    <option>098. Unshu</option>
-                    <option>099. Unsu</option>
-                    <option>100. Useishi</option>
-                    <option>101. Wankan </option>
-                    <option>102. Wanshu</option>
-                </select>
+                <label for="datalist"></label>
+                <input type="text" id="datalist" name="datalist" list="datalist-query" placeholder="000. KATANAME">
+                <datalist id="datalist-query">
+                    <option value="000. KATA NAME">
+                    <option value="001. Anan">
+                    <option value="002. Anan Dai">
+                    <option value="003. Ananko">
+                    <option value="004. Aoyagi">
+                    <option value="005. Bassai">
+                    <option value="006. Bassai Dai">
+                    <option value="007. Bassai Sho">
+                    <option value="008. Chatanyara Kusanku">
+                    <option value="009. Chibana No Kushanku">
+                    <option value="010. Chinte">
+                    <option value="011. Chinto">
+                    <option value="012. Enpi">
+                    <option value="013. Fukyugata Ichi">
+                    <option value="014. Fukyugata Ni">
+                    <option value="015. Gankaku">
+                    <option value="016. Garyu">
+                    <option value="017. Gekisai (Geksai) 1">
+                    <option value="018. Gekisai (Geksai) 2">
+                    <option value="019. Gojushiho">
+                    <option value="020. Gojushiho Dai">
+                    <option value="021. Gojushiho Sho">
+                    <option value="022. Hakucho">
+                    <option value="023. Hangetsu">
+                    <option value="024. Haufa/ Haffa">
+                    <option value="025. Heian Shodan">
+                    <option value="026. Heian Nidan">
+                    <option value="027. Heian Sandan">
+                    <option value="028. Heian Yondan">
+                    <option value="029. Heian Godan">
+                    <option value="030. Heiku">
+                    <option value="031. Ishimine Bassai">
+                    <option value="032. Itosu Rohai Shodan">
+                    <option value="033. Itosu Rohai Nidan">
+                    <option value="034. Itosu Rohai Sandan">
+                    <option value="035. Jiin">
+                    <option value="036. Jion">
+                    <option value="037. Jitte">
+                    <option value="038. Juroku">
+                    <option value="039. Kanchin">
+                    <option value="040. Kanku Dai">
+                    <option value="041. Kanku Sho">
+                    <option value="042. Kanshu">
+                    <option value="043. Kishimoto No Kushanku">
+                    <option value="044. Kousoukun">
+                    <option value="045. Kousoukun Dai">
+                    <option value="046. Kousoukun Sho">
+                    <option value="047. Kururunfa">
+                    <option value="048. Kusanku">
+                    <option value="049. Kyan No Chinto">
+                    <option value="050. Kyan No Wanshu">
+                    <option value="051. Matsukaze">
+                    <option value="052. Matsumura Bassai">
+                    <option value="053. Matsumura Rohai">
+                    <option value="054. Meikyo">
+                    <option value="055. Myojo">
+                    <option value="056. Naifanchin Shodan">
+                    <option value="057. Naifanchin Nidan">
+                    <option value="058. Naifanchin Sandan">
+                    <option value="059. Naihanchi">
+                    <option value="060. Nijushiho">
+                    <option value="061. Nipaipo">
+                    <option value="062. Niseishi">
+                    <option value="063. Ohan">
+                    <option value="064. Ohan Dai">
+                    <option value="065. Oyadomari No Passai">
+                    <option value="066. Pachu">
+                    <option value="067. Paiku">
+                    <option value="068. Papuren">
+                    <option value="069. Passai">
+                    <option value="070. Pinan Shodan">
+                    <option value="071. Pinan Nidan">
+                    <option value="072. Pinan Sandan">
+                    <option value="073. Pinan Yondan">
+                    <option value="074. Pinan Godan">
+                    <option value="075. Rohai">
+                    <option value="076. Saifa">
+                    <option value="077. Sanchin">
+                    <option value="078. Sansai">
+                    <option value="079. Sanseiru">
+                    <option value="080. Sanseru">
+                    <option value="081. Seichin">
+                    <option value="082. Seienchin/ Seiyunchin">
+                    <option value="083. Seipai">
+                    <option value="084. Seiryu">
+                    <option value="085. Seishan">
+                    <option value="086. Seisan (Sesan)">
+                    <option value="087. Shiho Kousoukun">
+                    <option value="088. Shinpa">
+                    <option value="089. Shinsei">
+                    <option value="090. Shisochin">
+                    <option value="091. Sochin">
+                    <option value="092. Suparinpei">
+                    <option value="093. Tekki Shodan">
+                    <option value="094. Tekki Nidan">
+                    <option value="095. Tekki Sandan">
+                    <option value="096. Tensho">
+                    <option value="097. Tomari Bassai">
+                    <option value="098. Unshu">
+                    <option value="099. Unsu">
+                    <option value="100. Useishi">
+                    <option value="101. Wankan ">
+                    <option value="102. Wanshu">
+                </datalist>
             </th>
         </tr>
         <tr class="AO">
@@ -206,134 +221,165 @@
         </tr>
         <tr>
             <th>
-                <select id="kata2" name="KATA NAME">
-                    <option>000. KATA NAME</option>
-                    <option>001. Anan</option>
-                    <option>002. Anan Dai</option>
-                    <option>003. Ananko</option>
-                    <option>004. Aoyagi</option>
-                    <option>005. Bassai</option>
-                    <option>006. Bassai Dai</option>
-                    <option>007. Bassai Sho</option>
-                    <option>008. Chatanyara Kusanku</option>
-                    <option>009. Chibana No Kushanku</option>
-                    <option>010. Chinte</option>
-                    <option>011. Chinto</option>
-                    <option>012. Enpi</option>
-                    <option>013. Fukyugata Ichi</option>
-                    <option>014. Fukyugata Ni</option>
-                    <option>015. Gankaku</option>
-                    <option>016. Garyu</option>
-                    <option>017. Gekisai (Geksai) 1</option>
-                    <option>018. Gekisai (Geksai) 2</option>
-                    <option>019. Gojushiho</option>
-                    <option>020. Gojushiho Dai</option>
-                    <option>021. Gojushiho Sho</option>
-                    <option>022. Hakucho</option>
-                    <option>023. Hangetsu</option>
-                    <option>024. Haufa/ Haffa</option>
-                    <option>025. Heian Shodan</option>
-                    <option>026. Heian Nidan</option>
-                    <option>027. Heian Sandan</option>
-                    <option>028. Heian Yondan</option>
-                    <option>029. Heian Godan</option>
-                    <option>030. Heiku</option>
-                    <option>031. Ishimine Bassai</option>
-                    <option>032. Itosu Rohai Shodan</option>
-                    <option>033. Itosu Rohai Nidan</option>
-                    <option>034. Itosu Rohai Sandan</option>
-                    <option>035. Jiin</option>
-                    <option>036. Jion</option>
-                    <option>037. Jitte</option>
-                    <option>038. Juroku</option>
-                    <option>039. Kanchin</option>
-                    <option>040. Kanku Dai</option>
-                    <option>041. Kanku Sho</option>
-                    <option>042. Kanshu</option>
-                    <option>043. Kishimoto No Kushanku</option>
-                    <option>044. Kousoukun</option>
-                    <option>045. Kousoukun Dai</option>
-                    <option>046. Kousoukun Sho</option>
-                    <option>047. Kururunfa</option>
-                    <option>048. Kusanku</option>
-                    <option>049. Kyan No Chinto</option>
-                    <option>050. Kyan No Wanshu</option>
-                    <option>051. Matsukaze</option>
-                    <option>052. Matsumura Bassai</option>
-                    <option>053. Matsumura Rohai</option>
-                    <option>054. Meikyo</option>
-                    <option>055. Myojo</option>
-                    <option>056. Naifanchin Shodan</option>
-                    <option>057. Naifanchin Nidan</option>
-                    <option>058. Naifanchin Sandan</option>
-                    <option>059. Naihanchi</option>
-                    <option>060. Nijushiho</option>
-                    <option>061. Nipaipo</option>
-                    <option>062. Niseishi</option>
-                    <option>063. Ohan</option>
-                    <option>064. Ohan Dai</option>
-                    <option>065. Oyadomari No Passai</option>
-                    <option>066. Pachu</option>
-                    <option>067. Paiku</option>
-                    <option>068. Papuren</option>
-                    <option>069. Passai</option>
-                    <option>070. Pinan Shodan</option>
-                    <option>071. Pinan Nidan</option>
-                    <option>072. Pinan Sandan</option>
-                    <option>073. Pinan Yondan</option>
-                    <option>074. Pinan Godan</option>
-                    <option>075. Rohai</option>
-                    <option>076. Saifa</option>
-                    <option>077. Sanchin</option>
-                    <option>078. Sansai</option>
-                    <option>079. Sanseiru</option>
-                    <option>080. Sanseru</option>
-                    <option>081. Seichin</option>
-                    <option>082. Seienchin/ Seiyunchin</option>
-                    <option>083. Seipai</option>
-                    <option>084. Seiryu</option>
-                    <option>085. Seishan</option>
-                    <option>086. Seisan (Sesan)</option>
-                    <option>087. Shiho Kousoukun</option>
-                    <option>088. Shinpa</option>
-                    <option>089. Shinsei</option>
-                    <option>090. Shisochin</option>
-                    <option>091. Sochin</option>
-                    <option>092. Suparinpei</option>
-                    <option>093. Tekki Shodan</option>
-                    <option>094. Tekki Nidan</option>
-                    <option>095. Tekki Sandan</option>
-                    <option>096. Tensho</option>
-                    <option>097. Tomari Bassai</option>
-                    <option>098. Unshu</option>
-                    <option>099. Unsu</option>
-                    <option>100. Useishi</option>
-                    <option>101. Wankan </option>
-                    <option>102. Wanshu</option>
-                </select>
+                <label for="datalist"></label>
+                <input type="text" id="datalist" name="datalist" list="datalist-query" placeholder="000. KATANAME">
+                <datalist id="datalist-query">
+                    <option value="000. KATA NAME">
+                    <option value="001. Anan">
+                    <option value="002. Anan Dai">
+                    <option value="003. Ananko">
+                    <option value="004. Aoyagi">
+                    <option value="005. Bassai">
+                    <option value="006. Bassai Dai">
+                    <option value="007. Bassai Sho">
+                    <option value="008. Chatanyara Kusanku">
+                    <option value="009. Chibana No Kushanku">
+                    <option value="010. Chinte">
+                    <option value="011. Chinto">
+                    <option value="012. Enpi">
+                    <option value="013. Fukyugata Ichi">
+                    <option value="014. Fukyugata Ni">
+                    <option value="015. Gankaku">
+                    <option value="016. Garyu">
+                    <option value="017. Gekisai (Geksai) 1">
+                    <option value="018. Gekisai (Geksai) 2">
+                    <option value="019. Gojushiho">
+                    <option value="020. Gojushiho Dai">
+                    <option value="021. Gojushiho Sho">
+                    <option value="022. Hakucho">
+                    <option value="023. Hangetsu">
+                    <option value="024. Haufa/ Haffa">
+                    <option value="025. Heian Shodan">
+                    <option value="026. Heian Nidan">
+                    <option value="027. Heian Sandan">
+                    <option value="028. Heian Yondan">
+                    <option value="029. Heian Godan">
+                    <option value="030. Heiku">
+                    <option value="031. Ishimine Bassai">
+                    <option value="032. Itosu Rohai Shodan">
+                    <option value="033. Itosu Rohai Nidan">
+                    <option value="034. Itosu Rohai Sandan">
+                    <option value="035. Jiin">
+                    <option value="036. Jion">
+                    <option value="037. Jitte">
+                    <option value="038. Juroku">
+                    <option value="039. Kanchin">
+                    <option value="040. Kanku Dai">
+                    <option value="041. Kanku Sho">
+                    <option value="042. Kanshu">
+                    <option value="043. Kishimoto No Kushanku">
+                    <option value="044. Kousoukun">
+                    <option value="045. Kousoukun Dai">
+                    <option value="046. Kousoukun Sho">
+                    <option value="047. Kururunfa">
+                    <option value="048. Kusanku">
+                    <option value="049. Kyan No Chinto">
+                    <option value="050. Kyan No Wanshu">
+                    <option value="051. Matsukaze">
+                    <option value="052. Matsumura Bassai">
+                    <option value="053. Matsumura Rohai">
+                    <option value="054. Meikyo">
+                    <option value="055. Myojo">
+                    <option value="056. Naifanchin Shodan">
+                    <option value="057. Naifanchin Nidan">
+                    <option value="058. Naifanchin Sandan">
+                    <option value="059. Naihanchi">
+                    <option value="060. Nijushiho">
+                    <option value="061. Nipaipo">
+                    <option value="062. Niseishi">
+                    <option value="063. Ohan">
+                    <option value="064. Ohan Dai">
+                    <option value="065. Oyadomari No Passai">
+                    <option value="066. Pachu">
+                    <option value="067. Paiku">
+                    <option value="068. Papuren">
+                    <option value="069. Passai">
+                    <option value="070. Pinan Shodan">
+                    <option value="071. Pinan Nidan">
+                    <option value="072. Pinan Sandan">
+                    <option value="073. Pinan Yondan">
+                    <option value="074. Pinan Godan">
+                    <option value="075. Rohai">
+                    <option value="076. Saifa">
+                    <option value="077. Sanchin">
+                    <option value="078. Sansai">
+                    <option value="079. Sanseiru">
+                    <option value="080. Sanseru">
+                    <option value="081. Seichin">
+                    <option value="082. Seienchin/ Seiyunchin">
+                    <option value="083. Seipai">
+                    <option value="084. Seiryu">
+                    <option value="085. Seishan">
+                    <option value="086. Seisan (Sesan)">
+                    <option value="087. Shiho Kousoukun">
+                    <option value="088. Shinpa">
+                    <option value="089. Shinsei">
+                    <option value="090. Shisochin">
+                    <option value="091. Sochin">
+                    <option value="092. Suparinpei">
+                    <option value="093. Tekki Shodan">
+                    <option value="094. Tekki Nidan">
+                    <option value="095. Tekki Sandan">
+                    <option value="096. Tensho">
+                    <option value="097. Tomari Bassai">
+                    <option value="098. Unshu">
+                    <option value="099. Unsu">
+                    <option value="100. Useishi">
+                    <option value="101. Wankan ">
+                    <option value="102. Wanshu">
+                </datalist>
             </th>
         </tr>
     </table>
 
-    <table class="table">
+    <table>
         <tr>
             <th class="time" id="countdown">00:35<span id="tenths">.0</span></th>
         </tr>
         <tr>
             <th>
-                <button type="button" onclick="startCountdown()">Start (1)</button>
-                <button type="button" onclick="stopCountdown()">Pause (2)</button>
-                <button type="button" onclick="resetCountdown()">ResetTime(3)</button>
-                <button type="button" onclick="updateSeconds()">Set Time(4)</button>
+                <button type="button" onclick="startCountdown()">Start (F2)</button>
+                <button type="button" onclick="stopCountdown()">Pause (F3)</button>
+                <button type="button" onclick="resetCountdown()">ResetTime(F4)</button>
+                <button type="button" onclick="updateSeconds()">Set Time(F5)</button>
                 <button type="button" onclick="reloadPage()">Reset All (=)</button>
             </th>
         </tr>
     </table>
-    <footer style="color:white; text-align: center; font-size: 20px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</footer>
+    <footer style="color:white; text-align: center; font-size: 20px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN
+        THỂ THAO VUIDOKAN</footer>
     <script>
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12') {
                 e.preventDefault();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F5') {
+                e.preventDefault();
+                updateSeconds();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F4') {
+                e.preventDefault();
+                resetCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F3') {
+                e.preventDefault();
+                stopCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F2') {
+                e.preventDefault();
+                startCountdown();
             }
         });
 
@@ -343,18 +389,6 @@
 
         document.addEventListener('keydown', function (event) {
             switch (event.key) {
-                case '1':
-                    startCountdown();
-                    break;
-                case '2':
-                    stopCountdown();
-                    break;
-                case '3':
-                    resetCountdown()
-                    break;
-                case '4':
-                    updateSeconds();
-                    break;
                 case '=':
                     reloadPage();
                     break;
