@@ -60,7 +60,7 @@
             border-radius: 50px;
             cursor: pointer;
             width: 170px;
-            height: 55px;
+            height: 40px;
             font-size: 23px;
         }
 
@@ -68,8 +68,8 @@
             border-radius: 50px;
             background-color: red;
             width: 170px;
-            height: 55px;
-            font-size: 50px;
+            height: 40px;
+            font-size: 35px;
             color: white;
         }
 
@@ -77,8 +77,8 @@
             border-radius: 50px;
             background-color: blue;
             width: 170px;
-            height: 55px;
-            font-size: 50px;
+            height: 40px;
+            font-size: 35px;
             color: white;
         }
 
@@ -98,6 +98,11 @@
             width: 100%;
             height: 400px;
             padding: 0px;
+        }
+
+        #countdown{
+            font-size: 320px; 
+            color: white;
         }
 
         input {
@@ -124,7 +129,7 @@
             border-radius: 50px;
             background-color: red;
             width: 150px;
-            height: 50px;
+            height: 40px;
             font-size: 30px;
             color: white;
         }
@@ -134,7 +139,7 @@
             border-radius: 50px;
             background-color: blue;
             width: 150px;
-            height: 50px;
+            height: 40px;
             font-size: 30px;
             color: white;
         }
@@ -159,26 +164,6 @@
             font-size: 85px;
             background-color: white;
             color: red;
-        }
-
-        #win1 {
-            text-align: center;
-            border-radius: 50px;
-            background-color: red;
-            width: 150px;
-            height: 50px;
-            font-size: 45px;
-            color: white;
-        }
-
-        #win2 {
-            text-align: center;
-            border-radius: 50px;
-            background-color: blue;
-            width: 150px;
-            height: 50px;
-            font-size: 45px;
-            color: white;
         }
 
         .VDV1::placeholder {
@@ -367,7 +352,7 @@
         <table class="table-time">
 
             <tr>
-                <th colspan="12" style="font-size: 300px; color: white;" id="countdown">01:30<span id="tenths">.0</span>
+                <th colspan="12" id="countdown">01:30<span id="tenths">.0</span>
                 </th>
             </tr>
 
@@ -387,8 +372,8 @@
             </tr>
 
             <tr>
-                <td><button type="button" class="Time" onclick="startCountdown()">Start (1)</button></td>
-                <td><button type="button" class="Time" onclick="stopCountdown()">Pause (2)</button></td>
+                <td><button type="button" class="Time" onclick="startCountdown()">Start (F2)</button></td>
+                <td><button type="button" class="Time" onclick="stopCountdown()">Pause (F3)</button></td>
                 <td><button type="button" class="Time" onclick="win(0)">DRAW</button></td>
                 <td><button type="button" class="Time" id="startButton">Doctor</button></td>
                 <td><button type="button" class="aka" onclick="addScore(1, 1,0)">+1</button></td>
@@ -399,11 +384,10 @@
                 <td><button type="button" class="aka" onclick="subtractScore(1, 3,1)">-3</button></td>
                 <td class="countpoint1" id="clickCount1_2">0 : WAZA</td>
                 <td class="countpoint1" id="clickCount1_3">0 : IPPON</td>
-
             </tr>
 
             <tr>
-                <td><button type="button" class="Time" onclick="resetCountdown()">ResetTime (3)</button></td>
+                <td><button type="button" class="Time" onclick="resetCountdown()">ResetTime(F4)</button></td>
                 <td><button type="button" class="Time" onclick="reloadPage()">Reset All (=)</button></td>
                 <td><button type="button" class="Time" onclick="updateSeconds()"> SET TIME</button></td>
                 <td></td>
@@ -427,7 +411,7 @@
         <div class="modal-content">
             <div id="countdownDisplay">10</div>
             <button type="button" id="cancel">Stop</button>
-            <button type="button" id="skip">2 phút</button>
+            <button type="button" id="skip">3 phút</button>
         </div>
     </div>
 
@@ -458,21 +442,40 @@
             }
         });
 
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F5') {
+                e.preventDefault();
+                updateSeconds();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F4') {
+                e.preventDefault();
+                resetCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F3') {
+                e.preventDefault();
+                stopCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F2') {
+                e.preventDefault();
+                startCountdown();
+            }
+        });
+
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
 
         document.addEventListener('keydown', function (event) {
             switch (event.key) {
-                case '1':
-                    startCountdown();
-                    break;
-                case '2':
-                    stopCountdown();
-                    break;
-                case '3':
-                    resetCountdown();
-                    break;
                 case '=':
                     reloadPage();
                     break;
@@ -935,7 +938,7 @@
 
                 if (countdownTime <= 0) {
                     if (!counting2Minutes) {
-                        countdownTime = 120; // Đếm ngược 2 phút
+                        countdownTime = 180; // Đếm ngược 2 phút
                         counting2Minutes = true;
                     } else {
                         clearInterval(countdown); // Kết thúc đếm ngược sau 2 phút
@@ -955,7 +958,7 @@
 
         skipButton.addEventListener('click', function () {
             clearInterval(countdown);
-            countdownTime = 120; // Đếm ngược 2 phút ngay lập tức
+            countdownTime = 180; // Đếm ngược 2 phút ngay lập tức
             countdownDisplay.textContent = countdownTime;
             counting2Minutes = true;
 
