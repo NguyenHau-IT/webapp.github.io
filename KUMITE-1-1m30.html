@@ -939,7 +939,6 @@
                         counting2Minutes = true;
                     } else {
                         clearInterval(countdown); // Kết thúc đếm ngược sau 2 phút
-                        countdownDisplay.textContent = "Hết giờ!";
                         cancelButton.style.display = 'none';
                         skipButton.style.display = 'none';
                     }
@@ -949,7 +948,6 @@
 
         cancelButton.addEventListener('click', function () {
             clearInterval(countdown);
-            countdownDisplay.textContent = "Đã hủy!";
             cancelButton.style.display = 'none';
             skipButton.style.display = 'none';
             countdownModal.style.display = 'none';
@@ -967,7 +965,6 @@
 
                 if (countdownTime <= 0) {
                     clearInterval(countdown); // Kết thúc sau 2 phút
-                    countdownDisplay.textContent = "Hết giờ!";
                     cancelButton.style.display = 'none';
                     skipButton.style.display = 'none';
                     countdownModal.style.display = 'none';
