@@ -34,7 +34,7 @@
             border-radius: 50px;
             background-color: red;
             width: 150px;
-            height: 55px;
+            height: px;
             font-size: 50px;
             color: white;
         }
@@ -43,7 +43,7 @@
             border-radius: 50px;
             background-color: blue;
             width: 150px;
-            height: 55px;
+            height: 90px;
             font-size: 50px;
             color: white;
         }
@@ -350,14 +350,15 @@
                 <th class="TSakaD" id="TSakaD_4">0</th>
                 <th class="TSaoD" id="TSaoD_5">0</th>
                 <th class="TSakaD" id="TSakaD_5">0</th>
-                <th id="win2">0 :AO</th>
-                <th id="win1">0 :AKA</th>
+                <td><button type="button" class="winner1" onclick="win(1)">AKA</button></td>
+                <td><button type="button" class="winner2" onclick="win(2)">AO</button></td>
             </tr>
 
             <tr>
                 <td><button type="button" class="Time" onclick="startCountdown()">Start (1)</button></td>
                 <td><button type="button" class="Time" onclick="stopCountdown()">Pause (2)</button></td>
                 <td><button type="button" class="Time" onclick="win(0)">DRAW</button></td>
+                <td><button type="button" class="Time" onclick="">Bác Sĩ</button></td>
                 <td><button type="button" class="aka" onclick="addScore(1, 1,0)">+1</button></td>
                 <td><button type="button" class="aka" onclick="addScore(1, 2,1)">+2</button></td>
                 <td><button type="button" class="aka" onclick="addScore(1, 3,1)">+3</button></td>
@@ -366,13 +367,14 @@
                 <td><button type="button" class="aka" onclick="subtractScore(1, 3,1)">-3</button></td>
                 <td class="countpoint1" id="clickCount1_2">0 : WAZA</td>
                 <td class="countpoint1" id="clickCount1_3">0 : IPPON</td>
-                <td><button type="button"  class="winner1" onclick="win(1)">AKA</button></td>
+
             </tr>
 
             <tr>
                 <td><button type="button" class="Time" onclick="resetCountdown()">ResetTime (3)</button></td>
                 <td><button type="button" class="Time" onclick="reloadPage()">Reset All (=)</button></td>
                 <td><button type="button" class="Time" onclick="updateSeconds()"> SET TIME</button></td>
+                <td></td>
                 <td><button type="button" class="ao" onclick="addScore(2, 1,0)">+1</button></td>
                 <td><button type="button" class="ao" onclick="addScore(2, 2,1)">+2</button></td>
                 <td><button type="button" class="ao" onclick="addScore(2, 3,1)">+3</button></td>
@@ -381,7 +383,7 @@
                 <td><button type="button" class="ao" onclick="subtractScore(2, 3,1)">-3</button></td>
                 <td class="countpoint2" id="clickCount2_2">0 : WAZA</td>
                 <td class="countpoint2" id="clickCount2_3">0 : IPPON</td>
-                <td><button type="button" class="winner2" onclick="win(2)">AO</button></td>
+
             </tr>
 
         </table>
@@ -442,7 +444,6 @@
         }
 
         function win(player) {
-            var winId = "win" + player;
             var matchwin1;
             var matchwin2;
             var scoreId;
