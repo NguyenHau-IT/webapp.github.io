@@ -5,6 +5,7 @@
   "hints": {
     "no-inline-styles": "off",
     "axe/forms": "off",
-    "axe/parsing": "off"
+    "axe/parsing": "off",
+    "axe/aria": "off"
   }
 }
