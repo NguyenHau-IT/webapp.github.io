@@ -1,0 +1,987 @@
+<!-- 
+ *  KARATE SCORE BOARD
+ * Authors:
+ * Nguyen Viet Hau  - Ben Tre
+ * Version: 4.0
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/vuidokan.jpg" rel="image/vuidokan">
+    <title>KARATE SCORE BOARD:KUMITE</title>
+
+    <style>
+        .Score1 {
+            width: 500px;
+            height: 250px;
+            font-size: 230px;
+            color: red;
+        }
+
+        .Score2 {
+            width: 500px;
+            height: 250px;
+            font-size: 230px;
+            color: blue;
+        }
+
+        .winner1 {
+            border-radius: 50px;
+            background-color: red;
+            width: 150px;
+            height: 90px;
+            font-size: 50px;
+            color: white;
+        }
+
+        .winner2 {
+            border-radius: 50px;
+            background-color: blue;
+            width: 150px;
+            height: 90px;
+            font-size: 50px;
+            color: white;
+        }
+
+        .chui {
+            border-radius: 50px;
+            background-color: black;
+            width: 230px;
+            height: 130xpx;
+            font-size: 95px;
+            color: white;
+        }
+
+        .Time {
+            border-radius: 50px;
+            cursor: pointer;
+            width: 170px;
+            height: 40px;
+            font-size: 23px;
+        }
+
+        .aka {
+            border-radius: 50px;
+            background-color: red;
+            width: 170px;
+            height: 40px;
+            font-size: 35px;
+            color: white;
+        }
+
+        .ao {
+            border-radius: 50px;
+            background-color: blue;
+            width: 170px;
+            height: 40px;
+            font-size: 35px;
+            color: white;
+        }
+
+        .Senshu {
+            border-color: white;
+            border-radius: 60px;
+            width: 120px;
+            height: 120px;
+            font-size: 100px;
+            color: black;
+            background-color: black;
+        }
+
+        .table-time {
+            background-color: black;
+            justify-content: left;
+            width: 100%;
+            height: 400px;
+            padding: 0px;
+        }
+
+        #countdown{
+            font-size: 320px; 
+            color: white;
+        }
+
+        input {
+            text-align: center;
+            background-color: black;
+            font-size: 120px;
+            color: white;
+        }
+
+        .clicked1 {
+            background-color: red;
+            border-color: black;
+            border: 10px;
+        }
+
+        .clicked2 {
+            background-color: blue;
+            border-color: black;
+            border: 10px;
+        }
+
+        .countpoint1 {
+            text-align: center;
+            border-radius: 50px;
+            background-color: red;
+            width: 150px;
+            height: 40px;
+            font-size: 30px;
+            color: white;
+        }
+
+        .countpoint2 {
+            text-align: center;
+            border-radius: 50px;
+            background-color: blue;
+            width: 150px;
+            height: 40px;
+            font-size: 30px;
+            color: white;
+        }
+
+        .TSaoD {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: white;
+            color: blue;
+        }
+
+        .TSakaD {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: white;
+            color: red;
+        }
+
+        .VDV1::placeholder {
+            color: red;
+            text-align: left;
+        }
+
+        .VDV2::placeholder {
+            color: blue;
+            text-align: left;
+        }
+
+        .flashing {
+            animation: flash 0.4s infinite alternate;
+        }
+
+        @keyframes flash {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        .akawr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: red;
+            color: white;
+        }
+
+        .akawl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: red;
+            color: white;
+        }
+
+        .aowr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: blue;
+            color: white;
+        }
+
+        .aowl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: blue;
+            color: white;
+        }
+
+        .drawl {
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: #828282;
+            color: white
+        }
+
+        .drawr {
+            text-align: center;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            width: 70px;
+            height: 90px;
+            font-size: 85px;
+            background-color: #828282;
+            color: white
+        }
+
+        /* Style for modal popup */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 50px;
+            border: 1px solid #888;
+            width: 50%; /* Thay đổi width lớn hơn */
+            height: 40%; /* Thay đổi height lớn hơn */
+            text-align: center;
+        }
+
+        #cancel, #skip {
+            display: none;
+            font-size: 50px; /* Tăng kích thước nút */
+        }
+
+        #countdownDisplay {
+            font-size: 300px; /* Tăng kích thước đồng hồ */
+        }
+    </style>
+
+</head>
+
+<body style="height: 100%; width: 99%; background-color: black;">
+
+    <table>
+
+        <table style="width: 100%; height: 130px;">
+
+            <tr>
+
+                <th> <label for="inputField"></label>
+                    <input type="text" id="inputField" name="inputField" autocomplete="off" class="VDV1"
+                        placeholder="AKA">
+
+                    <table>
+                        <td style="color: red; font-size: 100px;">PENALTY</td>
+                        <td><button type="button" class="chui" id="C1_1" onclick="chui1(this, C1_1)">C1</button></td>
+                        <td><button type="button" class="chui" id="C2_1" onclick="chui1(this, C2_1)">C2</button></td>
+                        <td><button type="button" class="chui" id="C3_1" onclick="chui1(this, C3_1)">C3</button></td>
+                        <td><button type="button" class="chui" id="HC_1" onclick="chui1(this, HC_1)">HC</button></td>
+                        <td><button type="button" class="chui" onclick="H1(this);">H</button></td>
+                    </table>
+
+                <td rowspan="4"><button type="button" class="Senshu" onclick="S1(this)">S</button></td>
+
+                <th id="score1" class="Score1">0</th>
+
+                </th>
+
+            </tr>
+
+        </table>
+
+        <table style="width: 100%; height: 130px;">
+
+            <tr>
+
+                <th>
+
+                    <label for="inputField"></label>
+                    <input colspan="6" type="text" id="inputField" name="inputField" autocomplete="off" class="VDV2"
+                        placeholder="AO">
+
+                    <table>
+                        <td style="color: blue; font-size: 100px;">PENALTY</td>
+                        <td><button type="button" class="chui" id="C1_2" onclick="chui2(this, C1_2)">C1</button></td>
+                        <td><button type="button" class="chui" id="C2_2" onclick="chui2(this, C2_2)">C2</button></td>
+                        <td><button type="button" class="chui" id="C3_2" onclick="chui2(this, C3_2)">C3</button></td>
+                        <td><button type="button" class="chui" id="HC_2" onclick="chui2(this, HC_2)">HC</button></td>
+                        <td><button type="button" class="chui" onclick="H2(this);">H</button></td>
+                    </table>
+
+                <td rowspan="4"><button type="button" class="Senshu" onclick="S2(this)">S</button></td>
+
+                <th id="score2" class="Score2">0</th>
+                </th>
+
+            </tr>
+
+        </table>
+
+        <table class="table-time">
+
+            <tr>
+                <th colspan="12" id="countdown">01:00<span id="tenths">.0</span>
+                </th>
+            </tr>
+
+            <tr>
+                <th class="TSaoD" id="TSaoD_1">0</th>
+                <th class="TSakaD" id="TSakaD_1">0</th>
+                <th class="TSaoD" id="TSaoD_2">0</th>
+                <th class="TSakaD" id="TSakaD_2">0</th>
+                <th class="TSaoD" id="TSaoD_3">0</th>
+                <th class="TSakaD" id="TSakaD_3">0</th>
+                <th class="TSaoD" id="TSaoD_4">0</th>
+                <th class="TSakaD" id="TSakaD_4">0</th>
+                <th class="TSaoD" id="TSaoD_5">0</th>
+                <th class="TSakaD" id="TSakaD_5">0</th>
+                <td><button type="button" class="winner2" onclick="win(2)">AO</button></td>
+                <td><button type="button" class="winner1" onclick="win(1)">AKA</button></td>
+            </tr>
+
+            <tr>
+                <td><button type="button" class="Time" onclick="startCountdown()">Start (F2)</button></td>
+                <td><button type="button" class="Time" onclick="stopCountdown()">Pause (F3)</button></td>
+                <td><button type="button" class="Time" onclick="win(0)">DRAW</button></td>
+                <td><button type="button" class="Time" id="startButton">Doctor</button></td>
+                <td><button type="button" class="aka" onclick="addScore(1, 1,0)">+1</button></td>
+                <td><button type="button" class="aka" onclick="addScore(1, 2,1)">+2</button></td>
+                <td><button type="button" class="aka" onclick="addScore(1, 3,1)">+3</button></td>
+                <td><button type="button" class="aka" onclick="subtractScore(1, 1,0)">-1</button></td>
+                <td><button type="button" class="aka" onclick="subtractScore(1, 2,1)">-2</button></td>
+                <td><button type="button" class="aka" onclick="subtractScore(1, 3,1)">-3</button></td>
+                <td class="countpoint1" id="clickCount1_2">0 : WAZA</td>
+                <td class="countpoint1" id="clickCount1_3">0 : IPPON</td>
+            </tr>
+
+            <tr>
+                <td><button type="button" class="Time" onclick="resetCountdown()">ResetTime(F4)</button></td>
+                <td><button type="button" class="Time" onclick="reloadPage()">Reset All (=)</button></td>
+                <td><button type="button" class="Time" onclick="updateSeconds()"> SET TIME</button></td>
+                <td></td>
+                <td><button type="button" class="ao" onclick="addScore(2, 1,0)">+1</button></td>
+                <td><button type="button" class="ao" onclick="addScore(2, 2,1)">+2</button></td>
+                <td><button type="button" class="ao" onclick="addScore(2, 3,1)">+3</button></td>
+                <td><button type="button" class="ao" onclick="subtractScore(2, 1,0)">-1</button></td>
+                <td><button type="button" class="ao" onclick="subtractScore(2, 2,1)">-2</button></td>
+                <td><button type="button" class="ao" onclick="subtractScore(2, 3,1)">-3</button></td>
+                <td class="countpoint2" id="clickCount2_2">0 : WAZA</td>
+                <td class="countpoint2" id="clickCount2_3">0 : IPPON</td>
+
+            </tr>
+
+        </table>
+
+    </table>
+
+    <!-- Modal for countdown -->
+    <div id="countdownModal" class="modal">
+        <div class="modal-content">
+            <div id="countdownDisplay">10</div>
+            <button type="button" id="cancel">Stop</button>
+            <button type="button" id="skip">3 phút</button>
+        </div>
+    </div>
+
+    <footer style="color:white; text-align: center; font-size: 28px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN
+        THỂ THAO VUIDOKAN</footer>
+    <script>
+
+        var TSaka_1 = 0, TSaka_2 = 0, TSaka_3 = 0, TSaka_4 = 0, TSaka_5 = 0;
+        var TSao_1 = 0, TSao_2 = 0, TSao_3 = 0, TSao_4 = 0, TSao_5 = 0;
+        var wr1 = -1, wr2 = -1, wr3 = -1, wr4 = -1, wr5 = -1, r = 0;
+
+        let countdownTimer;
+        let isRunning = false;
+        let tenths = 60 * 10;
+        let initialSetTime = 60;
+        const sound = new Audio('sound/censor-beep-1sec-8112.mp3');
+
+        let isClicked = false;
+        var senshu1Clicked = false;
+        var senshu2Clicked = false;
+
+        let isClicked1 = false;
+        let isClicked2 = false;
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F5') {
+                e.preventDefault();
+                updateSeconds();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F4') {
+                e.preventDefault();
+                resetCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F3') {
+                e.preventDefault();
+                stopCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F2') {
+                e.preventDefault();
+                startCountdown();
+            }
+        });
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case '=':
+                    reloadPage();
+                    break;
+                case '`':
+                    kumite();
+                    break;
+            }
+        });
+
+        function kumite() {
+            window.location.href = "index.html";
+        }
+
+        function win(player) {
+            var matchwin1;
+            var matchwin2;
+            var scoreId;
+            var TSaka = parseInt(document.getElementById('score1').innerText);
+            var TSao = parseInt(document.getElementById('score2').innerText);
+            resetCountdown();
+
+            document.getElementById('score1').innerText = '0';
+            document.getElementById('score2').innerText = '0';
+            document.getElementById('score1').classList.remove('flashing');
+            document.getElementById('score2').classList.remove('flashing');
+
+            TSaka_5 = TSaka_4;
+            TSao_5 = TSao_4;
+            wr5 = wr4;
+            TSaka_4 = TSaka_3;
+            TSao_4 = TSao_3;
+            wr4 = wr3;
+            TSaka_3 = TSaka_2;
+            TSao_3 = TSao_2;
+            wr3 = wr2;
+            TSaka_2 = TSaka_1;
+            TSao_2 = TSao_1;
+            wr2 = wr1;
+            TSaka_1 = TSaka;
+            TSao_1 = TSao;
+            wr1 = player;
+            r++;
+
+            var p_aka1 = document.getElementById('TSakaD_1');
+            var p_ao1 = document.getElementById('TSaoD_1');
+            var p_aka2 = document.getElementById('TSakaD_2');
+            var p_ao2 = document.getElementById('TSaoD_2');
+            var p_aka3 = document.getElementById('TSakaD_3');
+            var p_ao3 = document.getElementById('TSaoD_3');
+            var p_aka4 = document.getElementById('TSakaD_4');
+            var p_ao4 = document.getElementById('TSaoD_4');
+            var p_aka5 = document.getElementById('TSakaD_5');
+            var p_ao5 = document.getElementById('TSaoD_5');
+
+            document.getElementById("TSakaD_1").innerText = TSaka_1;
+            document.getElementById("TSaoD_1").innerText = TSao_1;
+            document.getElementById("TSakaD_2").innerText = TSaka_2;
+            document.getElementById("TSaoD_2").innerText = TSao_2;
+            document.getElementById("TSakaD_3").innerText = TSaka_3;
+            document.getElementById("TSaoD_3").innerText = TSao_3;
+            document.getElementById("TSakaD_4").innerText = TSaka_4;
+            document.getElementById("TSaoD_4").innerText = TSao_4;
+            document.getElementById("TSakaD_5").innerText = TSaka_5;
+            document.getElementById("TSaoD_5").innerText = TSao_5;
+
+            switch (r) {
+                case 1:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    break;
+                case 2:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    break;
+                case 3:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    break;
+                case 4:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    highlightResult(wr4, p_aka4, p_ao4);
+                    break;
+                case 5:
+                    highlightResult(wr1, p_aka1, p_ao1);
+                    highlightResult(wr2, p_aka2, p_ao2);
+                    highlightResult(wr3, p_aka3, p_ao3);
+                    highlightResult(wr4, p_aka4, p_ao4);
+                    highlightResult(wr5, p_aka5, p_ao5);
+                    break;
+            }
+
+            if (r > 5) {
+                highlightResult(wr1, p_aka1, p_ao1);
+                highlightResult(wr2, p_aka2, p_ao2);
+                highlightResult(wr3, p_aka3, p_ao3);
+                highlightResult(wr4, p_aka4, p_ao4);
+                highlightResult(wr5, p_aka5, p_ao5);
+            }
+
+            if (player === 1) {
+                matchwin1 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin1 + 1) + " AKA";
+            }
+            else if (player === 2) {
+                matchwin2 = parseInt(document.getElementById(winId).innerText);
+                document.getElementById(winId).innerText = (matchwin2 + 1) + " AO";
+            }
+
+            var buttons = document.querySelectorAll('.chui');
+            buttons.forEach(function (button) {
+                button.classList.remove('clicked1', 'clicked2');
+            });
+            var buttonsS = document.querySelectorAll('.Senshu');
+            buttonsS.forEach(function (button) {
+                button.classList.remove('clicked1', 'clicked2');
+            })
+            isClicked = false;
+
+        }
+
+        function clearClasses(element) {
+            element.className = '';
+        }
+
+        function highlightResult(wr, p_aka, p_ao) {
+            clearClasses(p_aka);
+            clearClasses(p_ao);
+
+            switch (wr) {
+                case 0:
+                    p_aka.classList.add('drawr');
+                    p_ao.classList.add('drawl');
+                    break;
+                case 1:
+                    p_aka.classList.add('akawr');
+                    p_ao.classList.add('akawl');
+                    break;
+                case 2:
+                    p_aka.classList.add('aowr');
+                    p_ao.classList.add('aowl');
+                    break;
+            }
+        }
+
+        function changeColor(color) {
+            document.getElementById('countdown').style.color = color;
+        }
+
+        function addScore(player, points, Count) {
+            var clickCountId_2 = "clickCount" + player + "_2";
+            var clickCountId_3 = "clickCount" + player + "_3";
+            var scoreId = "score" + player;
+            var currentScore = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById(scoreId).innerText = currentScore + points;
+            var currentcount2;
+            var currentcount3;
+            if (points === 2) {
+                currentcount2 = parseInt(document.getElementById(clickCountId_2).innerText);
+                document.getElementById(clickCountId_2).innerText = (currentcount2 + Count) + " WAZA";
+            }
+            else if (points === 3) {
+                currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
+                document.getElementById(clickCountId_3).innerText = (currentcount3 + Count) + " IPPON";
+            }
+
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
+
+            if (score1 - score2 >= 8) {
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else if (score1 - score2 <= -8) {
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            }
+            else {
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            }
+        }
+
+        function subtractScore(player, points, Count) {
+            var clickCountId_2 = "clickCount" + player + "_2";
+            var clickCountId_3 = "clickCount" + player + "_3";
+            var scoreId = "score" + player;
+            var currentcount2;
+            var currentcount3;
+            var currentScore = parseInt(document.getElementById(scoreId).innerText);
+            document.getElementById(scoreId).innerText = currentScore - points;
+            if (points === 2) {
+                currentcount2 = parseInt(document.getElementById(clickCountId_2).innerText);
+                document.getElementById(clickCountId_2).innerText = (currentcount2 - Count) + " WAZA";
+            }
+            else if (points === 3) {
+                currentcount3 = parseInt(document.getElementById(clickCountId_3).innerText);
+                document.getElementById(clickCountId_3).innerText = (currentcount3 - Count) + " IPPON";
+            }
+
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
+
+            if (score1 - score2 >= 8) {
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else if (score1 - score2 <= -8) {
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            }
+            else {
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            }
+        }
+
+        function startCountdown() {
+            if (!isRunning && tenths > 0) {
+                countdownTimer = setInterval(updateTime, 100);
+                isRunning = true;
+            }
+            if (countdownValue === 0) {
+                clearInterval(countdownInterval);
+            }
+        }
+
+        function stopCountdown() {
+            changeColor('white');
+            clearInterval(countdownTimer);
+            isRunning = false;
+        }
+
+        function updateTime() {
+            if (tenths > 0) {
+                tenths -= 1;
+                updateCountdown();
+
+                if (tenths / 10 < 15) {
+                    changeColor('red');
+                } else if (tenths / 10 >= (initialSetTime - 15)) {
+                    changeColor('white');
+                } else {
+                    changeColor('yellow');
+                }
+            } else {
+                clearInterval(countdownTimer);
+                isRunning = false;
+                changeColor('white');
+            }
+
+            if (tenths / 10 === 15) {
+                sound.play();
+            }
+
+            if (tenths === 0) {
+                sound.play();
+            }
+
+            const score1 = parseInt(document.getElementById('score1').innerText);
+            const score2 = parseInt(document.getElementById('score2').innerText);
+
+            if (tenths === 0) {
+                if (score1 !== score2) {
+                    if (score1 > score2) {
+                        document.getElementById('score1').classList.add('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                        return;
+                    } else {
+                        if (score1 < score2) {
+                            document.getElementById('score2').classList.add('flashing');
+                            document.getElementById('score1').classList.remove('flashing');
+                            return;
+                        }
+                    }
+                }
+                if (score1 === score2) {
+                    if (senshu1Clicked == true) {
+                        document.getElementById('score1').classList.add('flashing');
+                        document.getElementById('score2').classList.remove('flashing');
+                        return;
+                    } else {
+                        if (senshu2Clicked == true) {
+                            document.getElementById('score2').classList.add('flashing');
+                            document.getElementById('score1').classList.remove('flashing');
+                            return;
+                        }
+                    }
+                }
+                else {
+                    document.getElementById('score1').classList.remove('flashing');
+                    document.getElementById('score2').classList.remove('flashing');
+                }
+            }
+        }
+
+        function updateCountdown() {
+            const minutes = Math.floor((tenths / 10) / 60);
+            const seconds = Math.floor((tenths / 10) % 60);
+
+            const formattedTime = `${formatTime(minutes)}:${formatTime(seconds)}.${tenths % 10}`;
+            document.getElementById('countdown').textContent = formattedTime;
+        }
+
+        function formatTime(time) {
+            return time < 10 ? `0${time}` : time;
+        }
+
+        function resetCountdown() {
+            clearInterval(countdownTimer);
+            isRunning = false;
+            tenths = initialSetTime * 10;
+            updateCountdown();
+            document.getElementById('score1').classList.remove('flashing');
+            document.getElementById('score2').classList.remove('flashing');
+        }
+
+        function updateSeconds() {
+            const userInput = prompt('Nhập số giây mới:');
+            const newSeconds = parseInt(userInput);
+
+            if (!isNaN(newSeconds) && newSeconds >= 0) {
+                initialSetTime = newSeconds;
+                tenths = newSeconds * 10;
+                updateCountdown();
+            }
+        }
+
+        function chui1(button, id) {
+            if (!isClicked) {
+                switch (id) {
+                    case C1_1:
+                        C1_1.classList.add('clicked1');
+                        break;
+                    case C2_1:
+                        C1_1.classList.add('clicked1');
+                        C2_1.classList.add('clicked1');
+                        break;
+                    case C3_1:
+                        C1_1.classList.add('clicked1');
+                        C2_1.classList.add('clicked1');
+                        C3_1.classList.add('clicked1');
+                        break;
+                    case HC_1:
+                        C1_1.classList.add('clicked1');
+                        C2_1.classList.add('clicked1');
+                        C3_1.classList.add('clicked1');
+                        HC_1.classList.add('clicked1');
+                        break;
+                }
+            } else {
+                button.classList.remove('clicked1');
+            }
+            isClicked = !isClicked;
+        }
+
+        function chui2(button, id) {
+            if (!isClicked) {
+                switch (id) {
+                    case C1_2:
+                        C1_2.classList.add('clicked2');
+                        break;
+                    case C2_2:
+                        C1_2.classList.add('clicked2');
+                        C2_2.classList.add('clicked2');
+                        break;
+                    case C3_2:
+                        C1_2.classList.add('clicked2');
+                        C2_2.classList.add('clicked2');
+                        C3_2.classList.add('clicked2');
+                        break;
+                    case HC_2:
+                        C1_2.classList.add('clicked2');
+                        C2_2.classList.add('clicked2');
+                        C3_2.classList.add('clicked2');
+                        HC_2.classList.add('clicked2');
+                        break;
+                }
+            } else {
+                button.classList.remove('clicked2');
+            }
+            isClicked = !isClicked;
+        }
+
+        function S1(button) {
+            if (!isClicked) {
+                button.classList.add('clicked1');
+                senshu1Clicked = true;
+            } else {
+                button.classList.remove('clicked1');
+                senshu1Clicked = false;
+            }
+            isClicked = !isClicked;
+        }
+
+        function S2(button) {
+            if (!isClicked) {
+                button.classList.add('clicked2');
+                senshu2Clicked = true;
+            } else {
+                button.classList.remove('clicked2');
+                senshu2Clicked = false;
+            }
+            isClicked = !isClicked;
+        }
+
+        function reloadPage() {
+            var confirmation = confirm('BAN chac chan muon reset BANG DIEM?');
+            if (confirmation) {
+                location.reload();
+            }
+        }
+
+        function H1(button) {
+            if (!isClicked1) {
+                button.classList.add('clicked1');
+                chui1(button, HC_1);
+                document.getElementById('score2').classList.add('flashing');
+                document.getElementById('score1').classList.remove('flashing');
+            } else {
+                button.classList.remove('clicked1');
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            }
+            isClicked1 = !isClicked1;
+        }
+
+        function H2(button) {
+            if (!isClicked2) {
+                button.classList.add('clicked2');
+                chui2(button, HC_2);
+                document.getElementById('score1').classList.add('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            } else {
+                button.classList.remove('clicked2');
+                document.getElementById('score1').classList.remove('flashing');
+                document.getElementById('score2').classList.remove('flashing');
+            }
+            isClicked2 = !isClicked2;
+        }
+
+        let countdownDisplay = document.getElementById('countdownDisplay');
+        let startButton = document.getElementById('startButton');
+        let cancelButton = document.getElementById('cancel');
+        let skipButton = document.getElementById('skip');
+        let countdownModal = document.getElementById('countdownModal');
+        let countdown;
+        let countdownTime = 10;
+        let counting2Minutes = false;
+
+        startButton.addEventListener('click', function () {
+            countdownTime = 10;
+            countdownDisplay.textContent = countdownTime;
+            countdownModal.style.display = 'block';
+            cancelButton.style.display = 'inline-block';
+            skipButton.style.display = 'inline-block';
+
+            countdown = setInterval(function () {
+                countdownTime--;
+                countdownDisplay.textContent = countdownTime;
+
+                if (countdownTime <= 0) {
+                    if (!counting2Minutes) {
+                        countdownTime = 180; // Đếm ngược 2 phút
+                        counting2Minutes = true;
+                    } else {
+                        clearInterval(countdown); // Kết thúc đếm ngược sau 2 phút
+                        cancelButton.style.display = 'none';
+                        skipButton.style.display = 'none';
+                    }
+                }
+            }, 1000);
+        });
+
+        cancelButton.addEventListener('click', function () {
+            clearInterval(countdown);
+            cancelButton.style.display = 'none';
+            skipButton.style.display = 'none';
+            countdownModal.style.display = 'none';
+        });
+
+        skipButton.addEventListener('click', function () {
+            clearInterval(countdown);
+            countdownTime = 180; // Đếm ngược 2 phút ngay lập tức
+            countdownDisplay.textContent = countdownTime;
+            counting2Minutes = true;
+
+            countdown = setInterval(function () {
+                countdownTime--;
+                countdownDisplay.textContent = countdownTime;
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdown); // Kết thúc sau 2 phút
+                    cancelButton.style.display = 'none';
+                    skipButton.style.display = 'none';
+                    countdownModal.style.display = 'none';
+                }
+            }, 1000);
+        });
+
+        // Close the modal when clicking outside
+        window.onclick = function (event) {
+            if (event.target == countdownModal) {
+                countdownModal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
