@@ -6,6 +6,7 @@
     "no-inline-styles": "off",
     "axe/forms": "off",
     "axe/parsing": "off",
-    "axe/aria": "off"
+    "axe/aria": "off",
+    "detect-css-reflows/composite": "off"
   }
 }
