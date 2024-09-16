@@ -232,13 +232,49 @@
             background-color: #828282;
             color: white
         }
+
+        /* Style for modal popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 50px;
+            border: 1px solid #888;
+            width: 50%;
+            /* Thay đổi width lớn hơn */
+            height: 40%;
+            /* Thay đổi height lớn hơn */
+            text-align: center;
+        }
+
+        #cancel,
+        #skip {
+            display: none;
+            font-size: 50px;
+            /* Tăng kích thước nút */
+        }
+
+        #countdownDisplay {
+            font-size: 500px;
+            /* Tăng kích thước đồng hồ */
+        }
     </style>
 
 </head>
 
 <body style=" height: 100%; width: 99%; background-color: #000">
 
-    <table >
+    <table>
 
         <table style="width: 100%; height: 50%;">
 
@@ -280,7 +316,6 @@
         </table>
 
         <table style="width: 100%; height: 50%;">
-
             <tr>
                 <th class="count2" id="clickCount2_3">0 IPPON</th>
                 <th class="count2" id="clickCount2_2">0 WAZA</th>
@@ -307,10 +342,10 @@
                 <th><button type="button" class="ao" onclick="addScore(2, 1,0)">+1</button></th>
                 <th><button type="button" class="ao" onclick="addScore(2, 2,1)">+2</button></th>
                 <th><button type="button" class="ao" onclick="addScore(2, 3,1)">+3</button></th>
-                <th><button type="button" class="Time" onclick="startCountdown()">Start (1)</button></th>
-                <th><button type="button" class="Time" onclick="stopCountdown()">Pause (2)</button></th>
-                <th><button type="button" class="Time" onclick="resetCountdown()">ResetTime (3)</button></th>
+                <th><button type="button" class="Time" onclick="startCountdown()">Start (F2)</button></th>
+                <th><button type="button" class="Time" onclick="stopCountdown()">Pause (F3)</button></th>
                 <th><button type="button" class="Time" onclick="reloadPage()">Reset All (=)</button></th>
+                <th><button type="button" class="Time" id="startButton">Doctor</button></th>
                 <th><button type="button" class="aka" onclick="addScore(1, 1,0)">+1</button></th>
                 <th><button type="button" class="aka" onclick="addScore(1, 2,1)">+2</button></th>
                 <th><button type="button" class="aka" onclick="addScore(1, 3,1)">+3</button></th>
@@ -332,7 +367,14 @@
         </table>
 
     </table>
-
+    <!-- Modal for countdown -->
+    <div id="countdownModal" class="modal">
+        <div class="modal-content">
+            <div id="countdownDisplay">10</div>
+            <button type="button" id="cancel">Stop</button>
+            <button type="button" id="skip">3 phút</button>
+        </div>
+    </div>
     <footer style="color:white; text-align: center; font-size: 35px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN
         THỂ THAO VUIDOKAN</footer>
 
@@ -361,21 +403,40 @@
             }
         });
 
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F5') {
+                e.preventDefault();
+                updateSeconds();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F4') {
+                e.preventDefault();
+                resetCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F3') {
+                e.preventDefault();
+                stopCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F2') {
+                e.preventDefault();
+                startCountdown();
+            }
+        });
+
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
 
         document.addEventListener('keydown', function (event) {
             switch (event.key) {
-                case '1':
-                    startCountdown();
-                    break;
-                case '2':
-                    stopCountdown();
-                    break;
-                case '3':
-                    resetCountdown();
-                    break;
                 case '=':
                     reloadPage();
                     break;
@@ -477,7 +538,7 @@
                 highlightResult(wr4, p_aka4, p_ao4);
                 highlightResult(wr5, p_aka5, p_ao5);
             }
-            
+
             if (player === 1) {
                 matchwin1 = parseInt(document.getElementById(winId).innerText);
                 document.getElementById(winId).innerText = (matchwin1 + 1) + " AKA";
@@ -706,26 +767,25 @@
 
         function chui1(button, id) {
             if (!isClicked) {
-                switch (id)
-                {
+                switch (id) {
                     case C1_1:
-                    C1_1.classList.add('clicked1');
-                    break;
+                        C1_1.classList.add('clicked1');
+                        break;
                     case C2_1:
-                    C1_1.classList.add('clicked1');
-                    C2_1.classList.add('clicked1');
-                    break;
+                        C1_1.classList.add('clicked1');
+                        C2_1.classList.add('clicked1');
+                        break;
                     case C3_1:
-                    C1_1.classList.add('clicked1');
-                    C2_1.classList.add('clicked1');
-                    C3_1.classList.add('clicked1');
-                    break;
+                        C1_1.classList.add('clicked1');
+                        C2_1.classList.add('clicked1');
+                        C3_1.classList.add('clicked1');
+                        break;
                     case HC_1:
-                    C1_1.classList.add('clicked1');
-                    C2_1.classList.add('clicked1');
-                    C3_1.classList.add('clicked1');
-                    HC_1.classList.add('clicked1');
-                    break;
+                        C1_1.classList.add('clicked1');
+                        C2_1.classList.add('clicked1');
+                        C3_1.classList.add('clicked1');
+                        HC_1.classList.add('clicked1');
+                        break;
                 }
             } else {
                 button.classList.remove('clicked1');
@@ -735,26 +795,25 @@
 
         function chui2(button, id) {
             if (!isClicked) {
-                switch (id)
-                {
+                switch (id) {
                     case C1_2:
-                    C1_2.classList.add('clicked2');
-                    break;
+                        C1_2.classList.add('clicked2');
+                        break;
                     case C2_2:
-                    C1_2.classList.add('clicked2');
-                    C2_2.classList.add('clicked2');
-                    break;
+                        C1_2.classList.add('clicked2');
+                        C2_2.classList.add('clicked2');
+                        break;
                     case C3_2:
-                    C1_2.classList.add('clicked2');
-                    C2_2.classList.add('clicked2');
-                    C3_2.classList.add('clicked2');
-                    break;
+                        C1_2.classList.add('clicked2');
+                        C2_2.classList.add('clicked2');
+                        C3_2.classList.add('clicked2');
+                        break;
                     case HC_2:
-                    C1_2.classList.add('clicked2');
-                    C2_2.classList.add('clicked2');
-                    C3_2.classList.add('clicked2');
-                    HC_2.classList.add('clicked2');
-                    break;
+                        C1_2.classList.add('clicked2');
+                        C2_2.classList.add('clicked2');
+                        C3_2.classList.add('clicked2');
+                        HC_2.classList.add('clicked2');
+                        break;
                 }
             } else {
                 button.classList.remove('clicked2');
@@ -794,7 +853,7 @@
         function H1(button) {
             if (!isClicked1) {
                 button.classList.add('clicked1');
-                chui1(button,HC_1);
+                chui1(button, HC_1);
                 document.getElementById('score2').classList.add('flashing');
                 document.getElementById('score1').classList.remove('flashing');
             } else {
@@ -808,7 +867,7 @@
         function H22(button) {
             if (!isClicked2) {
                 button.classList.add('clicked2');
-                chui2(button,HC_2);
+                chui2(button, HC_2);
                 document.getElementById('score1').classList.add('flashing');
                 document.getElementById('score2').classList.remove('flashing');
             } else {
@@ -817,6 +876,72 @@
                 document.getElementById('score2').classList.remove('flashing');
             }
             isClicked2 = !isClicked2;
+        }
+
+        let countdownDisplay = document.getElementById('countdownDisplay');
+        let startButton = document.getElementById('startButton');
+        let cancelButton = document.getElementById('cancel');
+        let skipButton = document.getElementById('skip');
+        let countdownModal = document.getElementById('countdownModal');
+        let countdown;
+        let countdownTime = 10;
+        let counting2Minutes = false;
+
+        startButton.addEventListener('click', function () {
+            countdownTime = 10;
+            countdownDisplay.textContent = countdownTime;
+            countdownModal.style.display = 'block';
+            cancelButton.style.display = 'inline-block';
+            skipButton.style.display = 'inline-block';
+
+            countdown = setInterval(function () {
+                countdownTime--;
+                countdownDisplay.textContent = countdownTime;
+
+                if (countdownTime <= 0) {
+                    if (!counting2Minutes) {
+                        countdownTime = 180; // Đếm ngược 2 phút
+                        counting2Minutes = true;
+                    } else {
+                        clearInterval(countdown); // Kết thúc đếm ngược sau 2 phút
+                        cancelButton.style.display = 'none';
+                        skipButton.style.display = 'none';
+                    }
+                }
+            }, 1000);
+        });
+
+        cancelButton.addEventListener('click', function () {
+            clearInterval(countdown);
+            cancelButton.style.display = 'none';
+            skipButton.style.display = 'none';
+            countdownModal.style.display = 'none';
+        });
+
+        skipButton.addEventListener('click', function () {
+            clearInterval(countdown);
+            countdownTime = 180; // Đếm ngược 2 phút ngay lập tức
+            countdownDisplay.textContent = countdownTime;
+            counting2Minutes = true;
+
+            countdown = setInterval(function () {
+                countdownTime--;
+                countdownDisplay.textContent = countdownTime;
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdown); // Kết thúc sau 2 phút
+                    cancelButton.style.display = 'none';
+                    skipButton.style.display = 'none';
+                    countdownModal.style.display = 'none';
+                }
+            }, 1000);
+        });
+
+        // Close the modal when clicking outside
+        window.onclick = function (event) {
+            if (event.target == countdownModal) {
+                countdownModal.style.display = 'none';
+            }
         }
 
     </script>
