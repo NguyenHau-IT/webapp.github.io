@@ -342,8 +342,8 @@
                 <th><button type="button" class="ao" onclick="addScore(2, 1,0)">+1</button></th>
                 <th><button type="button" class="ao" onclick="addScore(2, 2,1)">+2</button></th>
                 <th><button type="button" class="ao" onclick="addScore(2, 3,1)">+3</button></th>
-                <th><button type="button" class="Time" onclick="startCountdown()">Start (1)</button></th>
-                <th><button type="button" class="Time" onclick="stopCountdown()">Pause (2)</button></th>
+                <th><button type="button" class="Time" onclick="startCountdown()">Start (F2)</button></th>
+                <th><button type="button" class="Time" onclick="stopCountdown()">Pause (F3)</button></th>
                 <th><button type="button" class="Time" onclick="reloadPage()">Reset All (=)</button></th>
                 <th><button type="button" class="Time" id="startButton">Doctor</button></th>
                 <th><button type="button" class="aka" onclick="addScore(1, 1,0)">+1</button></th>
@@ -403,21 +403,40 @@
             }
         });
 
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F5') {
+                e.preventDefault();
+                updateSeconds();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F4') {
+                e.preventDefault();
+                resetCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F3') {
+                e.preventDefault();
+                stopCountdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F2') {
+                e.preventDefault();
+                startCountdown();
+            }
+        });
+
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
 
         document.addEventListener('keydown', function (event) {
             switch (event.key) {
-                case '1':
-                    startCountdown();
-                    break;
-                case '2':
-                    stopCountdown();
-                    break;
-                case '3':
-                    resetCountdown();
-                    break;
                 case '=':
                     reloadPage();
                     break;
