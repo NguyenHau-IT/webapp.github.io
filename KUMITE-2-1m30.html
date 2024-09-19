@@ -304,13 +304,13 @@
                 <th><button type="button" class="chui" id="C2_2" onclick="chui2(this, C2_2)">C2</button></th>
                 <th><button type="button" class="chui" id="C3_2" onclick="chui2(this, C3_2)">C3</button></th>
                 <th><button type="button" class="chui" id="HC_2" onclick="chui2(this, HC_2)">HC</button></th>
-                <th><button type="button" class="chui" onclick="H22(this);">H</button></th>
+                <th><button type="button" class="chui" id="H_2" onclick="H2(this);">H</button></th>
                 <th colspan="2" style="color: #fff; font-size: 270px">VS</th>
                 <th><button type="button" class="chui" id="C1_1" onclick="chui1(this, C1_1)">C1</button></th>
                 <th><button type="button" class="chui" id="C2_1" onclick="chui1(this, C2_1)">C2</button></th>
                 <th><button type="button" class="chui" id="C3_1" onclick="chui1(this, C3_1)">C3</button></th>
                 <th><button type="button" class="chui" id="HC_1" onclick="chui1(this, HC_1)">HC</button></th>
-                <th><button type="button" class="chui" onclick="H1(this);">H</button></th>
+                <th><button type="button" class="chui" id="H_1" onclick="H1(this);">H</button></th>
             </tr>
 
         </table>
@@ -450,6 +450,24 @@
             window.location.href = "index.html";
         }
 
+        function removeclass()
+        {
+            document.getElementById('score1').classList.remove('flashing');
+            document.getElementById('score2').classList.remove('flashing');
+            document.getElementById('senshu1').classList.remove('clicked1');
+            document.getElementById('senshu2').classList.remove('clicked2');            
+            document.getElementById('C1_1').classList.remove('clicked1');
+            document.getElementById('C2_1').classList.remove('clicked1');
+            document.getElementById('C3_1').classList.remove('clicked1');
+            document.getElementById('HC_1').classList.remove('clicked1');
+            document.getElementById('H_1').classList.remove('clicked1');
+            document.getElementById('C1_2').classList.remove('clicked2');
+            document.getElementById('C2_2').classList.remove('clicked2');
+            document.getElementById('C3_2').classList.remove('clicked2');
+            document.getElementById('HC_2').classList.remove('clicked2');
+            document.getElementById('H_2').classList.remove('clicked2');
+        }
+
         function win(player) {
             var winId = "win" + player;
             var matchwin1;
@@ -461,8 +479,6 @@
 
             document.getElementById('score1').innerText = '0';
             document.getElementById('score2').innerText = '0';
-            document.getElementById('score1').classList.remove('flashing');
-            document.getElementById('score2').classList.remove('flashing');
 
             TSaka_5 = TSaka_4;
             TSao_5 = TSao_4;
@@ -539,24 +555,7 @@
                 highlightResult(wr5, p_aka5, p_ao5);
             }
 
-            if (player === 1) {
-                matchwin1 = parseInt(document.getElementById(winId).innerText);
-                document.getElementById(winId).innerText = (matchwin1 + 1) + " AKA";
-            }
-            else if (player === 2) {
-                matchwin2 = parseInt(document.getElementById(winId).innerText);
-                document.getElementById(winId).innerText = (matchwin2 + 1) + " AO";
-            }
-
-            var buttons = document.querySelectorAll('.chui');
-            buttons.forEach(function (button) {
-                button.classList.remove('clicked1', 'clicked2');
-            });
-            var buttonsS = document.querySelectorAll('.Senshu');
-            buttonsS.forEach(function (button) {
-                button.classList.remove('clicked1', 'clicked2');
-            })
-            isClicked = false;
+            removeclass()
 
         }
 
@@ -864,7 +863,7 @@
             isClicked1 = !isClicked1;
         }
 
-        function H22(button) {
+        function H2(button) {
             if (!isClicked2) {
                 button.classList.add('clicked2');
                 chui2(button, HC_2);
