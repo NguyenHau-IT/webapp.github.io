@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="image/vuidokan.jpg" rel="image/vuidokan">
+    <link rel="icon" href="image/vuidokan.jpg">
     <title>KARATE POINT PANEL</title>
     <style>
         body {
@@ -62,46 +62,35 @@
             <input type="password" id="password" placeholder="Mật khẩu" required autocomplete="off">
             <input type="submit" value="Đăng Nhập">
         </form>
-        <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
-        <th style="color:white; text-align: center; font-size: 30px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN
-            THỂ THAO VUIDOKAN</th>
+        <p>Chưa có tài khoản, liên hệ Gmail: nguyenviethau.it.2004@gmail.com</p>
+        <th style="color:white; text-align: center; font-size: 30px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</th>
     </div>
 
     <script>
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'F12') {
-                e.preventDefault()
-            }
-        });
-
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-        });
-
-        const users =
-            [
-                { username: 'admin', password: 'vuidokan' },
-                { username: 'admin1', password: 'vuidokan' },
-                { username: 'admin2', password: 'karatepp' }
-            ];
-
         function login(event) {
             event.preventDefault();
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            const user = users.find(user => user.username === username && user.password === password);
-
-            if (user) {
-    sessionStorage.setItem('loggedIn', 'true');
-    sessionStorage.setItem('loginTime', new Date().getTime());
-    window.location.href = 'index.html';
-} else {
-    alert('Tên đăng nhập hoặc mật khẩu không đúng');
-}
-
-
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => {
+                if (response.ok) {
+                    sessionStorage.setItem('loggedIn', 'true');
+                    sessionStorage.setItem('loginTime', new Date().getTime());
+                    window.location.href = 'index.html'; // Chuyển đến trang khác nếu đăng nhập thành công
+                } else {
+                    return response.json().then(err => { throw new Error(err.message); });
+                }
+            })
+            .catch(error => {
+                alert(error.message);
+            });
         }
     </script>
 </body>
