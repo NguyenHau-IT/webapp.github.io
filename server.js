@@ -8,7 +8,7 @@ const port = 3000;
 
 // Cấu hình kết nối SQL Server
 const config = {
-    user: 'root',
+    user: 'vuidokan',
     password: '',
     server: '127.0.0.1', // địa chỉ máy chủ
     database: 'SET',
