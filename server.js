@@ -10,7 +10,7 @@ const port = 3000;
 const config = {
     user: 'root',
     password: '',
-    server: 'localhost', // địa chỉ máy chủ
+    server: '127.0.0.1', // địa chỉ máy chủ
     database: 'SET',
     options: {
         encrypt: true, // sử dụng mã hóa nếu cần
