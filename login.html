@@ -13,17 +13,38 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
             margin: 0;
         }
 
         .container {
+            background-image: url('image/vuidokan.jpg');
+            background-size: contain; /* Hoặc bạn có thể sử dụng 'contain' */
+            background-position: center; /* Đặt vị trí ảnh nền ở giữa */
+            background-repeat: no-repeat; /* Không lặp lại ảnh */
             text-align: center;
-            background: #fff;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #4CAF50; /* Đường viền màu xanh lá, dày 2px */
+            justify-content: center;
         }
+
+            .container::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(255, 255, 255, 0.6); /* Màu trắng mờ 70% */
+                border-radius: 8px;
+                z-index: 1;
+            }
+
+            .container * {
+                position: relative;
+                z-index: 2;
+            }
 
         h1 {
             font-size: 24px;
@@ -48,8 +69,13 @@
             cursor: pointer;
         }
 
-        input[type="submit"]:hover {
-            background-color: #0056b3;
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+        p {
+            font-size: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -63,8 +89,7 @@
             <input type="submit" value="Đăng Nhập">
         </form>
         <p>Chưa có tài khoản, liên hệ Gmail:nguyenviethau.it.2004@gmail.com</p>
-        <th style="color:white; text-align: center; font-size: 30px;">licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN
-            THỂ THAO VUIDOKAN</th>
+        <p>licenses: CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN THỂ THAO VUIDOKAN</p>
     </div>
 
     <script>
