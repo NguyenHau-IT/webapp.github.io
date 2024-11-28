@@ -980,6 +980,55 @@
                 countdownModal.style.display = 'none';
             }
         }
+
+        const folders = {
+            folder1: [
+                "",
+                "",
+                "folder1/image3.jpg"
+            ],
+            folder2: [
+                "folder2/image1.jpg",
+                "folder2/image2.jpg",
+                "folder2/image3.jpg"
+            ],
+            folder3: [
+                "folder3/image1.jpg",
+                "folder3/image2.jpg",
+                "folder3/image3.jpg"
+            ]
+        };
+
+        // Biến để quản lý trạng thái
+        let currentImages = [];
+        let currentIndex = 0;
+        let slideshowTimer;
+
+        // Hàm thay đổi ảnh
+        function changeImage() {
+            if (currentImages.length === 0) return;
+            const imgElement = document.getElementById('slideshow');
+            imgElement.src = currentImages[currentIndex];
+            currentIndex = (currentIndex + 1) % currentImages.length;
+        }
+
+        // Hàm bắt đầu slideshow
+        function startSlideshow(folder) {
+            // Dừng slideshow hiện tại
+            if (slideshowTimer) clearInterval(slideshowTimer);
+
+            // Cập nhật danh sách ảnh
+            currentImages = folders[folder] || [];
+            currentIndex = 0;
+
+            // Hiển thị ảnh đầu tiên và bắt đầu slideshow
+            if (currentImages.length > 0) {
+                changeImage();
+                slideshowTimer = setInterval(changeImage, 3000); // 3 giây chuyển ảnh
+            } else {
+                alert("Không có ảnh trong thư mục này!");
+            }
+        }
     </script>
 </body>
 
