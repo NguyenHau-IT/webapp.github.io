@@ -376,7 +376,7 @@
                 <td><button type="button" class="Time" onclick="stopCountdown()">Pause (F3)</button></td>
                 <td><button type="button" class="Time" onclick="win(0)">DRAW</button></td>
                 <td><button type="button" class="Time" id="startButton">Doctor</button></td>
-                <td><button type="button" class="aka" onclick="addScore(1, 1,0)">+1</button></td>
+                <td><button type="button" class="aka" onclick="addScore(1, 1,0), startSlideshow('folder 1')">+1</button></td>
                 <td><button type="button" class="aka" onclick="addScore(1, 2,1)">+2</button></td>
                 <td><button type="button" class="aka" onclick="addScore(1, 3,1)">+3</button></td>
                 <td><button type="button" class="aka" onclick="subtractScore(1, 1,0)">-1</button></td>
@@ -982,53 +982,54 @@
         }
 
         const folders = {
-            folder1: [
-                "",
-                "",
-                "folder1/image3.jpg"
-            ],
-            folder2: [
-                "folder2/image1.jpg",
-                "folder2/image2.jpg",
-                "folder2/image3.jpg"
-            ],
-            folder3: [
-                "folder3/image1.jpg",
-                "folder3/image2.jpg",
-                "folder3/image3.jpg"
-            ]
-        };
+    folder1: [
+        "image/tech_complete/TEC1/TEC1_00000.jpg",
+        "image/tech_complete/TEC1/TEC1_00001.jpg",
+        "image/tech_complete/TEC1/TEC1_00002.jpg"
+    ],
+    folder2: [
+        "image/tech_complete/TEC2/TEC2_00000.jpg",
+        "image/tech_complete/TEC2/TEC2_00001.jpg",
+        "image/tech_complete/TEC2/TEC2_00002.jpg"
+    ],
+    folder3: [
+        "image/tech_complete/TEC3/TEC3_00000.jpg",
+        "image/tech_complete/TEC3/TEC3_00001.jpg",
+        "image/tech_complete/TEC3/TEC3_00002.jpg"
+    ]
+};
 
-        // Biến để quản lý trạng thái
-        let currentImages = [];
-        let currentIndex = 0;
-        let slideshowTimer;
+// Biến để quản lý trạng thái
+let currentImages = [];
+let currentIndex = 0;
+let slideshowTimer;
 
-        // Hàm thay đổi ảnh
-        function changeImage() {
-            if (currentImages.length === 0) return;
-            const imgElement = document.getElementById('slideshow');
-            imgElement.src = currentImages[currentIndex];
-            currentIndex = (currentIndex + 1) % currentImages.length;
-        }
+// Hàm thay đổi ảnh
+function changeImage() {
+    if (currentImages.length === 0) return;
+    const imgElement = document.getElementById('slideshow');
+    imgElement.src = currentImages[currentIndex];
+    currentIndex = (currentIndex + 1) % currentImages.length;
+}
 
-        // Hàm bắt đầu slideshow
-        function startSlideshow(folder) {
-            // Dừng slideshow hiện tại
-            if (slideshowTimer) clearInterval(slideshowTimer);
+// Hàm bắt đầu slideshow
+function startSlideshow(folder) {
+    // Dừng slideshow hiện tại
+    if (slideshowTimer) clearInterval(slideshowTimer);
 
-            // Cập nhật danh sách ảnh
-            currentImages = folders[folder] || [];
-            currentIndex = 0;
+    // Cập nhật danh sách ảnh
+    currentImages = folders[folder] || [];
+    currentIndex = 0;
 
-            // Hiển thị ảnh đầu tiên và bắt đầu slideshow
-            if (currentImages.length > 0) {
-                changeImage();
-                slideshowTimer = setInterval(changeImage, 3000); // 3 giây chuyển ảnh
-            } else {
-                alert("Không có ảnh trong thư mục này!");
-            }
-        }
+    // Hiển thị ảnh đầu tiên và bắt đầu slideshow
+    if (currentImages.length > 0) {
+        changeImage();
+        slideshowTimer = setInterval(changeImage, 500); // 3 giây chuyển ảnh
+    } else {
+        alert("Không có ảnh trong thư mục này!");
+    }
+}
+
     </script>
 </body>
 
